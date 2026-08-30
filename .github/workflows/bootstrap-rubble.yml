@@ -1,0 +1,203 @@
+name: Bootstrap Rubble
+
+on:
+  push:
+    branches:
+      - main
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+jobs:
+  verify-bootstrap:
+    name: Verify bootstrap and R2 round trip
+    runs-on: ubuntu-latest
+    env:
+      IMPORTER_NAME: n4w263q-rubble-inventory-bundle-import
+      IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
+      IMPORTER_SHA256: 25a3462b04da4800ecd87e8343ba0578c1b9ce40bb79608e6db4d4df636ea6ce
+      RUBBLE_BUNDLE_NAME: hh4idod-rubble.tar
+      RUBBLE_BUNDLE_URL: https://store.rubble.build/hh4idod-rubble.tar
+      RUBBLE_BUNDLE_SHA256: 4a14f039cb6f82c09392da80a7e20f22b745a4855c7ddf36198b6a4b7f8ed7b5
+      R2_ENDPOINT: ${{ secrets.R2_ENDPOINT }}
+      R2_BUCKET: ${{ secrets.R2_BUCKET }}
+      R2_ACCESS_KEY_ID: ${{ secrets.R2_ACCESS_KEY_ID }}
+      R2_SECRET_ACCESS_KEY: ${{ secrets.R2_SECRET_ACCESS_KEY }}
+    steps:
+      - name: Download and import Rubble
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          bootstrap_dir="${RUNNER_TEMP}/rubble-bootstrap"
+          mkdir -p "${bootstrap_dir}"
+          curl --fail --location --retry 5 \
+            --output "${bootstrap_dir}/${IMPORTER_NAME}" \
+            "${IMPORTER_URL}"
+          curl --fail --location --retry 5 \
+            --output "${bootstrap_dir}/${RUBBLE_BUNDLE_NAME}" \
+            "${RUBBLE_BUNDLE_URL}"
+
+          (
+            cd "${bootstrap_dir}"
+            printf '%s  %s\n' "${IMPORTER_SHA256}" "${IMPORTER_NAME}" | sha256sum --check -
+            printf '%s  %s\n' "${RUBBLE_BUNDLE_SHA256}" "${RUBBLE_BUNDLE_NAME}" | sha256sum --check -
+          )
+
+          RUBBLE_HOME="${RUNNER_TEMP}/rubble-bootstrap-home" \
+          RUBBLE_INVENTORY_BUNDLE_USE_ORIGINAL=1 \
+            /bin/sh "${bootstrap_dir}/${IMPORTER_NAME}" \
+              import "${bootstrap_dir}/${RUBBLE_BUNDLE_NAME}"
+
+          rubble=/var/lib/rubble/store/hh/4i/out-hh4idodirsllhpagohkhisevvhqozatzow645gwvgay3pa6spsva-rubble
+          rubble_brick=/var/lib/rubble/store/hh/4i/brk-hh4idodirsllhpagohkhisevvhqozatzow645gwvgay3pa6spsva-rubble.brick
+          test -x "${rubble}"
+          test -f "${rubble_brick}"
+          "${rubble}" --version
+          test "$("${rubble}" -q list --format json "${rubble_brick}" | jq -r .root)" = hh4idod-rubble
+
+          config_dir="${RUNNER_TEMP}/rubble-config"
+          mkdir -p "${config_dir}"
+          cat > "${config_dir}/config.yaml" <<CONFIG
+          build:
+            build-dir: ${RUNNER_TEMP}/rubble-build
+            clean-on-success: true
+          remote_store:
+            - type: s3
+              alias: default
+              endpoint: ${R2_ENDPOINT}
+              bucket: ${R2_BUCKET}
+              region: us-east-1
+              api: S3v4
+              path: path
+              auth:
+                type: access_key
+                access_key_id:
+                  env: R2_ACCESS_KEY_ID
+                secret_access_key:
+                  env: R2_SECRET_ACCESS_KEY
+          CONFIG
+
+          printf 'RUBBLE_EXECUTABLE=%s\n' "${rubble}" >> "${GITHUB_ENV}"
+          printf 'RUBBLE_CONFIG=%s\n' "${config_dir}/config.yaml" >> "${GITHUB_ENV}"
+
+      - name: Build, push, and pull a diamond graph
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          smoke_dir="${RUNNER_TEMP}/rubble-smoke"
+          build_home="${RUNNER_TEMP}/rubble-build-home"
+          pull_home="${RUNNER_TEMP}/rubble-pull-home"
+          mkdir -p "${smoke_dir}"
+
+          cat > "${smoke_dir}/brick.yaml" <<'BRICK'
+          name: github-actions-smoke-root
+          inputs:
+            - alias: left
+              brick: left
+            - alias: right
+              brick: right
+          var:
+            run_marker: __RUN_MARKER__
+          builder: |
+            printf '%s+%s+%s\n' \
+              "$(cat "$left")" \
+              "$(cat "$right")" \
+              "$run_marker" > "$out"
+          inventory:
+            shared:
+              name: github-actions-smoke-shared
+              builder: printf '%s\n' shared > "$out"
+            left:
+              name: github-actions-smoke-left
+              inputs:
+                - alias: shared
+                  brick: shared
+              builder: printf 'left-%s\n' "$(cat "$shared")" > "$out"
+            right:
+              name: github-actions-smoke-right
+              inputs:
+                - alias: shared
+                  brick: shared
+              builder: printf 'right-%s\n' "$(cat "$shared")" > "$out"
+          BRICK
+          sed -i "s/__RUN_MARKER__/${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}/" "${smoke_dir}/brick.yaml"
+
+          RUBBLE_HOME="${build_home}" \
+            "${RUBBLE_EXECUTABLE}" -q list --format json "${smoke_dir}/brick.yaml" \
+              > "${smoke_dir}/list-1.json"
+          RUBBLE_HOME="${build_home}" \
+            "${RUBBLE_EXECUTABLE}" -q list --format json "${smoke_dir}/brick.yaml" \
+              > "${smoke_dir}/list-2.json"
+          cmp "${smoke_dir}/list-1.json" "${smoke_dir}/list-2.json"
+
+          RUBBLE_HOME="${build_home}" \
+            "${RUBBLE_EXECUTABLE}" -q build "${smoke_dir}/brick.yaml"
+          RUBBLE_HOME="${build_home}" \
+            "${RUBBLE_EXECUTABLE}" -q push --depth 0 -r default "${smoke_dir}/brick.yaml"
+
+          test ! -e "${pull_home}"
+          RUBBLE_HOME="${pull_home}" \
+            "${RUBBLE_EXECUTABLE}" -q pull --unpack --depth 0 -r default "${smoke_dir}/brick.yaml"
+
+          inventory=$(RUBBLE_HOME="${pull_home}" \
+            "${RUBBLE_EXECUTABLE}" -q list --format bash "${smoke_dir}/brick.yaml")
+          eval "${inventory}"
+          root="${brick_inventory['::root']}"
+          root_output_key="${root}:out"
+          root_out="${brick_inventory[${root_output_key}]}"
+          case "${root_out}" in
+            "${pull_home}"/*) ;;
+            *)
+              printf 'pulled root output escaped fresh home: %s\n' "${root_out}" >&2
+              exit 1
+              ;;
+          esac
+          expected="left-shared+right-shared+${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          test "$(cat "${root_out}")" = "${expected}"
+
+  publish-bootstrap-release:
+    name: Publish bootstrap release
+    needs:
+      - verify-bootstrap
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ github.token }}
+      IMPORTER_NAME: n4w263q-rubble-inventory-bundle-import
+      IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
+      IMPORTER_SHA256: 25a3462b04da4800ecd87e8343ba0578c1b9ce40bb79608e6db4d4df636ea6ce
+      RUBBLE_BUNDLE_NAME: hh4idod-rubble.tar
+      RUBBLE_BUNDLE_URL: https://store.rubble.build/hh4idod-rubble.tar
+      RUBBLE_BUNDLE_SHA256: 4a14f039cb6f82c09392da80a7e20f22b745a4855c7ddf36198b6a4b7f8ed7b5
+    steps:
+      - name: Create bootstrap release
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          release_dir="${RUNNER_TEMP}/rubble-release"
+          mkdir -p "${release_dir}"
+          curl --fail --location --retry 5 \
+            --output "${release_dir}/${IMPORTER_NAME}" \
+            "${IMPORTER_URL}"
+          curl --fail --location --retry 5 \
+            --output "${release_dir}/${RUBBLE_BUNDLE_NAME}" \
+            "${RUBBLE_BUNDLE_URL}"
+
+          (
+            cd "${release_dir}"
+            printf '%s  %s\n' "${IMPORTER_SHA256}" "${IMPORTER_NAME}" | sha256sum --check -
+            printf '%s  %s\n' "${RUBBLE_BUNDLE_SHA256}" "${RUBBLE_BUNDLE_NAME}" | sha256sum --check -
+          )
+
+          release_title=$(date -u +'%Y%m%d%H%M%S')
+          release_tag="bootstrap-${release_title}-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}"
+          gh release create "${release_tag}" \
+            "${release_dir}/${IMPORTER_NAME}" \
+            "${release_dir}/${RUBBLE_BUNDLE_NAME}" \
+            --repo "${GITHUB_REPOSITORY}" \
+            --target "${GITHUB_SHA}" \
+            --title "${release_title}" \
+            --notes 'Verified Rubble bootstrap importer and depth-1 runtime bundle.'
