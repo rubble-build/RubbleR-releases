@@ -12,13 +12,20 @@ repo_root="$(git -C "${RUBBLE_PUBLISH_TARGET_ROOT}" rev-parse --show-toplevel)"
 target_prefix="$(git -C "${RUBBLE_PUBLISH_TARGET_ROOT}" rev-parse --show-prefix)"
 base_branch="$(git -C "${repo_root}" branch --show-current)"
 [[ -n "${base_branch}" ]] || fail "publishing requires a named base branch"
-repo_workflow_path="${target_prefix}${RUBBLE_PUBLISH_WORKFLOW_PATH}"
-repo_generated_root="${target_prefix}${RUBBLE_PUBLISH_GENERATED_ROOT}"
+repo_user_publish_script="${target_prefix}.rubble/publish.sh"
+managed_output_paths=()
+for ((index = 0; index < RUBBLE_PUBLISH_OUTPUT_COUNT; index++)); do
+  managed_output_variable="RUBBLE_PUBLISH_OUTPUT_${index}"
+  managed_output_paths+=("${target_prefix}${!managed_output_variable}")
+done
+[[ "${#managed_output_paths[@]}" -gt 0 ]] || fail "publisher plan contains no managed outputs"
 
-unrelated="$(git -C "${repo_root}" status --porcelain --untracked-files=all -- . \
-  ":(exclude)${repo_workflow_path}" \
-  ":(exclude)${repo_generated_root}" \
-  ":(exclude)${repo_generated_root}/**")"
+status_pathspecs=(.)
+for managed_output_path in "${managed_output_paths[@]}"; do
+  status_pathspecs+=(":(exclude,literal)${managed_output_path}")
+done
+status_pathspecs+=(":(exclude,literal)${repo_user_publish_script}")
+unrelated="$(git -C "${repo_root}" status --porcelain --untracked-files=all -- "${status_pathspecs[@]}")"
 [[ -z "${unrelated}" ]] || fail "repository has unrelated changes; commit or remove them before publishing"
 
 branch="${RUBBLE_PUBLISH_SUGGESTED_BRANCH}"
@@ -34,7 +41,11 @@ restore_base() {
   git -C "${repo_root}" switch "${base_branch}" >/dev/null 2>&1 || true
 }
 trap restore_base EXIT
-git -C "${repo_root}" add -- "${repo_workflow_path}" "${repo_generated_root}"
+managed_output_pathspecs=()
+for managed_output_path in "${managed_output_paths[@]}"; do
+  managed_output_pathspecs+=(":(literal)${managed_output_path}")
+done
+git -C "${repo_root}" add -- "${managed_output_pathspecs[@]}"
 git -C "${repo_root}" commit -m "Run Rubble workflow for ${RUBBLE_PUBLISH_ROOT_ID}"
 git -C "${repo_root}" push origin "HEAD:refs/heads/${branch}"
 commit="$(git -C "${repo_root}" rev-parse HEAD)"
