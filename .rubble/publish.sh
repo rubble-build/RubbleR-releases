@@ -38,7 +38,8 @@ git -C "${repo_root}" add -- "${repo_workflow_path}" "${repo_generated_root}"
 git -C "${repo_root}" commit -m "Run Rubble workflow for ${RUBBLE_PUBLISH_ROOT_ID}"
 git -C "${repo_root}" push origin "HEAD:refs/heads/${branch}"
 commit="$(git -C "${repo_root}" rev-parse HEAD)"
-repository="${RUBBLE_PUBLISH_GITHUB_REPOSITORY:-$(gh repo view --json nameWithOwner --jq .nameWithOwner)}"
+origin_url="$(git -C "${repo_root}" remote get-url origin)"
+repository="${RUBBLE_PUBLISH_GITHUB_REPOSITORY:-$(gh repo view "${origin_url}" --json nameWithOwner --jq .nameWithOwner)}"
 
 set +e
 "${RUBBLE_PUBLISH_SCRIPT}" wait-run \
