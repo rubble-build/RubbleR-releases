@@ -1,0 +1,11 @@
+build:
+  build-dir: /workspace/src/RubbleR-releases
+  builder:
+    github-actions:
+      build-dir: /workspace/src/RubbleR-releases
+      default-platform: x86_64-linux
+      platforms:
+        x86_64-linux:
+          runs-on: ubuntu-latest
+          importer-url: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
+          rubble-bundle-url: https://store.rubble.build/hh4idod-rubble.tar

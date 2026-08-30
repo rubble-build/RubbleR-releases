@@ -1,0 +1,52 @@
+name: github-actions-stage2-root
+inputs:
+  - alias: left
+    brick: merge-left
+  - alias: right
+    brick: merge-right
+builder: |
+  printf 'root[%s][%s]\n' "$(cat "$left")" "$(cat "$right")" > "$out"
+inventory:
+  seed:
+    name: github-actions-stage2-seed
+    builder: printf 'seed\n' > "$out"
+  left-a:
+    name: github-actions-stage2-left-a
+    inputs:
+      - alias: seed
+        brick: seed
+    builder: printf 'left-a:%s\n' "$(cat "$seed")" > "$out"
+  left-b:
+    name: github-actions-stage2-left-b
+    inputs:
+      - alias: seed
+        brick: seed
+    builder: printf 'left-b:%s\n' "$(cat "$seed")" > "$out"
+  right-a:
+    name: github-actions-stage2-right-a
+    inputs:
+      - alias: seed
+        brick: seed
+    builder: printf 'right-a:%s\n' "$(cat "$seed")" > "$out"
+  right-b:
+    name: github-actions-stage2-right-b
+    inputs:
+      - alias: seed
+        brick: seed
+    builder: printf 'right-b:%s\n' "$(cat "$seed")" > "$out"
+  merge-left:
+    name: github-actions-stage2-merge-left
+    inputs:
+      - alias: a
+        brick: left-a
+      - alias: b
+        brick: left-b
+    builder: printf 'merge-left(%s,%s)\n' "$(cat "$a")" "$(cat "$b")" > "$out"
+  merge-right:
+    name: github-actions-stage2-merge-right
+    inputs:
+      - alias: a
+        brick: right-a
+      - alias: b
+        brick: right-b
+    builder: printf 'merge-right(%s,%s)\n' "$(cat "$a")" "$(cat "$b")" > "$out"
