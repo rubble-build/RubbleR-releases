@@ -1,0 +1,47 @@
+{ "id": "sbjn5ne5aipisdez34nfayc6dugslc4vpoi6qwadczmasy5ye33a-github-actions-stage2-right-b"
+, "name": "github-actions-stage2-right-b"
+, "inputs": [
+    { "brick": "4zkzn2ytorf4seiuk64ffjrwj4h3pgh4yowwp7fm7fp5tukie34q-github-actions-stage2-seed"
+    , "alias": "seed"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "printf 'right-b:%s\\n' \"$(cat \"$seed\")\" > \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "4zkzn2ytorf4seiuk64ffjrwj4h3pgh4yowwp7fm7fp5tukie34q-github-actions-stage2-seed":
+      { "id": "4zkzn2ytorf4seiuk64ffjrwj4h3pgh4yowwp7fm7fp5tukie34q-github-actions-stage2-seed"
+      , "name": "github-actions-stage2-seed"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "printf 'seed\\n' > \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}
