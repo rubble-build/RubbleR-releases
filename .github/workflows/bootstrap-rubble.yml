@@ -78,6 +78,7 @@ jobs:
                 secret_access_key:
                   env: R2_SECRET_ACCESS_KEY
           CONFIG
+          chmod 600 "${config_dir}/config.yaml"
 
           printf 'RUBBLE_EXECUTABLE=%s\n' "${rubble}" >> "${GITHUB_ENV}"
           printf 'RUBBLE_CONFIG=%s\n' "${config_dir}/config.yaml" >> "${GITHUB_ENV}"
