@@ -3,6 +3,10 @@ build:
   builder:
     github-actions:
       build-dir: /workspace/src/RubbleR-releases
+      authentication:
+        source: repository-secrets
+        config-secret: RUBBLE_SERVER_CONFIG
+        credentials-secret: RUBBLE_SERVER_CREDENTIALS
       default-platform: x86_64-linux
       platforms:
         x86_64-linux:

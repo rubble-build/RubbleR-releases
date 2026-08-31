@@ -10,9 +10,10 @@ inputs are:
 
 The manual Stage-1 bootstrap workflow still uses the repository's dedicated
 R2 secrets. Generated builder workflows do not use or field-merge those
-secrets. Each generation encrypts the complete locally selected Rubble config
-and credential files into a one-use payload; the runner decrypts them only
-with the key stored in that pipeline's unique GitHub Environment.
+secrets. The validation repository exercises both explicit authentication
+sources: complete files preconfigured as `RUBBLE_SERVER_CONFIG` and
+`RUBBLE_SERVER_CREDENTIALS`, and complete local files encrypted into a one-use
+payload whose key exists only in that pipeline's unique GitHub Environment.
 
 The protected default branch owns `.github/workflows/rubble-cleanup.yml`.
 Configure `RUBBLE_ENVIRONMENT_ADMIN_TOKEN` as a repository secret with a token
@@ -25,7 +26,7 @@ workflow branch with:
 
 ```sh
 /workspace/src/RubbleR/target/release/rubble \
-  --config /home/chaifeng/.config/rubble/config.yaml \
+  --config /workspace/src/RubbleR-releases/.rubble/github-actions-config.yaml \
   --credentials /home/chaifeng/.config/rubble/credentials.yaml \
   build --builder github-actions \
   /workspace/src/RubbleR-releases/fixtures/github-actions-dag.yaml
