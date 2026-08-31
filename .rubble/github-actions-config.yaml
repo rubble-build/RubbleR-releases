@@ -9,3 +9,9 @@ build:
           runs-on: ubuntu-latest
           importer-url: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
           rubble-bundle-url: https://store.rubble.build/hh4idod-rubble.tar
+          commands:
+            bash: /usr/bin/bash
+            date: /usr/bin/date
+            dirname: /usr/bin/dirname
+            gh: /usr/bin/gh
+            mkdir: /usr/bin/mkdir
