@@ -1,0 +1,40 @@
+name: Clean Rubble pipeline Environment
+on:
+  workflow_run:
+    workflows:
+      - Rubble generated workflow
+    types:
+      - completed
+permissions: {}
+jobs:
+  cleanup:
+    name: Delete one-use Environment
+    runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.RUBBLE_ENVIRONMENT_ADMIN_TOKEN }}
+      RUBBLE_COMPLETED_BRANCH: ${{ github.event.workflow_run.head_branch }}
+      RUBBLE_REPOSITORY: ${{ github.repository }}
+    steps:
+      - name: Delete completed pipeline Environment
+        shell: bash
+        run: |-
+          set -euo pipefail
+          branch="${RUBBLE_COMPLETED_BRANCH}"
+          if [[ ! "${branch}" =~ ^runs/([0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12})$ ]]; then
+            printf '[rubble-environment-cleanup] ERROR: refusing unexpected branch %s\n' "${branch}" >&2
+            exit 1
+          fi
+          pipeline_id="${BASH_REMATCH[1]}"
+          environment="rubble-pipeline-${pipeline_id}"
+          response=''
+          if response="$(gh api --method DELETE \
+            "repos/${RUBBLE_REPOSITORY}/environments/${environment}" 2>&1)"; then
+            printf '[rubble-environment-cleanup] deleted %s\n' "${environment}" >&2
+            exit 0
+          fi
+          if [[ "${response}" == *'HTTP 404'* ]]; then
+            printf '[rubble-environment-cleanup] %s is already absent\n' "${environment}" >&2
+            exit 0
+          fi
+          printf '[rubble-environment-cleanup] ERROR: failed to delete %s\n' "${environment}" >&2
+          exit 1

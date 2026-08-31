@@ -8,17 +8,25 @@ inputs are:
 - `https://store.rubble.build/n4w263q-rubble-inventory-bundle-import`
 - `https://store.rubble.build/hh4idod-rubble.tar`
 
-The repository defines `R2_ENDPOINT`, `R2_BUCKET`, `R2_ACCESS_KEY_ID`, and
-`R2_SECRET_ACCESS_KEY` as Actions secrets. Generated workflows use them to
-create the path-style `default` remote store.
+The manual Stage-1 bootstrap workflow still uses the repository's dedicated
+R2 secrets. Generated builder workflows do not use or field-merge those
+secrets. Each generation encrypts the complete locally selected Rubble config
+and credential files into a one-use payload; the runner decrypts them only
+with the key stored in that pipeline's unique GitHub Environment.
+
+The protected default branch owns `.github/workflows/rubble-cleanup.yml`.
+Configure `RUBBLE_ENVIRONMENT_ADMIN_TOKEN` as a repository secret with a token
+that can delete repository Environments. Generated pipeline branches cannot
+read that token or modify the trusted cleanup declaration.
 
 `fixtures/github-actions-dag.yaml` is a non-Rubble fan-out/fan-in validation
 graph. From the RubbleR checkout, generate, publish, and wait for its one-use
 workflow branch with:
 
 ```sh
-target/release/rubble \
-  --config /workspace/src/RubbleR-releases/.rubble/github-actions-config.yaml \
+/workspace/src/RubbleR/target/release/rubble \
+  --config /home/chaifeng/.config/rubble/config.yaml \
+  --credentials /home/chaifeng/.config/rubble/credentials.yaml \
   build --builder github-actions \
   /workspace/src/RubbleR-releases/fixtures/github-actions-dag.yaml
 ```

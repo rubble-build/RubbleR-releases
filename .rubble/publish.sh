@@ -29,24 +29,35 @@ unrelated="$(git -C "${repo_root}" status --porcelain --untracked-files=all -- "
 [[ -z "${unrelated}" ]] || fail "repository has unrelated changes; commit or remove them before publishing"
 
 branch="${RUBBLE_PUBLISH_SUGGESTED_BRANCH}"
-suffix=1
-while git -C "${repo_root}" show-ref --verify --quiet "refs/heads/${branch}" || \
-      git -C "${repo_root}" ls-remote --exit-code --heads origin "refs/heads/${branch}" >/dev/null 2>&1; do
-  branch="${RUBBLE_PUBLISH_SUGGESTED_BRANCH}-${suffix}"
-  suffix=$((suffix + 1))
-done
+if git -C "${repo_root}" show-ref --verify --quiet "refs/heads/${branch}" || \
+   git -C "${repo_root}" ls-remote --exit-code --heads origin "refs/heads/${branch}" >/dev/null 2>&1; then
+  fail "one-use pipeline branch already exists: ${branch}"
+fi
 
 git -C "${repo_root}" switch -c "${branch}" "${base_branch}"
-restore_base() {
-  git -C "${repo_root}" switch "${base_branch}" >/dev/null 2>&1 || true
+restore_base_on_exit() {
+  local publisher_status=$?
+  local restore_status=0
+  trap - EXIT
+  set +e
+  git -C "${repo_root}" switch "${base_branch}" >/dev/null
+  restore_status=$?
+  set -e
+  if (( restore_status != 0 )); then
+    printf '[rubble-publish] ERROR: failed to restore base branch %s (publisher status %s; restore status %s)\n' \
+      "${base_branch}" "${publisher_status}" "${restore_status}" >&2
+    exit 1
+  fi
+  exit "${publisher_status}"
 }
-trap restore_base EXIT
+
+trap restore_base_on_exit EXIT
 managed_output_pathspecs=()
 for managed_output_path in "${managed_output_paths[@]}"; do
   managed_output_pathspecs+=(":(literal)${managed_output_path}")
 done
 git -C "${repo_root}" add -- "${managed_output_pathspecs[@]}"
-git -C "${repo_root}" commit -m "Run Rubble workflow for ${RUBBLE_PUBLISH_ROOT_ID}"
+git -C "${repo_root}" commit --only -m "Run Rubble workflow for ${RUBBLE_PUBLISH_ROOT_ID}" -- "${managed_output_pathspecs[@]}"
 git -C "${repo_root}" push origin "HEAD:refs/heads/${branch}"
 commit="$(git -C "${repo_root}" rev-parse HEAD)"
 origin_url="$(git -C "${repo_root}" remote get-url origin)"
@@ -59,6 +70,4 @@ set +e
   --commit "${commit}"
 status=$?
 set -e
-restore_base
-trap - EXIT
 exit "${status}"
