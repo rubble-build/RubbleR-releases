@@ -1,0 +1,73 @@
+{ "id": "ytbe6bxxnyubtlkbll2s7nf7x6uhjcob27zds3klvlvwe2co7yeq-github-actions-boundary-release-e2e-root-20260831-9f3c2a"
+, "name": "github-actions-boundary-release-e2e-root-20260831-9f3c2a"
+, "inputs": [
+    { "brick": "wycgxgjr6ncnkkrcat5dkmol4v3u6xdc5lj44uz76wjimg4yfocq-github-actions-boundary-release-e2e-boundary-20260831-9f3c2a"
+    , "alias": "boundary"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "printf 'root:%s\\n' \"$(cat \"$boundary\")\" > \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "a6zgjgtu6r6emg2gic2efi6acgw6qghv7to5yegq3dakntczdd2a-github-actions-boundary-release-e2e-hidden-20260831-9f3c2a":
+      { "id": "a6zgjgtu6r6emg2gic2efi6acgw6qghv7to5yegq3dakntczdd2a-github-actions-boundary-release-e2e-hidden-20260831-9f3c2a"
+      , "name": "github-actions-boundary-release-e2e-hidden-20260831-9f3c2a"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "printf 'hidden\\n' > \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "wycgxgjr6ncnkkrcat5dkmol4v3u6xdc5lj44uz76wjimg4yfocq-github-actions-boundary-release-e2e-boundary-20260831-9f3c2a":
+      { "id": "wycgxgjr6ncnkkrcat5dkmol4v3u6xdc5lj44uz76wjimg4yfocq-github-actions-boundary-release-e2e-boundary-20260831-9f3c2a"
+      , "name": "github-actions-boundary-release-e2e-boundary-20260831-9f3c2a"
+      , "inputs": [
+          { "brick": "a6zgjgtu6r6emg2gic2efi6acgw6qghv7to5yegq3dakntczdd2a-github-actions-boundary-release-e2e-hidden-20260831-9f3c2a"
+          , "alias": "hidden"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "printf 'boundary:%s\\n' \"$(cat \"$hidden\")\" > \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}
