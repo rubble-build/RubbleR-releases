@@ -1,0 +1,28 @@
+{ "id": "5n72uhvu5cptapfmuhaql6u7gekif3s7rsavzqfspcxoyrwoybmq-curl-linux-x86_64-musl-8.18.0.tar.xz"
+, "name": "curl-linux-x86_64-musl-8.18.0.tar.xz"
+, "src": {
+    "url": "https://github.com/stunnel/static-curl/releases/download/8.18.0/curl-linux-x86_64-musl-8.18.0.tar.xz"
+  , "checksum": "sha256:e3ea8eb7b6f86930b5811cab1bfbddfaeb750ecb28f14e19c6fc95191fc2728a"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
