@@ -12,7 +12,7 @@ build:
         x86_64-linux:
           runs-on: ubuntu-latest
           importer-url: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
-          rubble-bundle-url: https://store.rubble.build/hh4idod-rubble.tar
+          rubble-bundle-url: https://store.rubble.build/2bz4am3-rubble.tar
           commands:
             bash: /usr/bin/bash
             date: /usr/bin/date
