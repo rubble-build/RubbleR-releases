@@ -12,7 +12,7 @@ jobs:
     name: 4z45nx6-patchelf
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -23,30 +23,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build 4z45nx6-patchelf
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/4z/45/brk-4z45nx65xw3y3yxdn5rw2qf5jwclaclnqqfhofeig6xotqxb7ajq-patchelf.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/4z/45/brk-4z45nx65xw3y3yxdn5rw2qf5jwclaclnqqfhofeig6xotqxb7ajq-patchelf.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq:
     name: zkiff2c-ld-musl.so
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -57,30 +57,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build zkiff2c-ld-musl.so
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_wqckb6fysqnzuzmnm3hrgnie52iiuwqibunb222ynntml7x5lxjq:
     name: wqckb6f-zstd
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -96,30 +96,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build wqckb6f-zstd
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/wq/ck/brk-wqckb6fysqnzuzmnm3hrgnie52iiuwqibunb222ynntml7x5lxjq-zstd.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/wq/ck/brk-wqckb6fysqnzuzmnm3hrgnie52iiuwqibunb222ynntml7x5lxjq-zstd.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
-  brick_3lxqkxt6w34paj3dptqfdrkud46niam2aemexrvwxohnm7obk4aa:
-    name: 3lxqkxt-xz
+  brick_bckpkewd24sqpe6rkydj4yn3u2zzm2fpcukdzgimleqxusuefnyq:
+    name: bckpkew-xz
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -135,30 +135,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
-      - name: Build 3lxqkxt-xz
+      - name: Build bckpkew-xz
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/3l/xq/brk-3lxqkxt6w34paj3dptqfdrkud46niam2aemexrvwxohnm7obk4aa-xz.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bc/kp/brk-bckpkewd24sqpe6rkydj4yn3u2zzm2fpcukdzgimleqxusuefnyq-xz.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_bb3woz66hfzaf7nxyfp5ihp6vxai7te2ymga2i65rr4rqmaipiyq:
     name: bb3woz6-unzip
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -174,30 +174,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build bb3woz6-unzip
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/bb/3w/brk-bb3woz66hfzaf7nxyfp5ihp6vxai7te2ymga2i65rr4rqmaipiyq-unzip.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bb/3w/brk-bb3woz66hfzaf7nxyfp5ihp6vxai7te2ymga2i65rr4rqmaipiyq-unzip.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_stljkkdnfyucz33nxoovmbhimt6ff63ihoue4xv5uddik7it2v2q:
     name: stljkkd-m4
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -213,30 +213,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build stljkkd-m4
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/st/lj/brk-stljkkdnfyucz33nxoovmbhimt6ff63ihoue4xv5uddik7it2v2q-m4.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/st/lj/brk-stljkkdnfyucz33nxoovmbhimt6ff63ihoue4xv5uddik7it2v2q-m4.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_pobrsy2ju6afixohsh7wvks3aeccssrma4wwzy7ovmfg5qcucf7a:
     name: pobrsy2-gzip
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -252,30 +252,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build pobrsy2-gzip
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/po/br/brk-pobrsy2ju6afixohsh7wvks3aeccssrma4wwzy7ovmfg5qcucf7a-gzip.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/po/br/brk-pobrsy2ju6afixohsh7wvks3aeccssrma4wwzy7ovmfg5qcucf7a-gzip.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
-  brick_66ew66thgmvxvtv3y73nzs6nvo7jobr4pbla3cwgbmayfts7bncq:
-    name: 66ew66t-grep
+  brick_eni6622eybzafiaivzmic5h3itxj6zsfrz2e7ifzoe2zlab25wua:
+    name: eni6622-grep
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -291,30 +291,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
-      - name: Build 66ew66t-grep
+      - name: Build eni6622-grep
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/66/ew/brk-66ew66thgmvxvtv3y73nzs6nvo7jobr4pbla3cwgbmayfts7bncq-grep.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/en/i6/brk-eni6622eybzafiaivzmic5h3itxj6zsfrz2e7ifzoe2zlab25wua-grep.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_rtt7zlxbdwlqvf6xcv3ibd2j72sav5aq7a4osmz6in3hijdh67va:
     name: rtt7zlx-gpatch
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -330,30 +330,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build rtt7zlx-gpatch
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/rt/t7/brk-rtt7zlxbdwlqvf6xcv3ibd2j72sav5aq7a4osmz6in3hijdh67va-gpatch.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/rt/t7/brk-rtt7zlxbdwlqvf6xcv3ibd2j72sav5aq7a4osmz6in3hijdh67va-gpatch.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_gmiepopf36g4nt4bgf2k6ydxwomd3eahnlg5kzfd7itw6you5ynq:
     name: gmiepop-gnu-sed
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -369,30 +369,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build gmiepop-gnu-sed
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/gm/ie/brk-gmiepopf36g4nt4bgf2k6ydxwomd3eahnlg5kzfd7itw6you5ynq-gnu-sed.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/gm/ie/brk-gmiepopf36g4nt4bgf2k6ydxwomd3eahnlg5kzfd7itw6you5ynq-gnu-sed.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_bnh6a6xptku7pe37i7fyefxb3jn2eepsszqlp2xhok35cgvfhxuq:
     name: bnh6a6x-gnu-make
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -408,30 +408,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build bnh6a6x-gnu-make
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/bn/h6/brk-bnh6a6xptku7pe37i7fyefxb3jn2eepsszqlp2xhok35cgvfhxuq-gnu-make.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bn/h6/brk-bnh6a6xptku7pe37i7fyefxb3jn2eepsszqlp2xhok35cgvfhxuq-gnu-make.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_x5qvjdfenrs6bc4xuttjluurx6ow3aj326m5ay6ni2ezq2u757va:
     name: x5qvjdf-gawk
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -447,30 +447,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build x5qvjdf-gawk
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/x5/qv/brk-x5qvjdfenrs6bc4xuttjluurx6ow3aj326m5ay6ni2ezq2u757va-gawk.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/x5/qv/brk-x5qvjdfenrs6bc4xuttjluurx6ow3aj326m5ay6ni2ezq2u757va-gawk.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_wszckkjwj7owe2w6seb3pficxwimbmjwkoqsa6m46ki64ujgqz2q:
     name: wszckkj-findutils
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -486,30 +486,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build wszckkj-findutils
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/ws/zc/brk-wszckkjwj7owe2w6seb3pficxwimbmjwkoqsa6m46ki64ujgqz2q-findutils.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/ws/zc/brk-wszckkjwj7owe2w6seb3pficxwimbmjwkoqsa6m46ki64ujgqz2q-findutils.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_n2y6cwlexb642nzfj7px6pn7pantf4zaw6mtlfscqidlarztalxq:
     name: n2y6cwl-diffutils
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -525,30 +525,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build n2y6cwl-diffutils
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/n2/y6/brk-n2y6cwlexb642nzfj7px6pn7pantf4zaw6mtlfscqidlarztalxq-diffutils.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/n2/y6/brk-n2y6cwlexb642nzfj7px6pn7pantf4zaw6mtlfscqidlarztalxq-diffutils.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_adcrhlud4lao22xpeqdtkmm3cbdxrk4yn7hqqh4y2wguzsupqiqq:
     name: adcrhlu-curl
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -559,30 +559,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build adcrhlu-curl
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/ad/cr/brk-adcrhlud4lao22xpeqdtkmm3cbdxrk4yn7hqqh4y2wguzsupqiqq-curl.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/ad/cr/brk-adcrhlud4lao22xpeqdtkmm3cbdxrk4yn7hqqh4y2wguzsupqiqq-curl.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_n6475wvske6j4dxfuhhbk6gplesuoo6c3tzd2p4bk5cciypjdqna:
     name: n6475wv-ca-certificates.pem
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -593,30 +593,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build n6475wv-ca-certificates.pem
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/n6/47/brk-n6475wvske6j4dxfuhhbk6gplesuoo6c3tzd2p4bk5cciypjdqna-ca-certificates.pem.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/n6/47/brk-n6475wvske6j4dxfuhhbk6gplesuoo6c3tzd2p4bk5cciypjdqna-ca-certificates.pem.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_pfctzr6y2rty63c32st2rmmgrexbnfrdgt2iic4na3bctqmrwoea:
     name: pfctzr6-bzip2
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -632,30 +632,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build pfctzr6-bzip2
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/pf/ct/brk-pfctzr6y2rty63c32st2rmmgrexbnfrdgt2iic4na3bctqmrwoea-bzip2.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/pf/ct/brk-pfctzr6y2rty63c32st2rmmgrexbnfrdgt2iic4na3bctqmrwoea-bzip2.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q:
     name: bxchorb-bash
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -666,30 +666,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build bxchorb-bash
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_oolqu2vtbb4frcjavzuszx435gk62yg4qby6szr2w6rv4zzuj3zq:
     name: oolqu2v-perl
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -707,30 +707,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build oolqu2v-perl
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/oo/lq/brk-oolqu2vtbb4frcjavzuszx435gk62yg4qby6szr2w6rv4zzuj3zq-perl.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/oo/lq/brk-oolqu2vtbb4frcjavzuszx435gk62yg4qby6szr2w6rv4zzuj3zq-perl.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_l5cahjri52ofysycyibbzhr65aq4t6tyjkqtpvxk3d6oxuxjm4fa:
     name: l5cahjr-git
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -750,30 +750,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build l5cahjr-git
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/l5/ca/brk-l5cahjri52ofysycyibbzhr65aq4t6tyjkqtpvxk3d6oxuxjm4fa-git.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/n6/47/brk-n6475wvske6j4dxfuhhbk6gplesuoo6c3tzd2p4bk5cciypjdqna-ca-certificates.pem.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/l5/ca/brk-l5cahjri52ofysycyibbzhr65aq4t6tyjkqtpvxk3d6oxuxjm4fa-git.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/n6/47/brk-n6475wvske6j4dxfuhhbk6gplesuoo6c3tzd2p4bk5cciypjdqna-ca-certificates.pem.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_ic3mcp6r2byudz4wwzrzs7ld3te3lmfdcopyerhhnjybz6b4gz5q:
     name: ic3mcp6-gcc
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -791,30 +791,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build ic3mcp6-gcc
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/ic/3m/brk-ic3mcp6r2byudz4wwzrzs7ld3te3lmfdcopyerhhnjybz6b4gz5q-gcc.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/ic/3m/brk-ic3mcp6r2byudz4wwzrzs7ld3te3lmfdcopyerhhnjybz6b4gz5q-gcc.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_wkalziix43j55svwzjj2vbsjfaxxnqhhshnnfcz2v3dnih4fcqha:
     name: wkalzii-bison
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -834,30 +834,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build wkalzii-bison
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/wk/al/brk-wkalziix43j55svwzjj2vbsjfaxxnqhhshnnfcz2v3dnih4fcqha-bison.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/st/lj/brk-stljkkdnfyucz33nxoovmbhimt6ff63ihoue4xv5uddik7it2v2q-m4.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/wk/al/brk-wkalziix43j55svwzjj2vbsjfaxxnqhhshnnfcz2v3dnih4fcqha-bison.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/st/lj/brk-stljkkdnfyucz33nxoovmbhimt6ff63ihoue4xv5uddik7it2v2q-m4.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_jfai7zz72pherkoxskwv2r6de64ms2lv7eetewbbhcemhfmvu7sq:
     name: jfai7zz-gnu-tar
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -873,30 +873,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build jfai7zz-gnu-tar
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/jf/ai/brk-jfai7zz72pherkoxskwv2r6de64ms2lv7eetewbbhcemhfmvu7sq-gnu-tar.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/jf/ai/brk-jfai7zz72pherkoxskwv2r6de64ms2lv7eetewbbhcemhfmvu7sq-gnu-tar.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
   brick_72mkfvxl5mmbm7vwb7lqf2zdm4fspzwzv2cmpnsrum2l4c77u5cq:
     name: 72mkfvx-coreutils
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -912,30 +912,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
       - name: Build 72mkfvx-coreutils
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/72/mk/brk-72mkfvxl5mmbm7vwb7lqf2zdm4fspzwzv2cmpnsrum2l4c77u5cq-coreutils.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/72/mk/brk-72mkfvxl5mmbm7vwb7lqf2zdm4fspzwzv2cmpnsrum2l4c77u5cq-coreutils.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/zk/if/brk-zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
-  brick_lifled7ii45rfxevjn4zzhsjiduayqc3qoinypo3xoznu4pereja:
-    name: lifled7-bootstrap-env
+  brick_odzciqpr5fl5qqpdqnohs7qpqqwvahqodbydsv7er2ztrfnfhbuq:
+    name: odzciqp-bootstrap-env
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -944,7 +944,7 @@ jobs:
 
       - brick_wqckb6fysqnzuzmnm3hrgnie52iiuwqibunb222ynntml7x5lxjq
 
-      - brick_3lxqkxt6w34paj3dptqfdrkud46niam2aemexrvwxohnm7obk4aa
+      - brick_bckpkewd24sqpe6rkydj4yn3u2zzm2fpcukdzgimleqxusuefnyq
 
       - brick_bb3woz66hfzaf7nxyfp5ihp6vxai7te2ymga2i65rr4rqmaipiyq
 
@@ -952,7 +952,7 @@ jobs:
 
       - brick_pobrsy2ju6afixohsh7wvks3aeccssrma4wwzy7ovmfg5qcucf7a
 
-      - brick_66ew66thgmvxvtv3y73nzs6nvo7jobr4pbla3cwgbmayfts7bncq
+      - brick_eni6622eybzafiaivzmic5h3itxj6zsfrz2e7ifzoe2zlab25wua
 
       - brick_rtt7zlxbdwlqvf6xcv3ibd2j72sav5aq7a4osmz6in3hijdh67va
 
@@ -993,30 +993,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
-      - name: Build lifled7-bootstrap-env
+      - name: Build odzciqp-bootstrap-env
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/li/fl/brk-lifled7ii45rfxevjn4zzhsjiduayqc3qoinypo3xoznu4pereja-bootstrap-env.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/wq/ck/brk-wqckb6fysqnzuzmnm3hrgnie52iiuwqibunb222ynntml7x5lxjq-zstd.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/3l/xq/brk-3lxqkxt6w34paj3dptqfdrkud46niam2aemexrvwxohnm7obk4aa-xz.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/bb/3w/brk-bb3woz66hfzaf7nxyfp5ihp6vxai7te2ymga2i65rr4rqmaipiyq-unzip.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/st/lj/brk-stljkkdnfyucz33nxoovmbhimt6ff63ihoue4xv5uddik7it2v2q-m4.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/po/br/brk-pobrsy2ju6afixohsh7wvks3aeccssrma4wwzy7ovmfg5qcucf7a-gzip.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/66/ew/brk-66ew66thgmvxvtv3y73nzs6nvo7jobr4pbla3cwgbmayfts7bncq-grep.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/rt/t7/brk-rtt7zlxbdwlqvf6xcv3ibd2j72sav5aq7a4osmz6in3hijdh67va-gpatch.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/gm/ie/brk-gmiepopf36g4nt4bgf2k6ydxwomd3eahnlg5kzfd7itw6you5ynq-gnu-sed.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/bn/h6/brk-bnh6a6xptku7pe37i7fyefxb3jn2eepsszqlp2xhok35cgvfhxuq-gnu-make.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/x5/qv/brk-x5qvjdfenrs6bc4xuttjluurx6ow3aj326m5ay6ni2ezq2u757va-gawk.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/ws/zc/brk-wszckkjwj7owe2w6seb3pficxwimbmjwkoqsa6m46ki64ujgqz2q-findutils.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/n2/y6/brk-n2y6cwlexb642nzfj7px6pn7pantf4zaw6mtlfscqidlarztalxq-diffutils.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/ad/cr/brk-adcrhlud4lao22xpeqdtkmm3cbdxrk4yn7hqqh4y2wguzsupqiqq-curl.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/n6/47/brk-n6475wvske6j4dxfuhhbk6gplesuoo6c3tzd2p4bk5cciypjdqna-ca-certificates.pem.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/pf/ct/brk-pfctzr6y2rty63c32st2rmmgrexbnfrdgt2iic4na3bctqmrwoea-bzip2.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/oo/lq/brk-oolqu2vtbb4frcjavzuszx435gk62yg4qby6szr2w6rv4zzuj3zq-perl.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/l5/ca/brk-l5cahjri52ofysycyibbzhr65aq4t6tyjkqtpvxk3d6oxuxjm4fa-git.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/ic/3m/brk-ic3mcp6r2byudz4wwzrzs7ld3te3lmfdcopyerhhnjybz6b4gz5q-gcc.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/wk/al/brk-wkalziix43j55svwzjj2vbsjfaxxnqhhshnnfcz2v3dnih4fcqha-bison.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/jf/ai/brk-jfai7zz72pherkoxskwv2r6de64ms2lv7eetewbbhcemhfmvu7sq-gnu-tar.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/72/mk/brk-72mkfvxl5mmbm7vwb7lqf2zdm4fspzwzv2cmpnsrum2l4c77u5cq-coreutils.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/od/zc/brk-odzciqpr5fl5qqpdqnohs7qpqqwvahqodbydsv7er2ztrfnfhbuq-bootstrap-env.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/wq/ck/brk-wqckb6fysqnzuzmnm3hrgnie52iiuwqibunb222ynntml7x5lxjq-zstd.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bc/kp/brk-bckpkewd24sqpe6rkydj4yn3u2zzm2fpcukdzgimleqxusuefnyq-xz.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bb/3w/brk-bb3woz66hfzaf7nxyfp5ihp6vxai7te2ymga2i65rr4rqmaipiyq-unzip.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/st/lj/brk-stljkkdnfyucz33nxoovmbhimt6ff63ihoue4xv5uddik7it2v2q-m4.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/po/br/brk-pobrsy2ju6afixohsh7wvks3aeccssrma4wwzy7ovmfg5qcucf7a-gzip.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/en/i6/brk-eni6622eybzafiaivzmic5h3itxj6zsfrz2e7ifzoe2zlab25wua-grep.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/rt/t7/brk-rtt7zlxbdwlqvf6xcv3ibd2j72sav5aq7a4osmz6in3hijdh67va-gpatch.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/gm/ie/brk-gmiepopf36g4nt4bgf2k6ydxwomd3eahnlg5kzfd7itw6you5ynq-gnu-sed.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bn/h6/brk-bnh6a6xptku7pe37i7fyefxb3jn2eepsszqlp2xhok35cgvfhxuq-gnu-make.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/x5/qv/brk-x5qvjdfenrs6bc4xuttjluurx6ow3aj326m5ay6ni2ezq2u757va-gawk.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/ws/zc/brk-wszckkjwj7owe2w6seb3pficxwimbmjwkoqsa6m46ki64ujgqz2q-findutils.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/n2/y6/brk-n2y6cwlexb642nzfj7px6pn7pantf4zaw6mtlfscqidlarztalxq-diffutils.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/ad/cr/brk-adcrhlud4lao22xpeqdtkmm3cbdxrk4yn7hqqh4y2wguzsupqiqq-curl.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/n6/47/brk-n6475wvske6j4dxfuhhbk6gplesuoo6c3tzd2p4bk5cciypjdqna-ca-certificates.pem.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/pf/ct/brk-pfctzr6y2rty63c32st2rmmgrexbnfrdgt2iic4na3bctqmrwoea-bzip2.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/bx/ch/brk-bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/oo/lq/brk-oolqu2vtbb4frcjavzuszx435gk62yg4qby6szr2w6rv4zzuj3zq-perl.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/l5/ca/brk-l5cahjri52ofysycyibbzhr65aq4t6tyjkqtpvxk3d6oxuxjm4fa-git.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/ic/3m/brk-ic3mcp6r2byudz4wwzrzs7ld3te3lmfdcopyerhhnjybz6b4gz5q-gcc.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/wk/al/brk-wkalziix43j55svwzjj2vbsjfaxxnqhhshnnfcz2v3dnih4fcqha-bison.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/jf/ai/brk-jfai7zz72pherkoxskwv2r6de64ms2lv7eetewbbhcemhfmvu7sq-gnu-tar.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/72/mk/brk-72mkfvxl5mmbm7vwb7lqf2zdm4fspzwzv2cmpnsrum2l4c77u5cq-coreutils.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
-  brick_vhc36fbohtrfn67wztkuvrxcpwpgfcaylqtl3g3xrwinmlyxayxq:
-    name: vhc36fb-rubble-elf-runtime
+  brick_modxqyxhoi2teskd4wu75p6pkquxmwjxnuq2zsjl3lm66o2dbhtq:
+    name: modxqyx-rubble-elf-runtime
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -1027,30 +1027,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
-      - name: Build vhc36fb-rubble-elf-runtime
+      - name: Build modxqyx-rubble-elf-runtime
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/vh/c3/brk-vhc36fbohtrfn67wztkuvrxcpwpgfcaylqtl3g3xrwinmlyxayxq-rubble-elf-runtime.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/mo/dx/brk-modxqyxhoi2teskd4wu75p6pkquxmwjxnuq2zsjl3lm66o2dbhtq-rubble-elf-runtime.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
-  brick_4yy6z5u5me3jgs3rks5hvopsmukz66lezoxurb24d4lqr6xplycq:
-    name: 4yy6z5u-rust-toolchain
+  brick_dmsgfhvob3pdpiukrljf5s3ktrdwdzr3jaerijvrtfudntru2ksa:
+    name: dmsgfhv-rust-toolchain
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -1061,30 +1061,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
-      - name: Build 4yy6z5u-rust-toolchain
+      - name: Build dmsgfhv-rust-toolchain
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/4y/y6/brk-4yy6z5u5me3jgs3rks5hvopsmukz66lezoxurb24d4lqr6xplycq-rust-toolchain.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/dm/sg/brk-dmsgfhvob3pdpiukrljf5s3ktrdwdzr3jaerijvrtfudntru2ksa-rust-toolchain.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
-  brick_4wh5f46xxtkaguz3zlhoh3wnmk3j2ejzcqznqnjqijtjin6yaj3q:
-    name: 4wh5f46-rubble-deps-cache
+  brick_66xjeza4g7ocenr6tbx4qdpe37dfjx67jgm36ezdopq52ag3icfa:
+    name: 66xjeza-rubble-deps-cache
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -1095,37 +1095,37 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
-      - name: Build 4wh5f46-rubble-deps-cache
+      - name: Build 66xjeza-rubble-deps-cache
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/4w/h5/brk-4wh5f46xxtkaguz3zlhoh3wnmk3j2ejzcqznqnjqijtjin6yaj3q-rubble-deps-cache.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/66/xj/brk-66xjeza4g7ocenr6tbx4qdpe37dfjx67jgm36ezdopq52ag3icfa-rubble-deps-cache.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
-  brick_o3dzojll7ltuto5ppxh4zvmemdcg5n5ngpz6h5tewrn2g62e2sua:
-    name: o3dzojl-RubbleR.git
+  brick_emrh5fmcrvfecx4igyim44zmaphxdb6wuhai4relo7i26huvmniq:
+    name: emrh5fm-RubbleR.git
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
 
     needs:
 
-      - brick_lifled7ii45rfxevjn4zzhsjiduayqc3qoinypo3xoznu4pereja
+      - brick_odzciqpr5fl5qqpdqnohs7qpqqwvahqodbydsv7er2ztrfnfhbuq
 
 
     env:
@@ -1134,30 +1134,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
-      - name: Build o3dzojl-RubbleR.git
+      - name: Build emrh5fm-RubbleR.git
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/o3/dz/brk-o3dzojll7ltuto5ppxh4zvmemdcg5n5ngpz6h5tewrn2g62e2sua-RubbleR.git.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/li/fl/brk-lifled7ii45rfxevjn4zzhsjiduayqc3qoinypo3xoznu4pereja-bootstrap-env.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/em/rh/brk-emrh5fmcrvfecx4igyim44zmaphxdb6wuhai4relo7i26huvmniq-RubbleR.git.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/od/zc/brk-odzciqpr5fl5qqpdqnohs7qpqqwvahqodbydsv7er2ztrfnfhbuq-bootstrap-env.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
-  brick_23gf67qrqop2iwql7sletwhjdnam7i6qsrz5hkcxee66bzx6ic7q:
-    name: 23gf67q-rubble-web-assets
+  brick_ujyvxw5cg2wow4xk5hjif7a4gzlkmnziasveecpzq4pkcuvwpofq:
+    name: ujyvxw5-rubble-web-assets
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
 
@@ -1168,30 +1168,30 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
-      - name: Build 23gf67q-rubble-web-assets
+      - name: Build ujyvxw5-rubble-web-assets
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/23/gf/brk-23gf67qrqop2iwql7sletwhjdnam7i6qsrz5hkcxee66bzx6ic7q-rubble-web-assets.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/uj/yv/brk-ujyvxw5cg2wow4xk5hjif7a4gzlkmnziasveecpzq4pkcuvwpofq-rubble-web-assets.brick"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
 
-  brick_m3utccwwng2uuxoa57fn3jywii377pbodzuqgwjil3zg4ktdu4mq:
-    name: m3utccw-rubble
+  brick_rdy6ndb3g2grclnagvl6ed3oc3xncppjojeclvbl66r4pbmp44tq:
+    name: rdy6ndb-rubble
     runs-on: ubuntu-latest
 
-    environment: rubble-pipeline-ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+    environment: rubble-pipeline-5a475abe-5e9a-411a-a917-5b84b37b0c85
 
 
     permissions:
@@ -1203,17 +1203,17 @@ jobs:
 
       - brick_4z45nx65xw3y3yxdn5rw2qf5jwclaclnqqfhofeig6xotqxb7ajq
 
-      - brick_lifled7ii45rfxevjn4zzhsjiduayqc3qoinypo3xoznu4pereja
+      - brick_odzciqpr5fl5qqpdqnohs7qpqqwvahqodbydsv7er2ztrfnfhbuq
 
-      - brick_vhc36fbohtrfn67wztkuvrxcpwpgfcaylqtl3g3xrwinmlyxayxq
+      - brick_modxqyxhoi2teskd4wu75p6pkquxmwjxnuq2zsjl3lm66o2dbhtq
 
-      - brick_4yy6z5u5me3jgs3rks5hvopsmukz66lezoxurb24d4lqr6xplycq
+      - brick_dmsgfhvob3pdpiukrljf5s3ktrdwdzr3jaerijvrtfudntru2ksa
 
-      - brick_4wh5f46xxtkaguz3zlhoh3wnmk3j2ejzcqznqnjqijtjin6yaj3q
+      - brick_66xjeza4g7ocenr6tbx4qdpe37dfjx67jgm36ezdopq52ag3icfa
 
-      - brick_o3dzojll7ltuto5ppxh4zvmemdcg5n5ngpz6h5tewrn2g62e2sua
+      - brick_emrh5fmcrvfecx4igyim44zmaphxdb6wuhai4relo7i26huvmniq
 
-      - brick_23gf67qrqop2iwql7sletwhjdnam7i6qsrz5hkcxee66bzx6ic7q
+      - brick_ujyvxw5cg2wow4xk5hjif7a4gzlkmnziasveecpzq4pkcuvwpofq
 
 
     env:
@@ -1222,28 +1222,28 @@ jobs:
       RUBBLE_EXPECTED_RUNNER_OS: Linux
       RUBBLE_IMPORTER_URL: https://store.rubble.build/n4w263q-rubble-inventory-bundle-import
 
-      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/m3utccw-rubble/pipeline-auth.enc
+      RUBBLE_PIPELINE_AUTH_FILE: rubble-generated/rdy6ndb-rubble/pipeline-auth.enc
       RUBBLE_PIPELINE_AUTH_KEY: ${{ secrets.RUBBLE_PIPELINE_AUTH_KEY }}
       RUBBLE_NODE: /usr/local/bin/node
 
-      RUBBLE_PIPELINE_ID: ba6d16cc-eac2-49e7-93ee-9e1be8fab1c6
+      RUBBLE_PIPELINE_ID: 5a475abe-5e9a-411a-a917-5b84b37b0c85
     steps:
       - name: Check out generated payload
         uses: actions/checkout@v4
-      - name: Build m3utccw-rubble
+      - name: Build rdy6ndb-rubble
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/m3/ut/brk-m3utccwwng2uuxoa57fn3jywii377pbodzuqgwjil3zg4ktdu4mq-rubble.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/4z/45/brk-4z45nx65xw3y3yxdn5rw2qf5jwclaclnqqfhofeig6xotqxb7ajq-patchelf.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/li/fl/brk-lifled7ii45rfxevjn4zzhsjiduayqc3qoinypo3xoznu4pereja-bootstrap-env.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/vh/c3/brk-vhc36fbohtrfn67wztkuvrxcpwpgfcaylqtl3g3xrwinmlyxayxq-rubble-elf-runtime.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/4y/y6/brk-4yy6z5u5me3jgs3rks5hvopsmukz66lezoxurb24d4lqr6xplycq-rust-toolchain.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/4w/h5/brk-4wh5f46xxtkaguz3zlhoh3wnmk3j2ejzcqznqnjqijtjin6yaj3q-rubble-deps-cache.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/o3/dz/brk-o3dzojll7ltuto5ppxh4zvmemdcg5n5ngpz6h5tewrn2g62e2sua-RubbleR.git.brick" "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/store/23/gf/brk-23gf67qrqop2iwql7sletwhjdnam7i6qsrz5hkcxee66bzx6ic7q-rubble-web-assets.brick"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/build-brick.sh" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/rd/y6/brk-rdy6ndb3g2grclnagvl6ed3oc3xncppjojeclvbl66r4pbmp44tq-rubble.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/4z/45/brk-4z45nx65xw3y3yxdn5rw2qf5jwclaclnqqfhofeig6xotqxb7ajq-patchelf.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/od/zc/brk-odzciqpr5fl5qqpdqnohs7qpqqwvahqodbydsv7er2ztrfnfhbuq-bootstrap-env.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/mo/dx/brk-modxqyxhoi2teskd4wu75p6pkquxmwjxnuq2zsjl3lm66o2dbhtq-rubble-elf-runtime.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/dm/sg/brk-dmsgfhvob3pdpiukrljf5s3ktrdwdzr3jaerijvrtfudntru2ksa-rust-toolchain.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/66/xj/brk-66xjeza4g7ocenr6tbx4qdpe37dfjx67jgm36ezdopq52ag3icfa-rubble-deps-cache.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/em/rh/brk-emrh5fmcrvfecx4igyim44zmaphxdb6wuhai4relo7i26huvmniq-RubbleR.git.brick" "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/store/uj/yv/brk-ujyvxw5cg2wow4xk5hjif7a4gzlkmnziasveecpzq4pkcuvwpofq-rubble-web-assets.brick"
 
-      - name: Release m3utccw-rubble
+      - name: Release rdy6ndb-rubble
         shell: bash
         env:
           GH_TOKEN: ${{ github.token }}
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/release-root.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/release-root.sh"
 
       - name: Remove plaintext pipeline authentication
         if: always()
         shell: bash
         run: |-
-          "${GITHUB_WORKSPACE}/rubble-generated/m3utccw-rubble/cleanup-auth.sh"
+          "${GITHUB_WORKSPACE}/rubble-generated/rdy6ndb-rubble/cleanup-auth.sh"
