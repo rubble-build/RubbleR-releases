@@ -6,12 +6,12 @@ The Stage-1 bootstrap workflow is manual-only. Its verified public bootstrap
 inputs are:
 
 - `https://store.rubble.build/n4w263q-rubble-inventory-bundle-import`
-- `https://store.rubble.build/2bz4am3-rubble.tar`
+- `https://store.rubble.build/f6glb7k-rubble.tar`
 
 The Rubble bundle contains
-`2bz4am36l3kgixljld74wcptg7jvwc43ygepbftpdantf4o6b2xq-rubble` and has
-SHA-256 `485d60511b37efee220e3b7850334c3149d1ec11ad113b854a1e407e5b7b73a8`.
-This is the minimum verified bootstrap identity for the generated workflow's
+`f6glb7kwomsuin53gprzt6f35czrrbnpmwvbpfznoipkb6dkkecq-rubble` and has
+SHA-256 `1719c2ae1ab0178ae8a3a42f029eff95c42d7a1bf19d83299017a86e29f2a999`.
+This is the current required bootstrap identity for this validation repository's
 cache-miss contract: a completely absent remote archive must let
 `pull --depth 1 --unpack` continue to build. Bootstrap inputs are managed
 separately and are not included in normal generated root releases.
