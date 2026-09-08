@@ -1,0 +1,72 @@
+{ "id": "zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so"
+, "name": "ld-musl.so"
+, "platform": "x86_64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "rpxr23txqir7gm3jeg34or6v3x33tk66wsicortn5nabw7pgv4za-musl-1.2.5-r11.apk"
+    , "alias": "src"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "musl_interpreter"
+    , "value": "ld-musl-x86_64.so.1"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "echo \"Extracting musl interpreter...\"\n"
+        , "tar -xzf \"$src\" 2>/dev/null || true\n"
+        , "\n"
+        , "cp -a \"lib/$musl_interpreter\" \"$out\"\n"
+        , "\n"
+        , "echo \"\"\n"
+        , "echo \"=== musl interpreter ===\"\n"
+        , "test -s \"$out\"\n"
+        , "echo \"$out\"\n"
+        , "ls -l \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "rpxr23txqir7gm3jeg34or6v3x33tk66wsicortn5nabw7pgv4za-musl-1.2.5-r11.apk":
+      { "id": "rpxr23txqir7gm3jeg34or6v3x33tk66wsicortn5nabw7pgv4za-musl-1.2.5-r11.apk"
+      , "name": "musl-1.2.5-r11.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/musl-1.2.5-r11.apk"
+        , "checksum": "sha256:61e84757a8bfbc0d7fa8f4ce6de9cd4d791714369d78f6a08e5b03510fb2a623"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}
