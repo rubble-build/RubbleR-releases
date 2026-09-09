@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 # Supply release data here. Optional metadata files: title, tag, notes.md.
-set -euo pipefail
+set -xeuo pipefail
 source "${RUBBLE_GITHUB_ACTIONS_RUNTIME:?}"
 rubble-exec mkdir -p -- "${RUBBLE_RELEASE_DIR:?}/assets"
 
