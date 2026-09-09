@@ -1,0 +1,1032 @@
+{ "id": "ic3mcp6r2byudz4wwzrzs7ld3te3lmfdcopyerhhnjybz6b4gz5q-gcc"
+, "name": "gcc"
+, "platform": "x86_64-linux"
+, "build_platform": "x86_64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "hl6djaj44qkp6rily6m7uf6lsksicuvyiukbsphwqzo7zhddpzna-zstd-libs-1.5.6-r2.apk"
+    , "alias": "zstd_libs_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "4wqtammobxoyixq6mok6psj2mp6d3pjlgjjgooaxh3pqxhhwxf2a-zlib-1.3.2-r0.apk"
+    , "alias": "zlib_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "ztbwuqmg77pfi6tzkoy4asfmpiy22x6lugzprlhhhvjldam36n4q-rubble-script-shebang"
+    , "transitive": "false"
+    , "hooks": {
+        "pre-build": [
+          { "shell": {
+              "value": [
+                "source \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+    }
+  , { "brick": "4z45nx65xw3y3yxdn5rw2qf5jwclaclnqqfhofeig6xotqxb7ajq-patchelf"
+    , "alias": "patchelf"
+    , "transitive": "false"
+    }
+  , { "brick": "3sb5itkqd6r7oxf5jlyiwmezzwtf7wd5ef5lhlzp5obo44jnr3ha-musl-dev-1.2.5-r11.apk"
+    , "alias": "musl_dev_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "cq5rf2c3o57f72h3wxj4aav6a3a6dvq4jdgbq4wqj27du7n73gma-mpfr4-4.2.1-r0.apk"
+    , "alias": "mpfr_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "2pkk7uybguht2x674mafoa4so6ckkoo7c5o5fx6mkcnl2ud6neia-mpc1-1.3.1-r1.apk"
+    , "alias": "mpc_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "2zxw44fhgjzrjfdxfy2wdkkicv2mhyh6d36apzqury43ieyngenq-linux-headers-6.6-r1.apk"
+    , "alias": "linux_headers_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "2x22laodlqafljwyox5gwrz33zqdiz4n4hji34pewgwzpdl7doma-libstdc__-dev-14.2.0-r4.apk"
+    , "alias": "libstdcpp_dev_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "yawesszimcd2qlnyer7jhtzq53jkzoadt5yxtoqgqjfmirmyrccq-libstdc__-14.2.0-r4.apk"
+    , "alias": "libstdcpp_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "c35i4mn5dmhidddyvzilwvmqnvugfaai2kfuxdqlq2pknwvaciuq-libgomp-14.2.0-r4.apk"
+    , "alias": "libgomp_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "ygiy7hr5xdujt354tflhamaynd7pulonibb4exgkrqfb6eyq3ova-libgcc-14.2.0-r4.apk"
+    , "alias": "libgcc_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "7qwj66t7ongdyxwj3ixwfuso2w4z75ztu277i425f66q6z76xvka-libatomic-14.2.0-r4.apk"
+    , "alias": "libatomic_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so"
+    , "alias": "ld_musl"
+    , "transitive": "true"
+    }
+  , { "brick": "czbs6vraoytel3bfaxgi2lpunsggqjavasxwzqbkr6hwtyzzdbxa-jansson-2.14-r4.apk"
+    , "alias": "jansson_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "hqjsomgsdf5yekubrqawdyfsvgwq3qx3uesyfpggo4ogd5ohak4q-isl26-0.26-r1.apk"
+    , "alias": "isl_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "poyqkgpnrlor4i3embihirbnvv2lkaoat3pg55lbgvgmj2l4rlfa-gmp-6.3.0-r2.apk"
+    , "alias": "gmp_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "jnmg45vg4ddydtuugrzlidkaux7kjxduijdqlfs3fgcoewkrrnfa-gcc-14.2.0-r4.apk"
+    , "alias": "gcc_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "w2nvclvz4n67yxhsuoio5kwv6aihl4fwjeeqdbjgqpmnauv7sfxa-g__-14.2.0-r4.apk"
+    , "alias": "gpp_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "zfy67agwxmyoiii7ufxqtoila6o65ig2u3aqqjo72h2snsjskhja-binutils-2.43.1-r3.apk"
+    , "alias": "binutils_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "gcc_triple"
+    , "value": "x86_64-alpine-linux-musl"
+    }
+  , { "name": "gcc_version"
+    , "value": "14.2.0"
+    }
+  , { "name": "musl_interpreter"
+    , "value": "ld-musl-x86_64.so.1"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "mkdir -p \"$out/bin\" \"$out/lib\" \"$out/include\" \"$out/libexec\" extract\n"
+        , "\n"
+        , "echo \"=== Extracting packages ===\"\n"
+        , "for apk in \"$gcc_apk\" \"$gpp_apk\" \"$binutils_apk\" \"$musl_dev_apk\" \\\n"
+        , "           \"$linux_headers_apk\" \"$libstdcpp_dev_apk\" \"$libgcc_apk\" \\\n"
+        , "           \"$libstdcpp_apk\" \"$libgomp_apk\" \"$libatomic_apk\" \"$gmp_apk\" \\\n"
+        , "           \"$mpfr_apk\" \"$mpc_apk\" \"$isl_apk\" \"$zlib_apk\" \"$jansson_apk\" \\\n"
+        , "           \"$zstd_libs_apk\"; do\n"
+        , "  tar -xzf \"$apk\" -C extract 2>/dev/null || true\n"
+        , "done\n"
+        , "\n"
+        , "# Create musl libc symlink pointing to the runtime interpreter\n"
+        , "ln -sf \"$ld_musl\" \"$out/lib/$musl_interpreter\"\n"
+        , "ln -sf \"$musl_interpreter\" \"$out/lib/libc.${musl_interpreter#ld-}\"\n"
+        , "\n"
+        , "# Copy all shared libraries\n"
+        , "echo \"Copying shared libraries...\"\n"
+        , "find extract -name \"*.so*\" -type f -exec cp -a {} \"$out/lib/\" \\; 2>/dev/null || true\n"
+        , "find extract -name \"*.so*\" -type l -exec cp -a {} \"$out/lib/\" \\; 2>/dev/null || true\n"
+        , "\n"
+        , "# Copy static libraries and object files from musl-dev\n"
+        , "echo \"Copying musl-dev files...\"\n"
+        , "find extract/usr/lib -name \"*.a\" -exec cp -a {} \"$out/lib/\" \\; 2>/dev/null || true\n"
+        , "find extract/usr/lib -name \"*.o\" -exec cp -a {} \"$out/lib/\" \\; 2>/dev/null || true\n"
+        , "\n"
+        , "# Copy GCC-specific libraries (crt*.o files, static libs)\n"
+        , "echo \"Copying GCC libraries...\"\n"
+        , "if [ -d \"extract/usr/lib/gcc\" ]; then\n"
+        , "  cp -a extract/usr/lib/gcc \"$out/lib/gcc\"\n"
+        , "fi\n"
+        , "if [ -d \"extract/usr/lib/bfd-plugins\" ]; then\n"
+        , "  cp -a extract/usr/lib/bfd-plugins \"$out/lib/\"\n"
+        , "fi\n"
+        , "\n"
+        , "# Copy binaries\n"
+        , "echo \"Copying binaries...\"\n"
+        , "for f in extract/usr/bin/*; do\n"
+        , "  if [ -f \"$f\" ] && [ ! -L \"$f\" ]; then\n"
+        , "    cp \"$f\" \"$out/bin/\"\n"
+        , "  elif [ -L \"$f\" ]; then\n"
+        , "    cp -a \"$f\" \"$out/bin/\"\n"
+        , "  fi\n"
+        , "done\n"
+        , "\n"
+        , "# Copy GCC libexec (cc1, cc1plus, collect2, etc.)\n"
+        , "echo \"Copying GCC libexec...\"\n"
+        , "if [ -d \"extract/usr/libexec/gcc\" ]; then\n"
+        , "  cp -a extract/usr/libexec/gcc \"$out/libexec/gcc\"\n"
+        , "fi\n"
+        , "\n"
+        , "# Copy headers\n"
+        , "echo \"Copying headers...\"\n"
+        , "if [ -d \"extract/usr/include\" ]; then\n"
+        , "  cp -a extract/usr/include/* \"$out/include/\" 2>/dev/null || true\n"
+        , "fi\n"
+        , "\n"
+        , "# Patch binutils ELF binaries (PIE binaries — patchelf works reliably)\n"
+        , "echo \"\"\n"
+        , "echo \"=== Patching ELF binaries ===\"\n"
+        , "for f in \"$out/bin/as\" \"$out/bin/ld\" \"$out/bin/ld.bfd\" \"$out/bin/ar\" \\\n"
+        , "         \"$out/bin/nm\" \"$out/bin/ranlib\" \"$out/bin/objcopy\" \"$out/bin/objdump\" \\\n"
+        , "         \"$out/bin/readelf\" \"$out/bin/strip\" \"$out/bin/strings\" \"$out/bin/size\" \\\n"
+        , "         \"$out/bin/addr2line\" \"$out/bin/c++filt\" \"$out/bin/dwp\" \"$out/bin/elfedit\" \\\n"
+        , "         \"$out/bin/gprof\"; do\n"
+        , "  if [ -f \"$f\" ] && [ ! -L \"$f\" ]; then\n"
+        , "    \"$patchelf\" --set-interpreter \"$ld_musl\" --set-rpath \"$out/lib\" \"$f\" 2>/dev/null || true\n"
+        , "  fi\n"
+        , "done\n"
+        , "\n"
+        , "# GCC/G++/CPP and libexec internals (cc1, cc1plus, collect2, lto-wrapper, etc.)\n"
+        , "# crash when patchelf'd on aarch64 (EXEC binaries with long interpreter paths).\n"
+        , "# Use ld-musl wrappers that invoke the store-internal dynamic linker directly.\n"
+        , "GCC_LIBEXEC=\"$out/libexec/gcc/${gcc_triple}/${gcc_version}\"\n"
+        , "\n"
+        , "# Rename real GCC/G++ binaries\n"
+        , "for cmd in gcc g++ cpp; do\n"
+        , "  if [ -f \"$out/bin/$cmd\" ] && [ ! -L \"$out/bin/$cmd\" ]; then\n"
+        , "    mv \"$out/bin/$cmd\" \"$out/bin/${cmd}.real\"\n"
+        , "  fi\n"
+        , "done\n"
+        , "\n"
+        , "# Create wrapper scripts using ld-musl interpreter\n"
+        , "for cmd in gcc g++ cpp cc c89 c99 c++; do\n"
+        , "  real_cmd=\"$cmd\"\n"
+        , "  case \"$cmd\" in\n"
+        , "    cc|c89|c99) real_cmd=\"gcc\" ;;\n"
+        , "    c++) real_cmd=\"g++\" ;;\n"
+        , "  esac\n"
+        , "  rm -f \"$out/bin/$cmd\"\n"
+        , "  printf '%s\\n' \"#!$bash/bin/bash\" > \"$out/bin/$cmd\"\n"
+        , "  printf '%s\\n' \"exec \\\"$ld_musl\\\" --library-path \\\"$out/lib\\\" \\\"$out/bin/${real_cmd}.real\\\" \\\"\\$@\\\"\" >> \"$out/bin/$cmd\"\n"
+        , "  chmod +x \"$out/bin/$cmd\"\n"
+        , "done\n"
+        , "\n"
+        , "# Wrap libexec binaries (cc1, cc1plus, collect2, lto-wrapper, etc.)\n"
+        , "find \"$GCC_LIBEXEC\" -maxdepth 1 -type f | while read -r f; do\n"
+        , "  case \"$(basename \"$f\")\" in\n"
+        , "    *.so|*.so.*) continue ;;\n"
+        , "  esac\n"
+        , "  if \"$patchelf\" --print-interpreter \"$f\" >/dev/null 2>&1; then\n"
+        , "    mv \"$f\" \"${f}.real\"\n"
+        , "    printf '%s\\n' \"#!$bash/bin/bash\" > \"$f\"\n"
+        , "    printf '%s\\n' \"exec \\\"$ld_musl\\\" --library-path \\\"$out/lib\\\" \\\"${f}.real\\\" \\\"\\$@\\\"\" >> \"$f\"\n"
+        , "    chmod +x \"$f\"\n"
+        , "  fi\n"
+        , "done\n"
+        , "\n"
+        , "# Also wrap gcc-ar, gcc-nm, gcc-ranlib, gcov, gcov-dump, gcov-tool, lto-dump\n"
+        , "for cmd in gcc-ar gcc-nm gcc-ranlib gcov gcov-dump gcov-tool lto-dump; do\n"
+        , "  if [ -f \"$out/bin/$cmd\" ] && [ ! -L \"$out/bin/$cmd\" ]; then\n"
+        , "    mv \"$out/bin/$cmd\" \"$out/bin/${cmd}.real\"\n"
+        , "    printf '%s\\n' \"#!$bash/bin/bash\" > \"$out/bin/$cmd\"\n"
+        , "    printf '%s\\n' \"exec \\\"$ld_musl\\\" --library-path \\\"$out/lib\\\" \\\"$out/bin/${cmd}.real\\\" \\\"\\$@\\\"\" >> \"$out/bin/$cmd\"\n"
+        , "    chmod +x \"$out/bin/$cmd\"\n"
+        , "  fi\n"
+        , "done\n"
+        , "\n"
+        , "# Update cross-compiler symlinks to point to wrapper scripts\n"
+        , "for f in \"$out/bin/${gcc_triple}-\"*; do\n"
+        , "  if [ -L \"$f\" ]; then\n"
+        , "    target=$(readlink \"$f\")\n"
+        , "    case \"$target\" in\n"
+        , "      gcc|g++|cpp)\n"
+        , "        rm \"$f\"\n"
+        , "        ln -s \"$target\" \"$f\"\n"
+        , "        ;;\n"
+        , "    esac\n"
+        , "  fi\n"
+        , "done\n"
+        , "\n"
+        , "# Patch shared libraries to fix RPATH (exclude dynamic linker symlink)\n"
+        , "find \"$out\" -name \"*.so*\" -type f ! -name \"ld-musl-*\" ! -name \"libc.musl-*\" | while read -r f; do\n"
+        , "  if \"$out/bin/readelf\" -h \"$f\" >/dev/null 2>&1; then\n"
+        , "    chmod u+w \"$f\" 2>/dev/null || true\n"
+        , "    \"$patchelf\" --set-rpath \"$out/lib\" \"$f\" 2>/dev/null || \\\n"
+        , "      echo \"  WARN: patchelf rpath failed on $(basename \"$f\")\"\n"
+        , "  fi\n"
+        , "done\n"
+        , "\n"
+        , "rubble_script_shebang_register \"$bash/bin/bash\" sh bash\n"
+        , "if [ -d \"$GCC_LIBEXEC/install-tools\" ]; then\n"
+        , "  rubble_script_shebang_rewrite_all --strict --all \"$GCC_LIBEXEC/install-tools\"\n"
+        , "fi\n"
+        , "\n"
+        , "# Do not patch Alpine GCC compiler executables themselves: cc1 can crash\n"
+        , "# after PT_INTERP growth. Wrap every kernel-invokable musl ELF instead and\n"
+        , "# keep the real payload non-executable so it cannot fall back to /lib.\n"
+        , "find \"$out/bin\" \"$GCC_LIBEXEC\" -type f | while read -r f; do\n"
+        , "  case \"$(basename \"$f\")\" in\n"
+        , "    *.so|*.so.*) continue ;;\n"
+        , "  esac\n"
+        , "  if ! \"$patchelf\" --print-interpreter \"$f\" >/dev/null 2>&1; then\n"
+        , "    continue\n"
+        , "  fi\n"
+        , "  case \"$f\" in\n"
+        , "    *.real)\n"
+        , "      chmod a-x \"$f\"\n"
+        , "      ;;\n"
+        , "    *)\n"
+        , "      real=\"${f}.real\"\n"
+        , "      mv \"$f\" \"$real\"\n"
+        , "      printf '%s\\n' \"#!$bash/bin/bash\" > \"$f\"\n"
+        , "      printf '%s\\n' \"exec \\\"$ld_musl\\\" --library-path \\\"$out/lib\\\" \\\"$real\\\" \\\"\\$@\\\"\" >> \"$f\"\n"
+        , "      chmod +x \"$f\"\n"
+        , "      chmod a-x \"$real\"\n"
+        , "      ;;\n"
+        , "  esac\n"
+        , "done\n"
+        , "\n"
+        , "# Verify\n"
+        , "echo \"\"\n"
+        , "echo \"=== Verifying GCC toolchain ===\"\n"
+        , "\"$out/bin/gcc\" --version | head -1 || true\n"
+        , "\"$out/bin/g++\" --version | head -1 || true\n"
+        , "\"$out/bin/ld\" --version | head -1 || true\n"
+        , "\"$out/bin/ar\" --version | head -1 || true\n"
+        , "\"$out/bin/as\" --version | head -1 || true\n"
+        , "echo \"\"\n"
+        , "echo \"Tool count: $(ls -1 \"$out/bin\" | wc -l)\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "hl6djaj44qkp6rily6m7uf6lsksicuvyiukbsphwqzo7zhddpzna-zstd-libs-1.5.6-r2.apk":
+      { "id": "hl6djaj44qkp6rily6m7uf6lsksicuvyiukbsphwqzo7zhddpzna-zstd-libs-1.5.6-r2.apk"
+      , "name": "zstd-libs-1.5.6-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/zstd-libs-1.5.6-r2.apk"
+        , "checksum": "sha256:45a06bfc107f44502b7e0503fcd5c8d2d2e6cff255134ed959275eb99caf9979"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "4wqtammobxoyixq6mok6psj2mp6d3pjlgjjgooaxh3pqxhhwxf2a-zlib-1.3.2-r0.apk":
+      { "id": "4wqtammobxoyixq6mok6psj2mp6d3pjlgjjgooaxh3pqxhhwxf2a-zlib-1.3.2-r0.apk"
+      , "name": "zlib-1.3.2-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/zlib-1.3.2-r0.apk"
+        , "checksum": "sha256:b224a975eb04ec3ec9bce7db2fce91c9e9d669996f79a9a750d4a3cd9324a404"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "ztbwuqmg77pfi6tzkoy4asfmpiy22x6lugzprlhhhvjldam36n4q-rubble-script-shebang":
+      { "id": "ztbwuqmg77pfi6tzkoy4asfmpiy22x6lugzprlhhhvjldam36n4q-rubble-script-shebang"
+      , "name": "rubble-script-shebang"
+      , "rubble_home": "/var/lib/rubble"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        , { "name": "features" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "\"${rubble:?missing rubble executable}\" -q output cat \"rubble://abi/inventory/rubble-script-shebang/hash:5aiqrlx25oc5cnfmxmk3gdcg4orqxlb7xk2ubqhkz7etjywxhumq\" script > \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        , { "write-file": {
+          "output": "features"
+        , "checksum": "sha256:c9d5eb10c2f7cdbcd81922bc09ec59de4bcd40107bcae3bf62151f15c8659ba5"
+        , "content": {
+            "value": [
+              "KLUv/WQwCdUmAKZ7pSXwlNMGwL/tWy2R8rJFn4xIisSTwHdJyxa6yL5IoRVkIluBwwsBqwCVAJUA1UO81OgU9"
+            , "1S7hBLnAzK/7ftL7dspukR+55dhAbqnvP9Ya6OiYVGhsExgODxUKDgsHRoVGxAclgpGhUWFw+HBUvCBAQEBaz"
+            , "Us/ladl1iIFQ8OqwAX3NPOvfvEwoVPibFIpkribDojfYWSjEQCVQYZjgLUOCT7EDAswhxkJs50cSyBvQQDTls"
+            , "SzYQFiVOiYFxCl/hpSpfxQ+nsa3eNU4pCSaEsvEFQtbhQseERa7FY+E4vj6Jro6iKL22QosNBA5uftO4e8ku0"
+            , "pbY+3Eusk2KNsN0VmrJ1L03u3pJaN8iAcRrla9jea/yk7apFRocOD4hKSMVSsXh48NjAa7Sdg/tUYTZX8+oFW"
+            , "1Iv8Xmk/DzITZ2xxK7gPHprb9s9thKntxdsxbOtHiPvW0uGDG9QdsXOOUbPbE7YihE+h+tSBw50RXWs5EGCdr"
+            , "rUpGrM6VNNSofWNNFEb5IYw8lqlJmyex/r44ExgS7Xueo8xrESJVYxHsLHLblV4myM0eYGXU6IQCB/tSI5K2Z"
+            , "nlP1pae817kHgQGeye0ca/AU56jxer2ja55A3DwQHOKd00/QYdiCMpvVN3jfLTYnhPjxjCd9VewzlOoTN1YTc"
+            , "b4y+gQOWNflmEq3JvlkxD2vg0ZvWt5oOIT5PM93m5zlKrGleTim1Jvz2ffftKSqR21t3HA++UZOixp3iFKIsV"
+            , "5Q14Tdp37Qexei+fV86EF+z5y+Fk0uL2dlHvvwIWynOatTjlN+SvfZA8HTOLKbtQVOHkSnNnDG2tm+Sizdb9R"
+            , "q5W5Wb1xpAAPbeacOlnd/GTnMvYg1opkpExgVSFgLrsg9TAAOBB6hhKVWmRESkIElSWQ4hCMJQHIq1vQHigT7"
+            , "mJZIaBSkoSFKY9jdWuSzrEDZfU3RKjEdvs7iTwcgGW9xwHVbkFI7FRK4rghCDZ798NNkVEpiBm8Oi3xfRAUBf"
+            , "sckyosaFMj6Hrn9zNz/Cd/domXcZyna3oQwONpoQj7iHq5WHVEi+eFVhtWI3+5OEUMM9DgVFnt01C5RH6d8SO"
+            , "3NyZm8QU37A7/bycPm6tDD1SHh61v7Ye11lqAwtJGdjQPllvMd8NwbcxU7adDBsIhbyTVyBDehlKNUMI54khV"
+            , "qb7iaFHKnCTQ9ZRuBAZadDPXpixa0YT0a9kTyLreQA/Peqbhy1Y+bDg0VGqdd8OrDIHaPC6+mA9lY7gzG8umc"
+            , "XQRxgfc9zUmyixgmhtLfCPFBcaNDGNNi5MRhE8GBAen6IiwCtTER/YAArEcpAdCru7nUAWqKXZLjnqDSt3j18"
+            , "i6zRQMq8e6Y1tJBbA27W+6ZB2+nbBUStYJaVrAUjbwJMMybF0QCDLdiFIkI5KXCZExHQRYwYINkgJns/y/6yk"
+            , "vZMDqAMV2952v+xZM3lJVQ6/Lrnzqv6GAgqqD36MxWNLPPYzKdV4GNMNXyejKqcFHQhmiA+JiZXagcyhZbg/9"
+            , "gz3wjvhaivllaCm8XYRMlkUOyH4o6H2AoMqYOc5h7V2VMMC2z07xyNamomox+2DxQRaOA8wO2zVG624JBv1so"
+            , "btHImS4Fre9XoCwMvrbNkDjZgGRBE7kMp4hVGSKwhV9lSKGtXaPT6A9TSivo="
+            ]
+          , "format": "compressed-text"
+          }
+        }
+      }
+        ]
+      }
+  , "4z45nx65xw3y3yxdn5rw2qf5jwclaclnqqfhofeig6xotqxb7ajq-patchelf":
+      { "id": "4z45nx65xw3y3yxdn5rw2qf5jwclaclnqqfhofeig6xotqxb7ajq-patchelf"
+      , "name": "patchelf"
+      , "platform": "x86_64-linux"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "download_url"
+          , "value": "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-x86_64.tar.gz"
+          }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        , { "name": "share" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "curl -Lfs --output patchelf.tar.gz \"$download_url\"\n"
+              , "tar -xvf patchelf.tar.gz\n"
+              , "mv bin/patchelf \"$bin\"\n"
+              , "mv share \"$share\"\n"
+              , "\"$bin\" --version"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "3sb5itkqd6r7oxf5jlyiwmezzwtf7wd5ef5lhlzp5obo44jnr3ha-musl-dev-1.2.5-r11.apk":
+      { "id": "3sb5itkqd6r7oxf5jlyiwmezzwtf7wd5ef5lhlzp5obo44jnr3ha-musl-dev-1.2.5-r11.apk"
+      , "name": "musl-dev-1.2.5-r11.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/musl-dev-1.2.5-r11.apk"
+        , "checksum": "sha256:d3b5ab01046a92b9a168b790f516606e320f015cbd4deeb584c5e115a02124ba"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "rpxr23txqir7gm3jeg34or6v3x33tk66wsicortn5nabw7pgv4za-musl-1.2.5-r11.apk":
+      { "id": "rpxr23txqir7gm3jeg34or6v3x33tk66wsicortn5nabw7pgv4za-musl-1.2.5-r11.apk"
+      , "name": "musl-1.2.5-r11.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/musl-1.2.5-r11.apk"
+        , "checksum": "sha256:61e84757a8bfbc0d7fa8f4ce6de9cd4d791714369d78f6a08e5b03510fb2a623"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "cq5rf2c3o57f72h3wxj4aav6a3a6dvq4jdgbq4wqj27du7n73gma-mpfr4-4.2.1-r0.apk":
+      { "id": "cq5rf2c3o57f72h3wxj4aav6a3a6dvq4jdgbq4wqj27du7n73gma-mpfr4-4.2.1-r0.apk"
+      , "name": "mpfr4-4.2.1-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/mpfr4-4.2.1-r0.apk"
+        , "checksum": "sha256:2493390b05fcaed445ca4fdbf3508422cd9a0af5b7051c6a63a832a65b549ff2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "2pkk7uybguht2x674mafoa4so6ckkoo7c5o5fx6mkcnl2ud6neia-mpc1-1.3.1-r1.apk":
+      { "id": "2pkk7uybguht2x674mafoa4so6ckkoo7c5o5fx6mkcnl2ud6neia-mpc1-1.3.1-r1.apk"
+      , "name": "mpc1-1.3.1-r1.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/mpc1-1.3.1-r1.apk"
+        , "checksum": "sha256:a63431b3ae86d2b376d7b3a48bf3ead220983cf1d172b3339cfc899dbfdc6d2a"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "2zxw44fhgjzrjfdxfy2wdkkicv2mhyh6d36apzqury43ieyngenq-linux-headers-6.6-r1.apk":
+      { "id": "2zxw44fhgjzrjfdxfy2wdkkicv2mhyh6d36apzqury43ieyngenq-linux-headers-6.6-r1.apk"
+      , "name": "linux-headers-6.6-r1.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/linux-headers-6.6-r1.apk"
+        , "checksum": "sha256:775cfa57ca5475d6dd87527a9889f6934e1dda11331060b7aee761d54a7c9949"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "2x22laodlqafljwyox5gwrz33zqdiz4n4hji34pewgwzpdl7doma-libstdc__-dev-14.2.0-r4.apk":
+      { "id": "2x22laodlqafljwyox5gwrz33zqdiz4n4hji34pewgwzpdl7doma-libstdc__-dev-14.2.0-r4.apk"
+      , "name": "libstdc__-dev-14.2.0-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/libstdc++-dev-14.2.0-r4.apk"
+        , "checksum": "sha256:8a2c14b49e5b3d75ec32d6f62966df8b1abad200ab9479172805ddc0f221e1df"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "yawesszimcd2qlnyer7jhtzq53jkzoadt5yxtoqgqjfmirmyrccq-libstdc__-14.2.0-r4.apk":
+      { "id": "yawesszimcd2qlnyer7jhtzq53jkzoadt5yxtoqgqjfmirmyrccq-libstdc__-14.2.0-r4.apk"
+      , "name": "libstdc__-14.2.0-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/libstdc++-14.2.0-r4.apk"
+        , "checksum": "sha256:5899f66390aba2ac908f0912fc62a49775830f523fa38fab406c1761821dfb07"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "c35i4mn5dmhidddyvzilwvmqnvugfaai2kfuxdqlq2pknwvaciuq-libgomp-14.2.0-r4.apk":
+      { "id": "c35i4mn5dmhidddyvzilwvmqnvugfaai2kfuxdqlq2pknwvaciuq-libgomp-14.2.0-r4.apk"
+      , "name": "libgomp-14.2.0-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/libgomp-14.2.0-r4.apk"
+        , "checksum": "sha256:86720fd442c4e48964d169769ad904fe3fc895b728767a9f2f79f2fb86bd3acb"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "ygiy7hr5xdujt354tflhamaynd7pulonibb4exgkrqfb6eyq3ova-libgcc-14.2.0-r4.apk":
+      { "id": "ygiy7hr5xdujt354tflhamaynd7pulonibb4exgkrqfb6eyq3ova-libgcc-14.2.0-r4.apk"
+      , "name": "libgcc-14.2.0-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/libgcc-14.2.0-r4.apk"
+        , "checksum": "sha256:8675867db77b5af11b88fd19186450333202d94cccd84a76a066dccd5b6e8cf1"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "7qwj66t7ongdyxwj3ixwfuso2w4z75ztu277i425f66q6z76xvka-libatomic-14.2.0-r4.apk":
+      { "id": "7qwj66t7ongdyxwj3ixwfuso2w4z75ztu277i425f66q6z76xvka-libatomic-14.2.0-r4.apk"
+      , "name": "libatomic-14.2.0-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/libatomic-14.2.0-r4.apk"
+        , "checksum": "sha256:888fc0cd460a584258cbec9a9d5cdea31060a23f18cdc9c75ff0fb9d35ff7fc5"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so":
+      { "id": "zkiff2cic77r6rxw3quhxg6gu4rznq4omwpz5tui7zwbvlqj6mbq-ld-musl.so"
+      , "name": "ld-musl.so"
+      , "platform": "x86_64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "rpxr23txqir7gm3jeg34or6v3x33tk66wsicortn5nabw7pgv4za-musl-1.2.5-r11.apk"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "musl_interpreter"
+          , "value": "ld-musl-x86_64.so.1"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "echo \"Extracting musl interpreter...\"\n"
+              , "tar -xzf \"$src\" 2>/dev/null || true\n"
+              , "\n"
+              , "cp -a \"lib/$musl_interpreter\" \"$out\"\n"
+              , "\n"
+              , "echo \"\"\n"
+              , "echo \"=== musl interpreter ===\"\n"
+              , "test -s \"$out\"\n"
+              , "echo \"$out\"\n"
+              , "ls -l \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "czbs6vraoytel3bfaxgi2lpunsggqjavasxwzqbkr6hwtyzzdbxa-jansson-2.14-r4.apk":
+      { "id": "czbs6vraoytel3bfaxgi2lpunsggqjavasxwzqbkr6hwtyzzdbxa-jansson-2.14-r4.apk"
+      , "name": "jansson-2.14-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/jansson-2.14-r4.apk"
+        , "checksum": "sha256:ccfcfbe5940220c2224c1d5b4ee282994ebf1419af6455041fa850413e58632d"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "hqjsomgsdf5yekubrqawdyfsvgwq3qx3uesyfpggo4ogd5ohak4q-isl26-0.26-r1.apk":
+      { "id": "hqjsomgsdf5yekubrqawdyfsvgwq3qx3uesyfpggo4ogd5ohak4q-isl26-0.26-r1.apk"
+      , "name": "isl26-0.26-r1.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/isl26-0.26-r1.apk"
+        , "checksum": "sha256:fad45095620e08c1410260cfef6723cc318dc9e554821cced49d263a9d1b4064"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "poyqkgpnrlor4i3embihirbnvv2lkaoat3pg55lbgvgmj2l4rlfa-gmp-6.3.0-r2.apk":
+      { "id": "poyqkgpnrlor4i3embihirbnvv2lkaoat3pg55lbgvgmj2l4rlfa-gmp-6.3.0-r2.apk"
+      , "name": "gmp-6.3.0-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/gmp-6.3.0-r2.apk"
+        , "checksum": "sha256:4b2790276c2a652883302a4f43712f18a666bfa50edccd95b71ae5d5b9520591"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "jnmg45vg4ddydtuugrzlidkaux7kjxduijdqlfs3fgcoewkrrnfa-gcc-14.2.0-r4.apk":
+      { "id": "jnmg45vg4ddydtuugrzlidkaux7kjxduijdqlfs3fgcoewkrrnfa-gcc-14.2.0-r4.apk"
+      , "name": "gcc-14.2.0-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/gcc-14.2.0-r4.apk"
+        , "checksum": "sha256:6727367ddd0c58203ac4e9b96a30d371e92da64c4b0f7b1b2afbd512c80a61be"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "w2nvclvz4n67yxhsuoio5kwv6aihl4fwjeeqdbjgqpmnauv7sfxa-g__-14.2.0-r4.apk":
+      { "id": "w2nvclvz4n67yxhsuoio5kwv6aihl4fwjeeqdbjgqpmnauv7sfxa-g__-14.2.0-r4.apk"
+      , "name": "g__-14.2.0-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/g++-14.2.0-r4.apk"
+        , "checksum": "sha256:49e912e85f0b7cbc26e812f4f92d5d86c7e6e4d8de4e20c980d6ac148ed8cc57"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "zfy67agwxmyoiii7ufxqtoila6o65ig2u3aqqjo72h2snsjskhja-binutils-2.43.1-r3.apk":
+      { "id": "zfy67agwxmyoiii7ufxqtoila6o65ig2u3aqqjo72h2snsjskhja-binutils-2.43.1-r3.apk"
+      , "name": "binutils-2.43.1-r3.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/binutils-2.43.1-r3.apk"
+        , "checksum": "sha256:eb1ae53b03b13c8e1ba7a97c23b7b64ef27c71080b9da5a21e7365188f48d361"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64":
+      { "id": "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64"
+      , "name": "bash-linux-x86_64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-x86_64"
+        , "checksum": "sha256:64469a9512a00199c85622ec56f870f97d50457a4e06e0cfa39bae7adf0cc8f2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash":
+      { "id": "bxchorbehgapcopsqwo7w5zwjgenujywlkkytlnad3dvy5hpqc5q-bash"
+      , "name": "bash"
+      , "platform": "x86_64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$out/bin\"\n"
+              , "\n"
+              , "# Copy bash binary (src is the downloaded file directly)\n"
+              , "cp -v \"$src\" \"$out/bin/bash\"\n"
+              , "chmod +x \"$out/bin/bash\"\n"
+              , "\n"
+              , "# Create sh symlink\n"
+              , "ln -s bash \"$out/bin/sh\"\n"
+              , "\n"
+              , "# Verify\n"
+              , "echo \"\"\n"
+              , "echo \"=== Verifying bash installation ===\"\n"
+              , "\"$out/bin/bash\" --version\n"
+              , "test -x \"$out/bin/bash\"\n"
+              , "\"$out/bin/bash\" -c 'echo bash runtime check'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}
