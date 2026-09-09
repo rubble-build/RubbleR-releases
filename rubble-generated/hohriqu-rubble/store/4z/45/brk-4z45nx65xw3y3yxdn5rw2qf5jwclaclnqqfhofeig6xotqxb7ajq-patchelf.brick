@@ -1,0 +1,30 @@
+{ "id": "4z45nx65xw3y3yxdn5rw2qf5jwclaclnqqfhofeig6xotqxb7ajq-patchelf"
+, "name": "patchelf"
+, "platform": "x86_64-linux"
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "download_url"
+    , "value": "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-x86_64.tar.gz"
+    }
+  ]
+, "outputs": [
+    { "name": "bin" }
+  , { "name": "share" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "curl -Lfs --output patchelf.tar.gz \"$download_url\"\n"
+        , "tar -xvf patchelf.tar.gz\n"
+        , "mv bin/patchelf \"$bin\"\n"
+        , "mv share \"$share\"\n"
+        , "\"$bin\" --version"
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
