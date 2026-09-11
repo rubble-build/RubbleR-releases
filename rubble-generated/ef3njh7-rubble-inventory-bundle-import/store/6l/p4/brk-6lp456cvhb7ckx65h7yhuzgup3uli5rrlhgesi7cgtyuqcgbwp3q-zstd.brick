@@ -1,0 +1,283 @@
+{ "id": "6lp456cvhb7ckx65h7yhuzgup3uli5rrlhgesi7cgtyuqcgbwp3q-zstd"
+, "name": "zstd"
+, "platform": "aarch64-linux"
+, "build_platform": "aarch64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "5vexncx3cian4rymupdaft3bwnvswvrzp6pcxohuilbll3lii53a-zstd-libs-1.5.6-r2.apk"
+    , "alias": "zstd_libs_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "p437dghiaad2yb57qr2yhpsmwaw3z3jwfkdlsqaf6pgahrueysja-zstd-1.5.6-r2.apk"
+    , "alias": "zstd_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "cndex52rgwiybhxcbkpry2isc55dz3hrc5lblmzr3xyeilghixda-patchelf"
+    , "alias": "patchelf"
+    , "transitive": "false"
+    }
+  , { "brick": "65xn763kfhf7ye2ax5rr3hjotrij3qjagkddvfhqarwrt2a7mnha-ld-musl.so"
+    , "alias": "ld_musl"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  , { "name": "bin" }
+  , { "name": "lib" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "mkdir -p zstd-extract zstdlibs-extract\n"
+        , "tar -xzf \"$zstd_apk\" -C zstd-extract\n"
+        , "tar -xzf \"$zstd_libs_apk\" -C zstdlibs-extract\n"
+        , "\n"
+        , "mkdir -p \"$lib\"\n"
+        , "find zstdlibs-extract -name \"libzstd.so*\" -exec cp -a {} \"$lib/\" \\;\n"
+        , "\n"
+        , "cp zstd-extract/usr/bin/zstd \"$out\"\n"
+        , "chmod +x \"$out\"\n"
+        , "\"$patchelf\" --set-interpreter \"$ld_musl\" --set-rpath \"$lib\" \"$out\"\n"
+        , "\n"
+        , "# bin directory with symlinks for PATH integration\n"
+        , "mkdir -p \"$bin\"\n"
+        , "ln -s \"../$(basename \"$out\")\" \"$bin/zstd\"\n"
+        , "ln -s \"../$(basename \"$out\")\" \"$bin/zstdcat\"\n"
+        , "ln -s \"../$(basename \"$out\")\" \"$bin/unzstd\"\n"
+        , "ln -s \"../$(basename \"$out\")\" \"$bin/zstdmt\"\n"
+        , "\n"
+        , "# Verify\n"
+        , "echo \"\"\n"
+        , "echo \"=== Verifying zstd installation ===\"\n"
+        , "assert_needed() {\n"
+        , "  elf=$1\n"
+        , "  shift\n"
+        , "  actual=$(\"$patchelf\" --print-needed \"$elf\" | LC_ALL=C sort)\n"
+        , "  expected=$(printf '%s\\n' \"$@\" | LC_ALL=C sort)\n"
+        , "  test \"$actual\" = \"$expected\"\n"
+        , "}\n"
+        , "\n"
+        , "musl_soname=$(\"$patchelf\" --print-soname \"$ld_musl\")\n"
+        , "case \"$musl_soname\" in\n"
+        , "  libc.musl-*.so.1) ;;\n"
+        , "  *) false ;;\n"
+        , "esac\n"
+        , "\n"
+        , "test \"$(\"$patchelf\" --print-interpreter \"$out\")\" = \"$ld_musl\"\n"
+        , "test \"$(\"$patchelf\" --print-rpath \"$out\")\" = \"$lib\"\n"
+        , "assert_needed \"$out\" libzstd.so.1 \"$musl_soname\"\n"
+        , "\n"
+        , "test -L \"$lib/libzstd.so.1\"\n"
+        , "libzstd_target=$(readlink \"$lib/libzstd.so.1\")\n"
+        , "case \"$libzstd_target\" in\n"
+        , "  \"\"|/*|*/*) false ;;\n"
+        , "esac\n"
+        , "libzstd_real=\"$lib/$libzstd_target\"\n"
+        , "test -f \"$libzstd_real\"\n"
+        , "test ! -L \"$libzstd_real\"\n"
+        , "test \"$(\"$patchelf\" --print-soname \"$libzstd_real\")\" = libzstd.so.1\n"
+        , "assert_needed \"$libzstd_real\" \"$musl_soname\"\n"
+        , "\n"
+        , "\"$ld_musl\" --library-path \"$lib\" \"$out\" --version"
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "5vexncx3cian4rymupdaft3bwnvswvrzp6pcxohuilbll3lii53a-zstd-libs-1.5.6-r2.apk":
+      { "id": "5vexncx3cian4rymupdaft3bwnvswvrzp6pcxohuilbll3lii53a-zstd-libs-1.5.6-r2.apk"
+      , "name": "zstd-libs-1.5.6-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/zstd-libs-1.5.6-r2.apk"
+        , "checksum": "sha256:2a15740cf272bf3babb438b675f0f894da0b4fa07b42dd86d0d07aee69378251"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "p437dghiaad2yb57qr2yhpsmwaw3z3jwfkdlsqaf6pgahrueysja-zstd-1.5.6-r2.apk":
+      { "id": "p437dghiaad2yb57qr2yhpsmwaw3z3jwfkdlsqaf6pgahrueysja-zstd-1.5.6-r2.apk"
+      , "name": "zstd-1.5.6-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/zstd-1.5.6-r2.apk"
+        , "checksum": "sha256:53f5626aed8e2ea128b7a71b4ed6944e953b82ec456a6a7a8899932c4ae4a5f0"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz":
+      { "id": "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz"
+      , "name": "patchelf-0.18.0-aarch64.tar.gz"
+      , "src": {
+          "url": "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-aarch64.tar.gz"
+        , "checksum": "sha256:ae13e2effe077e829be759182396b931d8f85cfb9cfe9d49385516ea367ef7b2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "cndex52rgwiybhxcbkpry2isc55dz3hrc5lblmzr3xyeilghixda-patchelf":
+      { "id": "cndex52rgwiybhxcbkpry2isc55dz3hrc5lblmzr3xyeilghixda-patchelf"
+      , "name": "patchelf"
+      , "platform": "aarch64-linux"
+      , "inputs": [
+          { "brick": "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        , { "name": "share" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "tar -xvf \"$src\"\n"
+              , "mv bin/patchelf \"$bin\"\n"
+              , "mv share \"$share\"\n"
+              , "\"$bin\" --version"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "qs3nb5qcclaodccu6unqj42b76lly2d4htpputfm77xzao6fzema-musl-1.2.5-r11.apk":
+      { "id": "qs3nb5qcclaodccu6unqj42b76lly2d4htpputfm77xzao6fzema-musl-1.2.5-r11.apk"
+      , "name": "musl-1.2.5-r11.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/musl-1.2.5-r11.apk"
+        , "checksum": "sha256:721010e6bff908878d9c527428598661be59dde0d9f013f8431d01fd4dd16652"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "65xn763kfhf7ye2ax5rr3hjotrij3qjagkddvfhqarwrt2a7mnha-ld-musl.so":
+      { "id": "65xn763kfhf7ye2ax5rr3hjotrij3qjagkddvfhqarwrt2a7mnha-ld-musl.so"
+      , "name": "ld-musl.so"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "qs3nb5qcclaodccu6unqj42b76lly2d4htpputfm77xzao6fzema-musl-1.2.5-r11.apk"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "musl_interpreter"
+          , "value": "ld-musl-aarch64.so.1"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "echo \"Extracting musl interpreter...\"\n"
+              , "tar -xzf \"$src\" 2>/dev/null || true\n"
+              , "\n"
+              , "cp -a \"lib/$musl_interpreter\" \"$out\"\n"
+              , "\n"
+              , "echo \"\"\n"
+              , "echo \"=== musl interpreter ===\"\n"
+              , "test -s \"$out\"\n"
+              , "echo \"$out\"\n"
+              , "ls -l \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}
