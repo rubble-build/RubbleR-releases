@@ -1,0 +1,172 @@
+{ "id": "4ravoggd7ip3ozxtjw2pppx3c2btu4xx7jhfrevaupwjdbyyrqmq-RubbleR.git.partial"
+, "name": "RubbleR.git.partial"
+, "src": {
+    "repo": "https://github.com/chaifeng/RubbleR.git"
+  , "commit": "a9f293989379cb83a2ed90ce39ac4baa96f03ce4"
+  , "paths": [
+      "./scripts/glibc-runtime-support/"
+    ]
+  }
+, "inputs": [
+    { "brick": "jzib76o6jwvszofr4g7p5ceo7li2szw2zm25pt6bwpu4plo7wdwq-rubble-src-checkout"
+    , "alias": "rubble_src_checkout"
+    , "transitive": "false"
+    }
+  , { "brick": "xpsu7cfnztrrwbvvhovnnlzvjzp3f6qf6funj7ehcobaqgpnx6ha-rubble-canonical-script"
+    , "alias": "rubble_canonical_script"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "RUBBLE_SRC_FETCH_MODE RUBBLE_SRC_LOCAL_PATHS all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "dir" }
+  , { "name": "archive__impure__" }
+  , { "name": "script" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "mkdir -v \"$dir\"\n"
+        , "echo \"${brick[src::commit]}\" > \"${dir}/.rubble-deferred\"\n"
+        , "\n"
+        , "mkdir -v \"$archive\"\n"
+        , "echo \"${brick[src::commit]}\" > \"${archive}/.rubble-deferred\"\n"
+        , "\n"
+        , "source \"${rubble_canonical_script[script]}\"\n"
+        , "\n"
+        , "rubble_canonical_script << __EOF_SCRIPT_207__ | tee \"$script\"\n"
+        , "set -x\n"
+        , "\n"
+        , "declare -p brick &>/dev/null || declare -A brick\n"
+        , "repo=\"\\${brick_src_repo:-\\${brick[src::origin]:-${brick[src::origin]}}}\"\n"
+        , "commit=\"\\${brick_src_commit:-\\${brick[src::commit]:-${brick[src::commit]}}}\"\n"
+        , "paths=\"${brick[src::paths]}\"\n"
+        , "gitRepoCredential=\"\"\n"
+        , "src_archive=\"$archive\"\n"
+        , "inner_path=\"\"\n"
+        , "deferred_marker=\".rubble-deferred\"\n"
+        , "\n"
+        , "if [[ -z \"\\${repo:-}\" || -z \"\\${commit:-}\" ]]; then\n"
+        , "    echo \"Error: Missing repo or commit information\" >&2\n"
+        , "    exit 1\n"
+        , "fi\n"
+        , "\n"
+        , "source \"${rubble_src_checkout}\" \"\\${1:-\\${dir}}\"\n"
+        , "__EOF_SCRIPT_207__"
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "jzib76o6jwvszofr4g7p5ceo7li2szw2zm25pt6bwpu4plo7wdwq-rubble-src-checkout":
+      { "id": "jzib76o6jwvszofr4g7p5ceo7li2szw2zm25pt6bwpu4plo7wdwq-rubble-src-checkout"
+      , "name": "rubble-src-checkout"
+      , "rubble_home": "/var/lib/rubble"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        , { "name": "features" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "\"${rubble:?missing rubble executable}\" -q output cat \"rubble://abi/inventory/rubble-src-checkout/hash:ohoclbe3o2rumgwz4lw64mj6434ndikdwadyv4pvugzqs2iykpca\" script > \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        , { "write-file": {
+          "output": "features"
+        , "checksum": "sha256:788f78cdf9bce2a7b401aa5a867d10d9279f2c53c137a477c3ba314710552314"
+        , "content": {
+            "value": [
+              "KLUv/WT1CTUrADpHDAwk8JK2DZDG75vfLTVrH5OIpLBILakVEeA5tVOqra6LJA6LloGHxgCtALcAR3aOzQhbk"
+            , "bnEx6VziPE5PHSBAj1J2JLuYnWo0SnupXYI8WunxwhxMiDz276/0r6dokvkd34XEqB7yvsMpSyUigoF4nKBQS"
+            , "ExoUBMLpSJBYPC4kKZiKhQLBYYLgQZCAAAoJSC4u/UeQeFGMGwoAgwwT3t3Ls/KEx4lBMql8Sx0QLu+HimjHS"
+            , "Q2bDUMA5l7sDgAGEjOkDQtIMPzRNNW/AM7rT1oJcAcUIDPT2OdWhF1nJkYLOv3TNOB9TJgYGEN8eZFhMiLBgB"
+            , "ko2D7E43Le+ecoc0y02Yy+VywXZXJ8rXz9sZSnizkV3atJsgBZJ+OAj58NgnSVNTvXI/tKXuOyP8Pswd9Sg/8"
+            , "yL3VjPuuBf23WPOFOQZhdbmZS0jpKW2O/tOnnRL64MQhjolhLRGEeRJX2SWX5S0ezQ9m82rmMT1VYZOm8+QW/"
+            , "paiR3hcfbW3rZ7SyVGbzH70J0ftHDTWpc2yeNQqwZb0U2reN9aLpS8OdnTukeJkTPlSERJntFe7EXvVPYoUrV"
+            , "n+7C1CbPu0s8QonmtJcQIcYpPs1Ldpoy0he1xCUEW1FMq9iddRpbNbi7+ciZGaPUfEDfNvUhxVnDwQkun0b5Z"
+            , "H6eM3YmOarNYNzMYEHExQWmgWCbQM72FmuUhrLi4gGBnmnkrRVbFgsG+2ZaygLhYqLhUFiYUlcvEUmFgwLAwX"
+            , "S3Xa8jnSVexd54j7rW3NDpPeN6UGLlpZlKx7mPPtMdf5VI5kQNKoBWVFGUzO0JMKCooF8rFQoPyuISVmyYGIb"
+            , "xvxe/J0e1OAca0SOuzb0wqflMMWjhUuLVJQglLP0f7NujZrBdxzykEmXtvm+bIMmTNY041npFs2HPw/dbQow3"
+            , "zldDlIr+VcbVTIaObvihh18apUc0PurY+N+FS3AqRKJavffGsmn2PkrETauam52CcYnuv1SNtNy3E2RjZpiad"
+            , "psue2mMn1aN9rlenji9CXEpaSi+BDqgRtVOGZGhGCpIkhWEMIQiCMBRKc+4GIjFhzVEpqApS0Az7fwbqDj76g"
+            , "Z3VFeiwe9d1njTBWekvm7J/fberfQ46siVhizKKW1gusFVISc++8t19osUxIhBsrxobDh89MQD6jcDBqPt4Vn"
+            , "qcJ0IDYDs6yXx0KO4xDyHD2bgGCq2oFLCBRIgtLqhPieqc3i7dcVKtOGWdbrLCkpMhNstxoXyHtSDe/ZWUI5I"
+            , "dc5X/aPS8ea9RGDa0dT2rtILAIaYu2LG8213hQOZMPK58OGGBan/5mEq1ivkdMIuTZF8AdkDqAhqNFcxKHS/m"
+            , "V8N0sXBt21x1AxhOEmDyARL5KmYLcdR86b1u9OomQ1/qqjGDHccOhoRSri07tiSx9IYa8LBaR0CWCbm4o11Zj"
+            , "3u0HN1B6TL+3wVbv5kIu2YtrPIUdIZvE/MYx529N77ZBaTtsn9797VhD9AhGmvWy0sAjFlUfwU/HsnJu+twt8"
+            , "DZGvIwbhC+G3oOnoYgfiaRHBgCezpBFAJ+gTB9NAC/heg6uVZHhXYiGG2YzDK1cpXBJDPNpJLZ6s+VI8p66lf"
+            , "qM7dsglzmfQwaJW9M+sC4TYIKQ7T4qiRyyiPITpFRU+XdKUHt1M9Wi7mrCVZVdVTz99d4VW/QULJpdpveIUj0"
+            , "6LyH/aItI3fupaqGOW/uVsk9UZ5deLdzkMTGkwd7ggIuztpfBcsGkcCzID4v1A05/FYUWORTbW8ENGugqbcsj"
+            , "ScGFXzwWVIQ4GZR7zkK5/R2UYnAig0tNYHiVdfOlSTSXGI+tRkRqTD1UsuYgu47136F1q4/RCHLNA=="
+            ]
+          , "format": "compressed-text"
+          }
+        }
+      }
+        ]
+      }
+  , "xpsu7cfnztrrwbvvhovnnlzvjzp3f6qf6funj7ehcobaqgpnx6ha-rubble-canonical-script":
+      { "id": "xpsu7cfnztrrwbvvhovnnlzvjzp3f6qf6funj7ehcobaqgpnx6ha-rubble-canonical-script"
+      , "name": "rubble-canonical-script"
+      , "rubble_home": "/var/lib/rubble"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        , { "name": "features" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "\"${rubble:?missing rubble executable}\" -q output cat \"rubble://abi/inventory/rubble-canonical-script/hash:xmu4nbz6boetmf5ol62lppybf53zfqjrdymakcjulfxc54plh34a\" script > \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        , { "write-file": {
+          "output": "features"
+        , "checksum": "sha256:72d8985451d7b3140f89e361dd27ed5ac724d19765e135e7bbec8f9a0dd238c4"
+        , "content": {
+            "value": [
+              "KLUv/WRBBk0dAPa4mCIwc3JdC5Ikb5KMPkmTtJdQNVO1P9PyRr+z3fgMaWGgHsQBpwCEAIcA19lYPvc4NlyyB"
+            , "lN1xH54nktBuNsN3LJ650ZKFw8WEw8SlQwLyoUDRmWCwYFCUUHB4FB5oKBMPGAwNFQGNg4AACClheTZ0WNCpD"
+            , "tKA0MauIRlfezcjEiXkBBSJDQoeFgzOFAYh0UdygOhzOqODyek4MBpMq0xAgTGBw70yQ1CSLMGEYRJeBwfgW/"
+            , "ayiUMlS4vKolApvk3QVYFtEEBgYRkTRP1JVAuNAINYtUafWRn3MSV/iKUfvkRY2/wVjYyleta8/m0ip99CfGD"
+            , "UefwntfLOf9ZVi3LLBumz+UiazH9JrTcCrJ5CaKv0NOjlZbL54/9/Hlsl83vj4pZdkpIf6NWi7K8yUftI+ZPE"
+            , "fdknZ/dOn/19rUvdx+11VuNa/H9IG7nfGH2PSVNKpWVEG4XcY1UYhY5bhJZGu+91UkMG2NLJJL7lkrhpUdfyC"
+            , "yDDR/XNTa+lunBfpHEf6+yo4ncVeImmcWNp6fibul5eWVHTNE5/+aWHVn5r1BeNve8i+o6F+aTPMDJpf66m8/"
+            , "lVu8bX4a9KmUNk+k9gs47GUN1Cs8idHJdpjlnzN9EF7eS5WIIk7+s0mNpkmHZ+pvpFWLJ8p6Cw/er3O4xrXyV"
+            , "LB1EqaMqm0seWUt+Eb/w2q24yep8ZCsvm5RB6FjkCiuVtRb5OV4kMhgs7p2ftKyvbFl81EbX+ajH5rruN7WBt"
+            , "PNZTR75iJ/Xla6Xzuc5uSaEfvy3NuImw9ajbGf10spHPY7ML83OoeJDixmiDKHmvdeAhqgRIUQKKSmZkYKCJF"
+            , "kOIIQICHEOb4IAXVCV0MwlKShoYf83doOpYDZwwAgDO2gkOhMP3w0xKRhtva4hS4vtMXmlwWksW0HpaG0miMU"
+            , "63Kpue6SJoMjFDs6B1GV8N7Ef6dMi6QFtNdiPPESWlCd64+9Ng2b2n44VAzT+Vtkf/E88OG+FROzMHGIcJC6Y"
+            , "9srWhq3xgnSLY0+cAiyY0EH0fvxR2tmBj7D5Qj2H7gkyCA6zPB/QJAzSMOiRJA/XDOBQwBiwoQEfmZDUoACk2"
+            , "q2DgW5YXwQ2Y7JKCTH+A8Q8KxrOSwwaAq1/sgPr6RORY8Ma9wzhClKlsVCCD/Oha3Xtr6McGBGqPK7EWcWZR0"
+            , "dAdhF0zCQrh1JXlQTTHDf94RcoSsQVwccOfoem834WrcthgEEN7gpb8XG5KN66n6TtqULb5Q/FlyxJ"
+            ]
+          , "format": "compressed-text"
+          }
+        }
+      }
+        ]
+      }
+  }
+}
