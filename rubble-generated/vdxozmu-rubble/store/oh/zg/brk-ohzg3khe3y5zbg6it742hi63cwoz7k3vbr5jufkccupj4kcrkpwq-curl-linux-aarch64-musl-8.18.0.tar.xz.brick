@@ -1,0 +1,28 @@
+{ "id": "ohzg3khe3y5zbg6it742hi63cwoz7k3vbr5jufkccupj4kcrkpwq-curl-linux-aarch64-musl-8.18.0.tar.xz"
+, "name": "curl-linux-aarch64-musl-8.18.0.tar.xz"
+, "src": {
+    "url": "https://github.com/stunnel/static-curl/releases/download/8.18.0/curl-linux-aarch64-musl-8.18.0.tar.xz"
+  , "checksum": "sha256:4df5282b8ef0e336c64faa52b546272b421146d522733606ae5343b416b646b2"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

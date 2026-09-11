@@ -1,0 +1,28 @@
+{ "id": "gb4dlxkuu36d4olrckbxrdwlkvocpv2amucqerzpih2nv5w3uxuq-libstdc__6_14.2.0-19_arm64.deb"
+, "name": "libstdc__6_14.2.0-19_arm64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250317T031857Z/pool/main/g/gcc-14/libstdc++6_14.2.0-19_arm64.deb"
+  , "checksum": "sha256:6669b0c52a2e7c6af9adfdabce3ff6e286065cdfbc7b85280862b5f799daebee"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
