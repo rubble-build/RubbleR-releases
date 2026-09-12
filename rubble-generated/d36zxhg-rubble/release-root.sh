@@ -312,7 +312,7 @@ release_brick_files=(
 
   'store/a7/ud/brk-a7ud4y2emz4jysev4e5p275gywgintjlenar2fsfrjokko6cdclq-bootstrap-env.brick'
 
-  'store/7g/ft/brk-7gftrauqvpnrd5754vqlnz3iyljldhwm55ogv3mu7lt2mjr6jhwa-RubbleR.git.partial.brick'
+  'store/w4/54/brk-w454nqkzwaes5sipplnsifvijlalui7oas47jt43b27szts3pz4a-RubbleR.git.partial.brick'
 
   'store/or/yv/brk-oryvpwa2ctnjptul44ck6l3nzemkchspnw5qr45tjuz3w44z5cqa-RubbleR.git.partial.brick'
 
@@ -350,11 +350,11 @@ release_brick_files=(
 
   'store/p2/y6/brk-p2y62ixbitokcpknxcdicbt27xe6kt2sgl4cwhrou24siujik46q-rubble-deps-cache.brick'
 
-  'store/j3/z3/brk-j3z3m7ejctidmmpdp3ahlm27poh6gqzjufnhyztt4iptek3iukka-rubble-web-assets.brick'
+  'store/wn/76/brk-wn765puibuqspttk5t23jagim6c3i7xrestty5wp5ihfcx5k5bxa-rubble-web-assets.brick'
 
-  'store/le/ty/brk-lety2yfvorzhdfsgnq2x2kceelke3pwt7gbenykhknpntd7u7rnq-RubbleR.git.brick'
+  'store/je/z2/brk-jez2sbbjieywlgekhwhs23jazl2lzvqfjtog5rlsrp2hpzeq5exq-RubbleR.git.brick'
 
-  'store/vd/xo/brk-vdxozmu5v765ekufq42ipojnfws7gdpzabjpaksqfievksbdiu7q-rubble.brick'
+  'store/d3/6z/brk-d36zxhgikhmojnqedc6wmfyfu4xc3zvcnexsyo2onyixqsebt7tq-rubble.brick'
 
 )
 for relative in "${release_brick_files[@]}"; do

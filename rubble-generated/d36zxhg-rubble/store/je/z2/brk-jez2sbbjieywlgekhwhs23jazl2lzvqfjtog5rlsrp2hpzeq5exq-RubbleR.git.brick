@@ -1,8 +1,8 @@
-{ "id": "lety2yfvorzhdfsgnq2x2kceelke3pwt7gbenykhknpntd7u7rnq-RubbleR.git"
+{ "id": "jez2sbbjieywlgekhwhs23jazl2lzvqfjtog5rlsrp2hpzeq5exq-RubbleR.git"
 , "name": "RubbleR.git"
 , "src": {
     "repo": "https://github.com/chaifeng/RubbleR.git"
-  , "commit": "8d3913ec4e3b954a178d9ac7f0a4fa26a0a09dc3"
+  , "commit": "0e22f556c3a5d87cf2b2d289f26a96f54a77b583"
   }
 , "inputs": [
     { "brick": "jzib76o6jwvszofr4g7p5ceo7li2szw2zm25pt6bwpu4plo7wdwq-rubble-src-checkout"

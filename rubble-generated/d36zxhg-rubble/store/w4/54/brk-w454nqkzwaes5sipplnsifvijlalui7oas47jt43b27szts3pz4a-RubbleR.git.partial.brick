@@ -1,8 +1,8 @@
-{ "id": "7gftrauqvpnrd5754vqlnz3iyljldhwm55ogv3mu7lt2mjr6jhwa-RubbleR.git.partial"
+{ "id": "w454nqkzwaes5sipplnsifvijlalui7oas47jt43b27szts3pz4a-RubbleR.git.partial"
 , "name": "RubbleR.git.partial"
 , "src": {
     "repo": "https://github.com/chaifeng/RubbleR.git"
-  , "commit": "f6a7dbf5389fa84cf1dcc4be7a10f78609cd0bba"
+  , "commit": "0e22f556c3a5d87cf2b2d289f26a96f54a77b583"
   , "paths": [
       "./Cargo.lock"
     , "./Cargo.toml"

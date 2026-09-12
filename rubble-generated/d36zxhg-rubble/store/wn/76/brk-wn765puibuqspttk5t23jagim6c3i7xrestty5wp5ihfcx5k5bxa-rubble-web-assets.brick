@@ -1,4 +1,4 @@
-{ "id": "j3z3m7ejctidmmpdp3ahlm27poh6gqzjufnhyztt4iptek3iukka-rubble-web-assets"
+{ "id": "wn765puibuqspttk5t23jagim6c3i7xrestty5wp5ihfcx5k5bxa-rubble-web-assets"
 , "name": "rubble-web-assets"
 , "platform": "aarch64-linux"
 , "build_platform": "aarch64-linux"
@@ -53,7 +53,7 @@
         ]
       }
     }
-  , { "brick": "7gftrauqvpnrd5754vqlnz3iyljldhwm55ogv3mu7lt2mjr6jhwa-RubbleR.git.partial"
+  , { "brick": "w454nqkzwaes5sipplnsifvijlalui7oas47jt43b27szts3pz4a-RubbleR.git.partial"
     , "alias": "src"
     , "transitive": "false"
     , "hooks": {
@@ -6225,12 +6225,12 @@
           }
         ]
       }
-  , "7gftrauqvpnrd5754vqlnz3iyljldhwm55ogv3mu7lt2mjr6jhwa-RubbleR.git.partial":
-      { "id": "7gftrauqvpnrd5754vqlnz3iyljldhwm55ogv3mu7lt2mjr6jhwa-RubbleR.git.partial"
+  , "w454nqkzwaes5sipplnsifvijlalui7oas47jt43b27szts3pz4a-RubbleR.git.partial":
+      { "id": "w454nqkzwaes5sipplnsifvijlalui7oas47jt43b27szts3pz4a-RubbleR.git.partial"
       , "name": "RubbleR.git.partial"
       , "src": {
           "repo": "https://github.com/chaifeng/RubbleR.git"
-        , "commit": "f6a7dbf5389fa84cf1dcc4be7a10f78609cd0bba"
+        , "commit": "0e22f556c3a5d87cf2b2d289f26a96f54a77b583"
         , "paths": [
             "./Cargo.lock"
           , "./Cargo.toml"

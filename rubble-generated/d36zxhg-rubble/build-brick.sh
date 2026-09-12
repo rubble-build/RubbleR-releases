@@ -121,7 +121,7 @@ brick_file="${1:?Brick file is required}"
 shift
 prerequisite_brick_files=("$@")
 export RUBBLE_BRICK_FILE="${brick_file}"
-lifecycle_relative='rubble-generated/vdxozmu-rubble/lifecycle.sh'
+lifecycle_relative='rubble-generated/d36zxhg-rubble/lifecycle.sh'
 source "${GITHUB_WORKSPACE:?}/${lifecycle_relative}"
 runner_temp="$(required_env RUNNER_TEMP)"
 github_env="$(required_env GITHUB_ENV)"
@@ -139,11 +139,11 @@ required_env RUBBLE_PIPELINE_AUTH_KEY >/dev/null
 config_file="${auth_dir}/config.yaml"
 credentials_file="${auth_dir}/credentials.yaml"
 
-pipeline_auth_relative='rubble-generated/vdxozmu-rubble/pipeline-auth.enc'
+pipeline_auth_relative='rubble-generated/d36zxhg-rubble/pipeline-auth.enc'
 [[ "${pipeline_auth_file_relative}" == "${pipeline_auth_relative}" ]] || \
   fail "pipeline authentication path does not match the declared payload"
 pipeline_auth_file="${GITHUB_WORKSPACE:?GITHUB_WORKSPACE is required}/${pipeline_auth_file_relative}"
-open_auth_script_relative='rubble-generated/vdxozmu-rubble/open-pipeline-auth.mjs'
+open_auth_script_relative='rubble-generated/d36zxhg-rubble/open-pipeline-auth.mjs'
 open_auth_script="${GITHUB_WORKSPACE}/${open_auth_script_relative}"
 [[ -f "${open_auth_script}" ]] || fail "declared pipeline authentication action is missing"
 log "opening one-use pipeline authentication files"

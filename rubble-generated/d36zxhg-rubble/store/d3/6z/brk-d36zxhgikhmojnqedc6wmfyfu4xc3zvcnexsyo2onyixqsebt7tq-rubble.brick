@@ -1,4 +1,4 @@
-{ "id": "vdxozmu5v765ekufq42ipojnfws7gdpzabjpaksqfievksbdiu7q-rubble"
+{ "id": "d36zxhgikhmojnqedc6wmfyfu4xc3zvcnexsyo2onyixqsebt7tq-rubble"
 , "name": "rubble"
 , "platform": "aarch64-linux"
 , "build_platform": "aarch64-linux"
@@ -57,11 +57,11 @@
     , "alias": "deps_cache"
     , "transitive": "false"
     }
-  , { "brick": "j3z3m7ejctidmmpdp3ahlm27poh6gqzjufnhyztt4iptek3iukka-rubble-web-assets"
+  , { "brick": "wn765puibuqspttk5t23jagim6c3i7xrestty5wp5ihfcx5k5bxa-rubble-web-assets"
     , "alias": "web_assets"
     , "transitive": "false"
     }
-  , { "brick": "lety2yfvorzhdfsgnq2x2kceelke3pwt7gbenykhknpntd7u7rnq-RubbleR.git"
+  , { "brick": "jez2sbbjieywlgekhwhs23jazl2lzvqfjtog5rlsrp2hpzeq5exq-RubbleR.git"
     , "alias": "src"
     , "transitive": "false"
     , "hooks": {
@@ -6373,12 +6373,12 @@
           }
         ]
       }
-  , "7gftrauqvpnrd5754vqlnz3iyljldhwm55ogv3mu7lt2mjr6jhwa-RubbleR.git.partial":
-      { "id": "7gftrauqvpnrd5754vqlnz3iyljldhwm55ogv3mu7lt2mjr6jhwa-RubbleR.git.partial"
+  , "w454nqkzwaes5sipplnsifvijlalui7oas47jt43b27szts3pz4a-RubbleR.git.partial":
+      { "id": "w454nqkzwaes5sipplnsifvijlalui7oas47jt43b27szts3pz4a-RubbleR.git.partial"
       , "name": "RubbleR.git.partial"
       , "src": {
           "repo": "https://github.com/chaifeng/RubbleR.git"
-        , "commit": "f6a7dbf5389fa84cf1dcc4be7a10f78609cd0bba"
+        , "commit": "0e22f556c3a5d87cf2b2d289f26a96f54a77b583"
         , "paths": [
             "./Cargo.lock"
           , "./Cargo.toml"
@@ -9083,8 +9083,8 @@
           }
         ]
       }
-  , "j3z3m7ejctidmmpdp3ahlm27poh6gqzjufnhyztt4iptek3iukka-rubble-web-assets":
-      { "id": "j3z3m7ejctidmmpdp3ahlm27poh6gqzjufnhyztt4iptek3iukka-rubble-web-assets"
+  , "wn765puibuqspttk5t23jagim6c3i7xrestty5wp5ihfcx5k5bxa-rubble-web-assets":
+      { "id": "wn765puibuqspttk5t23jagim6c3i7xrestty5wp5ihfcx5k5bxa-rubble-web-assets"
       , "name": "rubble-web-assets"
       , "platform": "aarch64-linux"
       , "build_platform": "aarch64-linux"
@@ -9139,7 +9139,7 @@
               ]
             }
           }
-        , { "brick": "7gftrauqvpnrd5754vqlnz3iyljldhwm55ogv3mu7lt2mjr6jhwa-RubbleR.git.partial"
+        , { "brick": "w454nqkzwaes5sipplnsifvijlalui7oas47jt43b27szts3pz4a-RubbleR.git.partial"
           , "alias": "src"
           , "transitive": "false"
           , "hooks": {
@@ -9343,12 +9343,12 @@
           }
         ]
       }
-  , "lety2yfvorzhdfsgnq2x2kceelke3pwt7gbenykhknpntd7u7rnq-RubbleR.git":
-      { "id": "lety2yfvorzhdfsgnq2x2kceelke3pwt7gbenykhknpntd7u7rnq-RubbleR.git"
+  , "jez2sbbjieywlgekhwhs23jazl2lzvqfjtog5rlsrp2hpzeq5exq-RubbleR.git":
+      { "id": "jez2sbbjieywlgekhwhs23jazl2lzvqfjtog5rlsrp2hpzeq5exq-RubbleR.git"
       , "name": "RubbleR.git"
       , "src": {
           "repo": "https://github.com/chaifeng/RubbleR.git"
-        , "commit": "8d3913ec4e3b954a178d9ac7f0a4fa26a0a09dc3"
+        , "commit": "0e22f556c3a5d87cf2b2d289f26a96f54a77b583"
         }
       , "inputs": [
           { "brick": "jzib76o6jwvszofr4g7p5ceo7li2szw2zm25pt6bwpu4plo7wdwq-rubble-src-checkout"
