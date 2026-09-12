@@ -1,0 +1,72 @@
+{ "id": "adcrhlud4lao22xpeqdtkmm3cbdxrk4yn7hqqh4y2wguzsupqiqq-curl"
+, "name": "curl"
+, "platform": "x86_64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "5n72uhvu5cptapfmuhaql6u7gekif3s7rsavzqfspcxoyrwoybmq-curl-linux-x86_64-musl-8.18.0.tar.xz"
+    , "alias": "src"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  , { "name": "bin" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "tar -xJf \"$src\" 2>/dev/null || true\n"
+        , "\n"
+        , "# out is the curl binary itself\n"
+        , "cp curl \"$out\"\n"
+        , "chmod +x \"$out\"\n"
+        , "\n"
+        , "# bin directory with symlink for PATH integration\n"
+        , "mkdir -p \"$bin\"\n"
+        , "ln -s \"../$(basename \"$out\")\" \"$bin/curl\"\n"
+        , "\n"
+        , "# Verify\n"
+        , "echo \"\"\n"
+        , "echo \"=== Verifying curl installation ===\"\n"
+        , "\"$out\" --version | head -1 || true"
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "5n72uhvu5cptapfmuhaql6u7gekif3s7rsavzqfspcxoyrwoybmq-curl-linux-x86_64-musl-8.18.0.tar.xz":
+      { "id": "5n72uhvu5cptapfmuhaql6u7gekif3s7rsavzqfspcxoyrwoybmq-curl-linux-x86_64-musl-8.18.0.tar.xz"
+      , "name": "curl-linux-x86_64-musl-8.18.0.tar.xz"
+      , "src": {
+          "url": "https://github.com/stunnel/static-curl/releases/download/8.18.0/curl-linux-x86_64-musl-8.18.0.tar.xz"
+        , "checksum": "sha256:e3ea8eb7b6f86930b5811cab1bfbddfaeb750ecb28f14e19c6fc95191fc2728a"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}
