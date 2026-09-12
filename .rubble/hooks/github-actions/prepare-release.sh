@@ -6,6 +6,8 @@ source "${RUBBLE_GITHUB_ACTIONS_RUNTIME:?}"
 rubble-exec mkdir -pv -- "${RUBBLE_RELEASE_DIR:?}/assets"
 source <($RUBBLE_EXECUTABLE -q list --depth 1 --format bash "${RUBBLE_ROOT_BRICK}")
 
+declare -p brick_inventory >&2
+
 brick_name="${brick_inventory[::root]}"
 
 echo "$(rubble-exec date '+%Y%m%d%H%M%S'): ${brick_inventory[${brick_name}::platform]:-}${brick_inventory[${brick_name}::platform]:+-}${brick_inventory[${brick_name}::short-id]}" > "${RUBBLE_RELEASE_DIR}/title"
