@@ -1,0 +1,28 @@
+{ "id": "srku7z24wv4w4tgv6eu4fa6qbu5agbdkyenupgctdee7bxpivfaq-patchelf-0.18.0-x86_64.tar.gz"
+, "name": "patchelf-0.18.0-x86_64.tar.gz"
+, "src": {
+    "url": "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-x86_64.tar.gz"
+  , "checksum": "sha256:ce84f2447fb7a8679e58bc54a20dc2b01b37b5802e12c57eece772a6f14bf3f0"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
