@@ -1,0 +1,21 @@
+{ "id": "dqeyuqsbw3gkqo4og3c3red2bokpitv3sbhg5ykjijq4wbvexvra-auth-validation-github-local-files-20260916"
+, "name": "auth-validation-github-local-files-20260916"
+, "build_platform": "x86_64-linux"
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "mkdir -p \"$out\"\n"
+        , "printf \"%s\\n\" shared-authentication-ok > \"$out/result.txt\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
