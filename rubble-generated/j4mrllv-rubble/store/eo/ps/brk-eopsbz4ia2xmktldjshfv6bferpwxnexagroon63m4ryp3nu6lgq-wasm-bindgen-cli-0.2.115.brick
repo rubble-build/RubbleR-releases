@@ -1,0 +1,84 @@
+{ "id": "eopsbz4ia2xmktldjshfv6bferpwxnexagroon63m4ryp3nu6lgq-wasm-bindgen-cli-0.2.115"
+, "name": "wasm-bindgen-cli-0.2.115"
+, "platform": "x86_64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "opaque": true
+, "inputs": [
+    { "brick": "apa2khzii3e7c7qnlw6krapsq77kgtc5tn5bm64uj3c2x77g5d3a-wasm-bindgen-0.2.115-x86_64-unknown-linux-musl.tar.gz"
+    , "alias": "src"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  , { "name": "env" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "tar -xzf \"$src\"\n"
+        , "wasm_bindgen_bin=$(find . -type f -name wasm-bindgen | head -n 1)\n"
+        , "wasm_bindgen_test_runner_bin=$(find . -type f -name wasm-bindgen-test-runner | head -n 1)\n"
+        , "if [[ -z \"$wasm_bindgen_bin\" || -z \"$wasm_bindgen_test_runner_bin\" ]]; then\n"
+        , "  echo \"wasm-bindgen CLI binaries not found in release archive\"\n"
+        , "  exit 1\n"
+        , "fi\n"
+        , "\n"
+        , "mkdir -p \"$out/bin\"\n"
+        , "cp \"$wasm_bindgen_bin\" \"$out/bin/wasm-bindgen\"\n"
+        , "cp \"$wasm_bindgen_test_runner_bin\" \"$out/bin/wasm-bindgen-test-runner\"\n"
+        , "chmod +x \"$out/bin/wasm-bindgen\" \"$out/bin/wasm-bindgen-test-runner\"\n"
+        , "\n"
+        , "while IFS= builtin read -r __rubble_output_line; do\n"
+        , "  builtin printf '%s\\n' \"$__rubble_output_line\"\n"
+        , "done > \"$env\" <<EOF\n"
+        , "export PATH=\"$out/bin:\\${PATH}\"\n"
+        , "export WASM_BINDGEN=\"$out/bin/wasm-bindgen\"\n"
+        , "export WASM_BINDGEN_TEST_RUNNER=\"$out/bin/wasm-bindgen-test-runner\"\n"
+        , "declare -p PATH WASM_BINDGEN WASM_BINDGEN_TEST_RUNNER\n"
+        , "\"\\$WASM_BINDGEN\" --version\n"
+        , "EOF\n"
+        , "builtin unset __rubble_output_line\n"
+        , "\n"
+        , "[[ \"$(\"$out/bin/wasm-bindgen\" --version)\" == \"wasm-bindgen 0.2.115\" ]]"
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "apa2khzii3e7c7qnlw6krapsq77kgtc5tn5bm64uj3c2x77g5d3a-wasm-bindgen-0.2.115-x86_64-unknown-linux-musl.tar.gz":
+      { "id": "apa2khzii3e7c7qnlw6krapsq77kgtc5tn5bm64uj3c2x77g5d3a-wasm-bindgen-0.2.115-x86_64-unknown-linux-musl.tar.gz"
+      , "name": "wasm-bindgen-0.2.115-x86_64-unknown-linux-musl.tar.gz"
+      , "src": {
+          "url": "https://github.com/wasm-bindgen/wasm-bindgen/releases/download/0.2.115/wasm-bindgen-0.2.115-x86_64-unknown-linux-musl.tar.gz"
+        , "checksum": "sha256:494df943e4e30a48ea2832e5a299e0e0f52d23f1e037b052cf401f467b820316"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}
