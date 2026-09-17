@@ -21,6 +21,11 @@ else
     --depth 1 "${RUBBLE_ROOT_BRICK}"
 fi
 
+if [[ "$brick_name" = *-rubble ]]; then
+  echo '#!/bin/sh' > "${RUBBLE_RELEASE_DIR}/assets/install.sh"
+  rubble-exec sed 1d "${brick_inventory[${brick_name}:scripts]}/install.sh" >> "${RUBBLE_RELEASE_DIR}/assets/install.sh"
+fi
+
 cd "${RUBBLE_RELEASE_DIR}/assets"
 for file in *; do
   [[ "$file" = *.SHA256 ]] && continue
