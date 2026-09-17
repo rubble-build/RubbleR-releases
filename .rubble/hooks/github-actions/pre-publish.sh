@@ -5,5 +5,7 @@ if "${rubble:?}" push --depth 0 --expand-opaque -r "${RUBBLE_REMOTE_STORE:?}" "$
   printf '[github-actions] seeded remote store %s\n' "${RUBBLE_REMOTE_STORE}" >&2
 else
   status=$?
+  # Cancellation is never a best-effort upload failure.
+  [[ "${status}" -ne 130 ]] || exit "${status}"
   printf '[github-actions] WARNING: local remote-store seed failed with status %s; continuing publication\n' "${status}" >&2
 fi
