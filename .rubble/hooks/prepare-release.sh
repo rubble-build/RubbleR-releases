@@ -23,6 +23,7 @@ fi
 
 if [[ "$brick_name" = *-rubble ]]; then
   echo '#!/bin/sh' > "${RUBBLE_RELEASE_DIR}/assets/install.sh"
+  echo "RUBBLE_INSTALL_VERSION=${brick_inventory[${brick_name}::short-id]}" >> "${RUBBLE_RELEASE_DIR}/assets/install.sh"
   rubble-exec sed 1d "${brick_inventory[${brick_name}:scripts]}/install.sh" >> "${RUBBLE_RELEASE_DIR}/assets/install.sh"
 fi
 
