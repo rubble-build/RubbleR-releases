@@ -1,0 +1,370 @@
+{ "id": "znwhzlmuwlllrzalgrnpvastzcrjizp6j6uko2ijyvss5ycuwr6q-perl"
+, "name": "perl"
+, "platform": "aarch64-linux"
+, "build_platform": "aarch64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "ayvlr7htt6lml5iosty2yuiuogndl4xwu27xkbizrjbocyts5nrq-zlib-1.3.2-r0.apk"
+    , "alias": "zlib_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "5zqzbtecxd2bwjpypfrcgfmzvuqihlmabhg5jtqztyhjc656maja-perl-5.40.4-r0.apk"
+    , "alias": "perl_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "cndex52rgwiybhxcbkpry2isc55dz3hrc5lblmzr3xyeilghixda-patchelf"
+    , "alias": "patchelf"
+    , "transitive": "false"
+    }
+  , { "brick": "65xn763kfhf7ye2ax5rr3hjotrij3qjagkddvfhqarwrt2a7mnha-ld-musl.so"
+    , "alias": "ld_musl"
+    , "transitive": "true"
+    }
+  , { "brick": "yecbppbe2hram3gythftkgn6mwelxq6l42vejdrjy3czbotcwmoq-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "mkdir -p \"$out\"/{bin,lib,share}\n"
+        , "\n"
+        , "# Extract all APK packages into current directory\n"
+        , "echo \"=== Extracting Alpine packages ===\"\n"
+        , "for apk in \"$perl_apk\" \"$zlib_apk\"; do\n"
+        , "  echo \"  Extracting $(basename \"$apk\")...\"\n"
+        , "  tar -xzf \"$apk\" 2>/dev/null || true\n"
+        , "done\n"
+        , "\n"
+        , "# Copy package-level shared libraries. Perl extension modules are copied\n"
+        , "# below with their directory layout preserved.\n"
+        , "for lib_dir in ./lib ./usr/lib; do\n"
+        , "  [ -d \"$lib_dir\" ] || continue\n"
+        , "  find \"$lib_dir\" -maxdepth 1 -name \"*.so*\" -type f -exec cp -a {} \"$out/lib/\" \\;\n"
+        , "  find \"$lib_dir\" -maxdepth 1 -name \"*.so*\" -type l -exec cp -a {} \"$out/lib/\" \\;\n"
+        , "done\n"
+        , "\n"
+        , "# Copy perl binary\n"
+        , "cp usr/bin/perl \"$out/bin/perl.bin\"\n"
+        , "chmod +x \"$out/bin/perl.bin\"\n"
+        , "\n"
+        , "# Copy perl libs and modules\n"
+        , "cp -a usr/lib/perl* \"$out/lib/\" 2>/dev/null || true\n"
+        , "cp -a usr/share/perl* \"$out/share/\" 2>/dev/null || true\n"
+        , "if [ -f \"$out/lib/perl5/core_perl/CORE/libperl.so\" ]; then\n"
+        , "  cp -a \"$out/lib/perl5/core_perl/CORE/libperl.so\" \"$out/lib/libperl.so\"\n"
+        , "fi\n"
+        , "\n"
+        , "# Patch perl binary to use ld-musl interpreter\n"
+        , "echo \"=== Patching perl binary ===\"\n"
+        , "\"$patchelf\" --set-interpreter \"$ld_musl\" --set-rpath \"$out/lib\" \"$out/bin/perl.bin\"\n"
+        , "\n"
+        , "# Patch shared objects\n"
+        , "find \"$out/lib\" -name \"*.so*\" -type f | while read -r so; do\n"
+        , "  chmod u+w \"$so\" 2>/dev/null || true\n"
+        , "  \"$patchelf\" --set-rpath \"$out/lib\" \"$so\" 2>/dev/null || true\n"
+        , "done\n"
+        , "\n"
+        , "# Create wrapper that sets up PERL5LIB\n"
+        , "# OpenSSL Configure sets PERL to perl.real path, so both names must work\n"
+        , "create_perl_wrapper() {\n"
+        , "  local wrapper_path=\"$1\"\n"
+        , "  cat > \"$wrapper_path\" << WRAPPER\n"
+        , "#!$bash/bin/bash\n"
+        , "# Perl wrapper - sets up PERL5LIB\n"
+        , "PERL_HOME=\"$out\"\n"
+        , "export PERL5LIB=\"\\$PERL_HOME/share/perl5/core_perl:\\$PERL_HOME/lib/perl5/core_perl\\${PERL5LIB:+:}\\${PERL5LIB:-}\"\n"
+        , "exec \"\\$PERL_HOME/bin/perl.bin\" \"\\$@\"\n"
+        , "WRAPPER\n"
+        , "  chmod +x \"$wrapper_path\"\n"
+        , "}\n"
+        , "\n"
+        , "create_perl_wrapper \"$out/bin/perl\"\n"
+        , "create_perl_wrapper \"$out/bin/perl.real\"\n"
+        , "\n"
+        , "# Verify\n"
+        , "echo \"\"\n"
+        , "echo \"=== Verifying perl installation ===\"\n"
+        , "\"$out/bin/perl\" --version || echo \"WARNING: perl verification failed\"\n"
+        , "\"$out/bin/perl.real\" --version || echo \"WARNING: perl.real verification failed\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "ayvlr7htt6lml5iosty2yuiuogndl4xwu27xkbizrjbocyts5nrq-zlib-1.3.2-r0.apk":
+      { "id": "ayvlr7htt6lml5iosty2yuiuogndl4xwu27xkbizrjbocyts5nrq-zlib-1.3.2-r0.apk"
+      , "name": "zlib-1.3.2-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/zlib-1.3.2-r0.apk"
+        , "checksum": "sha256:89c230ee1c74c389c1607413c223ed7d27ce1b2e964038facbfc54245157101c"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "5zqzbtecxd2bwjpypfrcgfmzvuqihlmabhg5jtqztyhjc656maja-perl-5.40.4-r0.apk":
+      { "id": "5zqzbtecxd2bwjpypfrcgfmzvuqihlmabhg5jtqztyhjc656maja-perl-5.40.4-r0.apk"
+      , "name": "perl-5.40.4-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/perl-5.40.4-r0.apk"
+        , "checksum": "sha256:05b9a324d55e1827a333ea34d9e49682124d069a6ebee542efc0d18cece682e9"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz":
+      { "id": "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz"
+      , "name": "patchelf-0.18.0-aarch64.tar.gz"
+      , "src": {
+          "url": "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-aarch64.tar.gz"
+        , "checksum": "sha256:ae13e2effe077e829be759182396b931d8f85cfb9cfe9d49385516ea367ef7b2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "cndex52rgwiybhxcbkpry2isc55dz3hrc5lblmzr3xyeilghixda-patchelf":
+      { "id": "cndex52rgwiybhxcbkpry2isc55dz3hrc5lblmzr3xyeilghixda-patchelf"
+      , "name": "patchelf"
+      , "platform": "aarch64-linux"
+      , "inputs": [
+          { "brick": "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        , { "name": "share" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "tar -xvf \"$src\"\n"
+              , "mv bin/patchelf \"$bin\"\n"
+              , "mv share \"$share\"\n"
+              , "\"$bin\" --version"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "qs3nb5qcclaodccu6unqj42b76lly2d4htpputfm77xzao6fzema-musl-1.2.5-r11.apk":
+      { "id": "qs3nb5qcclaodccu6unqj42b76lly2d4htpputfm77xzao6fzema-musl-1.2.5-r11.apk"
+      , "name": "musl-1.2.5-r11.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/musl-1.2.5-r11.apk"
+        , "checksum": "sha256:721010e6bff908878d9c527428598661be59dde0d9f013f8431d01fd4dd16652"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "65xn763kfhf7ye2ax5rr3hjotrij3qjagkddvfhqarwrt2a7mnha-ld-musl.so":
+      { "id": "65xn763kfhf7ye2ax5rr3hjotrij3qjagkddvfhqarwrt2a7mnha-ld-musl.so"
+      , "name": "ld-musl.so"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "qs3nb5qcclaodccu6unqj42b76lly2d4htpputfm77xzao6fzema-musl-1.2.5-r11.apk"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "musl_interpreter"
+          , "value": "ld-musl-aarch64.so.1"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "echo \"Extracting musl interpreter...\"\n"
+              , "tar -xzf \"$src\" 2>/dev/null || true\n"
+              , "\n"
+              , "cp -a \"lib/$musl_interpreter\" \"$out\"\n"
+              , "\n"
+              , "echo \"\"\n"
+              , "echo \"=== musl interpreter ===\"\n"
+              , "test -s \"$out\"\n"
+              , "echo \"$out\"\n"
+              , "ls -l \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64":
+      { "id": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+      , "name": "bash-linux-aarch64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-aarch64"
+        , "checksum": "sha256:8877ad33344af461ed801066322fd9a7808cd73e4e81087da228e32e8fad54ca"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "yecbppbe2hram3gythftkgn6mwelxq6l42vejdrjy3czbotcwmoq-bash":
+      { "id": "yecbppbe2hram3gythftkgn6mwelxq6l42vejdrjy3czbotcwmoq-bash"
+      , "name": "bash"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$out/bin\"\n"
+              , "\n"
+              , "# Copy bash binary (src is the downloaded file directly)\n"
+              , "cp -v \"$src\" \"$out/bin/bash\"\n"
+              , "chmod +x \"$out/bin/bash\"\n"
+              , "\n"
+              , "# Create sh symlink\n"
+              , "ln -s bash \"$out/bin/sh\"\n"
+              , "\n"
+              , "# Verify\n"
+              , "echo \"\"\n"
+              , "echo \"=== Verifying bash installation ===\"\n"
+              , "\"$out/bin/bash\" --version\n"
+              , "test -x \"$out/bin/bash\"\n"
+              , "\"$out/bin/bash\" -c 'echo bash runtime check'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

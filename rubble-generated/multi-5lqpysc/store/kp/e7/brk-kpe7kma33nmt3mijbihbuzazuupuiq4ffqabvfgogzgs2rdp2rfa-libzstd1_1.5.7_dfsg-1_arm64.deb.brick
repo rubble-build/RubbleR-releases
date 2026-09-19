@@ -1,0 +1,28 @@
+{ "id": "kpe7kma33nmt3mijbihbuzazuupuiq4ffqabvfgogzgs2rdp2rfa-libzstd1_1.5.7_dfsg-1_arm64.deb"
+, "name": "libzstd1_1.5.7_dfsg-1_arm64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250314T090159Z/pool/main/libz/libzstd/libzstd1_1.5.7+dfsg-1_arm64.deb"
+  , "checksum": "sha256:924540bd59fdbfa77a0604360efdaca54411a43daf11c7e002a3c64791b67448"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
