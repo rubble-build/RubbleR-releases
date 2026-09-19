@@ -1,0 +1,28 @@
+{ "id": "worm5jasvkdhvnlzzohf5oauc7lqf6dvcl63d5owgyl3cxnyq2ka-m4-1.4.19-r3.apk"
+, "name": "m4-1.4.19-r3.apk"
+, "src": {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/m4-1.4.19-r3.apk"
+  , "checksum": "sha256:d2ffe67c64e12601536a488d1dff3202c5ccb00ea81a6be0bf9530048406aba3"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
