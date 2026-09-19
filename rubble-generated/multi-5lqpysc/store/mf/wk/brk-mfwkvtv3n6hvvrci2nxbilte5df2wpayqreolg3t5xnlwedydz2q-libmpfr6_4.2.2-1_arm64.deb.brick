@@ -1,0 +1,28 @@
+{ "id": "mfwkvtv3n6hvvrci2nxbilte5df2wpayqreolg3t5xnlwedydz2q-libmpfr6_4.2.2-1_arm64.deb"
+, "name": "libmpfr6_4.2.2-1_arm64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250325T204825Z/pool/main/m/mpfr4/libmpfr6_4.2.2-1_arm64.deb"
+  , "checksum": "sha256:628a4ef58cc6815880f72e9d3953984a379a017e4042bc575f1fcbf3954d79ac"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
