@@ -1,0 +1,66 @@
+{ "id": "si63kbjoeh5l76hedrmuxjzzuolovggsbkabc2fqnwt7ujic7ajq-binaryen-117"
+, "name": "binaryen-117"
+, "platform": "aarch64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "opaque": true
+, "inputs": [
+    { "brick": "zqh6lunhozithbpfnbwqg5j54lg5ze77yzuwedmjltfo45ghffuq-binaryen-version_117-aarch64-linux.tar.gz"
+    , "alias": "src"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "tar -xzf \"$src\"\n"
+        , "test -x binaryen-version_117/bin/wasm-opt\n"
+        , "\n"
+        , "mkdir -p \"$out/bin\"\n"
+        , "cp binaryen-version_117/bin/wasm-opt \"$out/bin/wasm-opt\"\n"
+        , "chmod +x \"$out/bin/wasm-opt\"\n"
+        , "\n"
+        , "\"$out/bin/wasm-opt\" --version"
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "zqh6lunhozithbpfnbwqg5j54lg5ze77yzuwedmjltfo45ghffuq-binaryen-version_117-aarch64-linux.tar.gz":
+      { "id": "zqh6lunhozithbpfnbwqg5j54lg5ze77yzuwedmjltfo45ghffuq-binaryen-version_117-aarch64-linux.tar.gz"
+      , "name": "binaryen-version_117-aarch64-linux.tar.gz"
+      , "src": {
+          "url": "https://github.com/WebAssembly/binaryen/releases/download/version_117/binaryen-version_117-aarch64-linux.tar.gz"
+        , "checksum": "sha256:ad560204426015a815faa45693c83bef7d58677d38a39422c272a30ba4b6da2a"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}
