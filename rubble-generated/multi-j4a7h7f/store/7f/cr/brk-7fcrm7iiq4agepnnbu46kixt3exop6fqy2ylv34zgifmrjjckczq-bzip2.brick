@@ -1,0 +1,217 @@
+{ "id": "7fcrm7iiq4agepnnbu46kixt3exop6fqy2ylv34zgifmrjjckczq-bzip2"
+, "name": "bzip2"
+, "platform": "aarch64-linux"
+, "build_platform": "aarch64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "cndex52rgwiybhxcbkpry2isc55dz3hrc5lblmzr3xyeilghixda-patchelf"
+    , "alias": "patchelf"
+    , "transitive": "false"
+    }
+  , { "brick": "65xn763kfhf7ye2ax5rr3hjotrij3qjagkddvfhqarwrt2a7mnha-ld-musl.so"
+    , "alias": "ld_musl"
+    , "transitive": "true"
+    }
+  , { "brick": "eukfornac6zeehc5o4izhyj6vslke65etzbod6j3x2u3w2igbi6q-bzip2-1.0.8-r6.apk"
+    , "alias": "src"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  , { "name": "bin" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "tar -xzf \"$src\" 2>/dev/null || true\n"
+        , "\n"
+        , "# out is the bzip2 binary itself\n"
+        , "cp usr/bin/bzip2 \"$out\"\n"
+        , "chmod +x \"$out\"\n"
+        , "\n"
+        , "# Patch ELF binary to use musl interpreter from runtime home\n"
+        , "\"$patchelf\" --set-interpreter \"$ld_musl\" \"$out\"\n"
+        , "\n"
+        , "# bin directory with symlinks for PATH integration\n"
+        , "mkdir -p \"$bin\"\n"
+        , "ln -s \"../$(basename \"$out\")\" \"$bin/bzip2\"\n"
+        , "ln -s \"../$(basename \"$out\")\" \"$bin/bunzip2\"\n"
+        , "ln -s \"../$(basename \"$out\")\" \"$bin/bzcat\"\n"
+        , "\n"
+        , "# Verify\n"
+        , "echo \"\"\n"
+        , "echo \"=== Verifying bzip2 installation ===\"\n"
+        , "\"$out\" --help 2>&1 | head -1 || true"
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz":
+      { "id": "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz"
+      , "name": "patchelf-0.18.0-aarch64.tar.gz"
+      , "src": {
+          "url": "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-aarch64.tar.gz"
+        , "checksum": "sha256:ae13e2effe077e829be759182396b931d8f85cfb9cfe9d49385516ea367ef7b2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "cndex52rgwiybhxcbkpry2isc55dz3hrc5lblmzr3xyeilghixda-patchelf":
+      { "id": "cndex52rgwiybhxcbkpry2isc55dz3hrc5lblmzr3xyeilghixda-patchelf"
+      , "name": "patchelf"
+      , "platform": "aarch64-linux"
+      , "inputs": [
+          { "brick": "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        , { "name": "share" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "tar -xvf \"$src\"\n"
+              , "mv bin/patchelf \"$bin\"\n"
+              , "mv share \"$share\"\n"
+              , "\"$bin\" --version"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "qs3nb5qcclaodccu6unqj42b76lly2d4htpputfm77xzao6fzema-musl-1.2.5-r11.apk":
+      { "id": "qs3nb5qcclaodccu6unqj42b76lly2d4htpputfm77xzao6fzema-musl-1.2.5-r11.apk"
+      , "name": "musl-1.2.5-r11.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/musl-1.2.5-r11.apk"
+        , "checksum": "sha256:721010e6bff908878d9c527428598661be59dde0d9f013f8431d01fd4dd16652"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "65xn763kfhf7ye2ax5rr3hjotrij3qjagkddvfhqarwrt2a7mnha-ld-musl.so":
+      { "id": "65xn763kfhf7ye2ax5rr3hjotrij3qjagkddvfhqarwrt2a7mnha-ld-musl.so"
+      , "name": "ld-musl.so"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "qs3nb5qcclaodccu6unqj42b76lly2d4htpputfm77xzao6fzema-musl-1.2.5-r11.apk"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "musl_interpreter"
+          , "value": "ld-musl-aarch64.so.1"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "echo \"Extracting musl interpreter...\"\n"
+              , "tar -xzf \"$src\" 2>/dev/null || true\n"
+              , "\n"
+              , "cp -a \"lib/$musl_interpreter\" \"$out\"\n"
+              , "\n"
+              , "echo \"\"\n"
+              , "echo \"=== musl interpreter ===\"\n"
+              , "test -s \"$out\"\n"
+              , "echo \"$out\"\n"
+              , "ls -l \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "eukfornac6zeehc5o4izhyj6vslke65etzbod6j3x2u3w2igbi6q-bzip2-1.0.8-r6.apk":
+      { "id": "eukfornac6zeehc5o4izhyj6vslke65etzbod6j3x2u3w2igbi6q-bzip2-1.0.8-r6.apk"
+      , "name": "bzip2-1.0.8-r6.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/bzip2-1.0.8-r6.apk"
+        , "checksum": "sha256:d430f5ec063691b98a9bfe4eb1fb17f6f0e07e1d48764f8c1e023198d640fda0"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

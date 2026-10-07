@@ -1,0 +1,28 @@
+{ "id": "fu4gjf2vujnnxzbws5i2w57yneqm7tmgiqzxodte6s6rf74vchrq-g__-14.2.0-r4.apk"
+, "name": "g__-14.2.0-r4.apk"
+, "src": {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/g++-14.2.0-r4.apk"
+  , "checksum": "sha256:3a522e24b025153a4f3b7abf281f288d0d696f110efed37c71f8035667d00fa0"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
