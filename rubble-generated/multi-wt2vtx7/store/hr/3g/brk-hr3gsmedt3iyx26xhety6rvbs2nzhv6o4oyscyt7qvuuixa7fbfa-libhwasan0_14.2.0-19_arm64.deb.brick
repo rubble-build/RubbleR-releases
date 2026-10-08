@@ -1,0 +1,28 @@
+{ "id": "hr3gsmedt3iyx26xhety6rvbs2nzhv6o4oyscyt7qvuuixa7fbfa-libhwasan0_14.2.0-19_arm64.deb"
+, "name": "libhwasan0_14.2.0-19_arm64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250317T031857Z/pool/main/g/gcc-14/libhwasan0_14.2.0-19_arm64.deb"
+  , "checksum": "sha256:5a758db399fafd354b6488c4f250b7670fb1f61c31b4e4f329d0fbb750a17084"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
