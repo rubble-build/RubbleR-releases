@@ -1,0 +1,122 @@
+{ "id": "fcjhtbtyxa5qk3xy5jhazosrdwgn6npaqbjmm7dmyoi756zrunca-normalize-python-runtime"
+, "name": "normalize-python-runtime"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "script" }
+  ]
+, "builder": [
+    { "write": {
+    "output": "script"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:acd7f71e8d9cede589903c2b812df91630dc3e8f6dd4cdcf823945ae767d0cf2"
+      , "value": [
+        "KLUv/WRvEI0dAHbndyjAVLEO53qBt55cQ7YgCwsitFfEihYk6CCpsioBrgAAt4PrKgqGogAEYwBvAGwAv3sO7"
+      , "3o3sYLXu+W+f+0sS+/U5tj8f2flGzh/0nuF31wk+oWXse8pzcTlmcjv/g5k56u1T/8ZSI9qOrHTeFn6u9AlAp"
+      , "jGquukVd+5gfStqs0ySKuaWtZ2naMzYq1N7XZr+Nw4ogkBNeFwKn1FDVc2Gw8Rfp/wsvEoJI1CEjUK3T3JlDu"
+      , "mY7nOqwncWfEPYaMxBNSdG0Oq7kRP1SOTRs+19aNOWRvDNLpyZFvzpzPnkye9yammsrvWGXO1VzVyBs/zcxDw"
+      , "8MrrvKybxZ5tlXi32dUBWWv5iR74NwpJFGtSivQu68QEJMph3Je9mrXFHOVTSMhw1Z6Z63arnfh2SN7s+0Z6t"
+      , "YS/4DMMCe6UHQ+lMVPqtCgXbxRMrc1Q0rlZUIs342ytdU1qbVrVuTq7BqbplWn6/4+JVXthEH6iUUgKz/FNN2"
+      , "k9f08yZXh6Y9oYhXLuafCYKnOJsMBQUGCIkMhYKhISFu6Bt2xYIjYwlwyEBsOSodDIYKoL3rKhybi8hn8XFxI"
+      , "VmneQRjCpMDex35Z1+zHdiRgUDB6A8ye9j0AnyfDwbwLhe3tihZdvDZThDZ4FgMGg0ZlRTMmIaFKSVDowRECQ"
+      , "cmXzs+OBjZ7/HvwSluegsZRwzwcYHe1Sj9UkNLzS1iMpASztObY1oTkq8fGkRmqJul0MWunADJZMMS1gtrJZj"
+      , "sAQma0x39MnlFbkd9LMmDBIv5muSBl3CvOHrcqM8SJIP/4m5149dtvA40AKaC2KdDE7ksCwC1KL7qkydooJat"
+      , "UpTAR6gMtd5PK20stuNwkY/yaajBvnD1/0a5GZCQW6kXxh+Wbi7Io13L+kAym99ulSslV32P290AUNNPpMj5y"
+      , "i0kNBYCemGZawc9TUpBFu1YNJwEtxE3QC9nmVZo7pNQJn97wcDZiZpawQ2HrpwWmN0OQXt4WCVWajxPjR4+ho"
+      , "XHUWLzykMYwgQKiMnh8yKU8CfDU7EBwbt88iQCA6MBSgAzgVXs/J9CZ+jtzfVz9J6gfnHwIdfpIQN23H7y8Md"
+      , "hwPR0ail06wTQYNWmkDThqoETbOVbA0oPB7NzskGEQn11004xbAApjSiDlkhyPCi7VxfbDqP+YP5rA4VYkYp2"
+      , "CCMqWQdG6jxDAuaBSaGNStOEJgHEuci3ZT7DkyoYS5lTagBUAuulNuUOI2IA1VeeHoW9cMA80EomICqg+UKsU"
+      , "2ziE="
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  ]
+, "inventory": {
+    "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64":
+      { "id": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+      , "name": "bash-linux-aarch64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-aarch64"
+        , "checksum": "sha256:8877ad33344af461ed801066322fd9a7808cd73e4e81087da228e32e8fad54ca"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash":
+      { "id": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+      , "name": "bash"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$bin\"\n"
+              , "cp \"$src\" \"$bin/bash\"\n"
+              , "chmod +x \"$bin/bash\"\n"
+              , "ln -s bash \"$bin/sh\"\n"
+              , "\"$bin/bash\" -euo pipefail -c 'declare -A probe=([key]=value); [[ ${probe[key]} = value ]]'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

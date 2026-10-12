@@ -1,0 +1,169 @@
+{ "id": "em7mxxxvm3fi5ntxzzlsqiwx6ckrpsjtig7bc4cnljdv3mgn3osq-nodejs-build-tools"
+, "name": "nodejs-build-tools"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "write_env" }
+  , { "name": "check_node_gyp_python" }
+  , { "name": "check_npm_shell" }
+  ]
+, "builder": [
+    { "write": {
+    "output": "write_env"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:e7a34a185b600edf23655137e55f0d820ab850e77d3e62331b24c56d962965e0"
+      , "value": [
+        "KLUv/WSOAUUKAKYSPSAQlR7SirI0kX0+LPwu+uGrGNyKHP/CrwC2JxEBAFTVDDAAMgA4ANDjP87yQzTXDsuft"
+      , "rYbZLWfXLrtBeix0k47AXoU1e/H2Jb9fG+jmPaX3rbdCzo/F4z+audz6B2oHA4QaC1Xim8/O1uBBT2xx11p3m"
+      , "jX6XipIv0b/YzeV7q1I6DHbfsP134IEgP0WLEgmM0FyrD72GYTR+OiLJaDpAldyjWgHlbFTybISVTagR4hmMb"
+      , "VGdtL+ldZ1GLRLqoPvQOvsqjn+VKccRz32GPxxU81mm2Vn7F5u1k77bkN02Kms8Okh2rVZjJSUZZLUpQIppKx"
+      , "yEshIECCa4XbKtIBGipKOQM4BNcHQFi4danAJQ9IAgZY1SLENgABtiA1AM/30YOK+4yFe2dGYRaRDVYI7jZwt"
+      , "NdBPuEFURgCcAU1vNqaYJrB7AFc5yJz"
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  , { "write": {
+    "output": "check_npm_shell"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:e1f01053244a9796782e8da26264ae0f137bed0ce84cba40eef5bcb2c37b4d92"
+      , "value": [
+        "KLUv/WSdAdULAGZXSCDwGOdQQhNSwrLLWrl+0Gr/H1WXoqHXptRKFxaHAQ4vBD4AQwA/AIfHb6bR6zVunQmyx"
+      , "efqdVOF1/tsV0WNG9aiWek54XlNslib4pVfPSMsdsgoetfM03qD0IsZ1zTSz6+v37YBm/bDAYSrFV/UNTzezX"
+      , "NXxkofCDwUOoMwmctGQ+lglg0kYjHo8vrnwwvm1ILtpbFqllNQUMlQBI3GWU5bMvQo67SMBpvK5YdXthftdf0"
+      , "go8jin63tOpqV1o5cvFNifbONfpv8ONDbehnnuHH7MmwUOTk1zETlDycVigSi4Xh+28rvD5AAI/dDxG9EJQKP"
+      , "3zl6oZvvG+vp8/7f+mpNURT+JGktm3TPCJ27yXcAzhb/cy5+9V6leuP1+pZ1vSMhIDBE6CSzA9HD0LUHeGNcN"
+      , "tMIOofKf60mm6k1I3vD+NQ/RmS5FhYi9BLJHRBsAQAGEFQ4pFJ7Sp4nX1SBPyIbasAZegphL2JxL5cdAr0nrg"
+      , "SkMEBBAS0/sT0="
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  , { "write": {
+    "output": "check_node_gyp_python"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:89e890a06457dd029159dd5af02799a58098a5b623abbd52db465497c8f901ab"
+      , "value": [
+        "KLUv/WR+BJ0SANZeXh/g3DxYiYK6tE2WNe8lVCAuvBUxwI4VTU+8DGYYxvBCVABbAFMAv5IPXtUWas4CowxI9"
+      , "7DmII5v68dRu68nHbhS7lEXh1wISzU+1NS7+9czOHtVGha6XPxjzT1Ytd2Ye3qtS0VASmxF+eP5dU9j/Or0Pq"
+      , "yh3/2a688BHQeGltHxaEQkjYjykWA4Ho27ezR51bxl/5LBWCgg0YjThCgVu91p5x4LMc5Os9N3eN8sERKmQ/D"
+      , "lQz44LVd6yKw/haeWsUjIeDCESMRlImUrtRW1TVzPLkrdBbZ+nt2lDjm5DEi3mpdcJnOsOZ2PXRLKbPy/qnJ5"
+      , "xPgXrveduGuaP94u8yqhbfm/TS+4oeq30Wu3nB+n8Fev6mu515OGm9rtff6mJ9GV7pmqnr0B0RCr5x4Vruvr3"
+      , "QnWlAUE97StOHR3j4vBxD9vv9rp6+7DF0b6VXX2VdolAJcl96pH/K3HbuaHQH5jbThIaQpIk+vp8iBrxt9K2Z"
+      , "r3x6mtnjwEV6BBkTFOqpmZCdPCYs0gRGAcM6MH8wE42HLzfMYeTRTHri7jieSiXDrxyDLAHIiYi4xAF97ZiCG"
+      , "7K71CEx3TM5tdk4gQ2wKGIRYuQ2uUyZir/vbtHIdE5HBAJAbd25loM+FFn4tP8JFhwrPe4cCV/AZr6kAQkNBd"
+      , "qtDM1S053W/Z/uLgcQ4AKkH/gwronQgb1dx4frk6vi92goUCIwMAKHHI9IQ0EXTZgF5uuAlBsfA94ocC++xNA"
+      , "9anDGHfKEA57IHbBjyG6kKuQA9OHrcwlag4mKVAqAKkJv9W"
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  ]
+, "inventory": {
+    "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64":
+      { "id": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+      , "name": "bash-linux-aarch64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-aarch64"
+        , "checksum": "sha256:8877ad33344af461ed801066322fd9a7808cd73e4e81087da228e32e8fad54ca"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash":
+      { "id": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+      , "name": "bash"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$bin\"\n"
+              , "cp \"$src\" \"$bin/bash\"\n"
+              , "chmod +x \"$bin/bash\"\n"
+              , "ln -s bash \"$bin/sh\"\n"
+              , "\"$bin/bash\" -euo pipefail -c 'declare -A probe=([key]=value); [[ ${probe[key]} = value ]]'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

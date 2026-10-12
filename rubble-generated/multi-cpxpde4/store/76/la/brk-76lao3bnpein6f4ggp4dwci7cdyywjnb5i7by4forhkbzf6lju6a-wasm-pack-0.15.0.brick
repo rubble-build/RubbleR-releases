@@ -1,0 +1,77 @@
+{ "id": "76lao3bnpein6f4ggp4dwci7cdyywjnb5i7by4forhkbzf6lju6a-wasm-pack-0.15.0"
+, "name": "wasm-pack-0.15.0"
+, "platform": "aarch64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "opaque": true
+, "inputs": [
+    { "brick": "5f6h42fvytrovpiqc6uef6hb35eujabalgjpgxeksmjvoxwthtca-wasm-pack-v0.15.0-aarch64-unknown-linux-musl.tar.gz"
+    , "alias": "src"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "bin" }
+  , { "name": "env" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "tar -xzf \"$src\"\n"
+        , "wasm_pack_bin=$(find . -type f -name wasm-pack | head -n 1)\n"
+        , "if [[ -z \"$wasm_pack_bin\" ]]; then\n"
+        , "  echo \"wasm-pack binary not found in release archive\"\n"
+        , "  exit 1\n"
+        , "fi\n"
+        , "\n"
+        , "mkdir -p \"$bin\"\n"
+        , "cp \"$wasm_pack_bin\" \"$bin/wasm-pack\"\n"
+        , "chmod +x \"$bin/wasm-pack\"\n"
+        , "\n"
+        , "while IFS= builtin read -r __rubble_output_line; do\n"
+        , "  builtin printf '%s\\n' \"$__rubble_output_line\"\n"
+        , "done > \"$env\" <<EOF\n"
+        , "export PATH=\"$bin:\\${PATH}\"\n"
+        , "export WASM_PACK=\"$bin/wasm-pack\"\n"
+        , "EOF\n"
+        , "builtin unset __rubble_output_line"
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "5f6h42fvytrovpiqc6uef6hb35eujabalgjpgxeksmjvoxwthtca-wasm-pack-v0.15.0-aarch64-unknown-linux-musl.tar.gz":
+      { "id": "5f6h42fvytrovpiqc6uef6hb35eujabalgjpgxeksmjvoxwthtca-wasm-pack-v0.15.0-aarch64-unknown-linux-musl.tar.gz"
+      , "name": "wasm-pack-v0.15.0-aarch64-unknown-linux-musl.tar.gz"
+      , "src": {
+          "url": "https://github.com/wasm-bindgen/wasm-pack/releases/download/v0.15.0/wasm-pack-v0.15.0-aarch64-unknown-linux-musl.tar.gz"
+        , "checksum": "sha256:e17ef0806381c3a0acb9c9ddad643a49facaa5a2ecf657a421d4d8f3357a24b7"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

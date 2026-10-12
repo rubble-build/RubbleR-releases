@@ -1,0 +1,28 @@
+{ "id": "exwhj5vebfaduvvhd7f6xtppocqwgqam7csyi3u5434k3ypqofpq-libmpc3_1.3.1-1_b3_arm64.deb"
+, "name": "libmpc3_1.3.1-1_b3_arm64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20241102T025512Z/pool/main/m/mpclib3/libmpc3_1.3.1-1+b3_arm64.deb"
+  , "checksum": "sha256:d4cfe026a624e51641c80ef2af77387185714f62f3b5c87035e62d9ed8d9eec1"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
