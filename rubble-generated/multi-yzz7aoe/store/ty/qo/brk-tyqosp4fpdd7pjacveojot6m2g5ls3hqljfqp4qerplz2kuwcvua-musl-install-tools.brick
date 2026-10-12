@@ -1,0 +1,133 @@
+{ "id": "tyqosp4fpdd7pjacveojot6m2g5ls3hqljfqp4qerplz2kuwcvua-musl-install-tools"
+, "name": "musl-install-tools"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "install" }
+  , { "name": "link_commands" }
+  ]
+, "builder": [
+    { "write": {
+    "output": "install"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:3a529b9f1e5d3696204d1037fb1d0765f2212546d74217bc72aa043ee2f4d604"
+      , "value": [
+        "KLUv/WRCAI0FACLLIRlwzwM+c1gFYwpouTCdfhetg5qOkRNAVwQLnTULg7nmdn0N/FQpiq1dc7tmG9uUTWjEN"
+      , "UcP7R24TR49Jw0jTPnjBlwzw3I2oV3ze6/eC5QKutCBr4/r79de/2lyG64VWus7knoUH1ru4h268LkJ14rTKR"
+      , "2P16oV+4U0+tManVC6nZar5Y/fqw4AVpGWY9NXc+AdhIJviKEZZoJclmBcTDNEZb7UgaNQ4ADwhIgJBShoxoc"
+      , "="
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  , { "write": {
+    "output": "link_commands"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:1b9ea05f5b410eeee4ff8f7367961e9582585bfeb19dbbc2f11cea86305112cc"
+      , "value": [
+        "KLUv/STFBQQAssgaF3CtDiyBW0RFpBoMVX3EXZRd3hLorw8jyg8u3URssGlZqgVIxDDspfDXfoXrxyZp//oRM"
+      , "t20h4THXo9T45O1I5Wdesp6yjnIfI20SOylvF6+RVqEWzNlchPVPEfVGF6qrRVjqKHDiIVPlgEGAE9wPMUeAG"
+      , "N4oy4HjmYwU2dY5yPB"
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  ]
+, "inventory": {
+    "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64":
+      { "id": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+      , "name": "bash-linux-aarch64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-aarch64"
+        , "checksum": "sha256:8877ad33344af461ed801066322fd9a7808cd73e4e81087da228e32e8fad54ca"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash":
+      { "id": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+      , "name": "bash"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$bin\"\n"
+              , "cp \"$src\" \"$bin/bash\"\n"
+              , "chmod +x \"$bin/bash\"\n"
+              , "ln -s bash \"$bin/sh\"\n"
+              , "\"$bin/bash\" -euo pipefail -c 'declare -A probe=([key]=value); [[ ${probe[key]} = value ]]'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

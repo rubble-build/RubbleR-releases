@@ -1,0 +1,118 @@
+{ "id": "o4tslxh2uwmqgfv6heppd5d4xitkk6jpu773b5ok4dojf4pfzlia-write-native-toolchain-env"
+, "name": "write-native-toolchain-env"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "script" }
+  ]
+, "builder": [
+    { "write": {
+    "output": "script"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:0ce2002c4de700173f536177ae1821a79abd7ea16801841551907f4ccecefccc"
+      , "value": [
+        "KLUv/WSpBQUWAIahaCDgHDeonNY2rZgLEtkugBGk/3EJxcVFik8RKYMZxiMfDlsAXwBhANQnmXM6P/ut29ZS5"
+      , "ZVv4/G3lfXS/tbIOC8IKy+1vkEurjq/62HJmjdYXnFzuO43bH7SN8bT0oa3LlTVKm5VgWEo+pYIbJX9Yp7bP0"
+      , "8bPtU0W+fqyUo6Lp/z/Tq5xFqj3vfdJ0We8coxHq/hkTT/bTNZICUJSHbGJOy1Tukycryd3umUXhygaYWu43g"
+      , "oEnzfHy/O1XU1futkhRbjkr+r7hlyzwHaRqShUHyz+F8c2HxwU1ow8NW+NZOu4b41Zrl4K7115SPOKxfr6uKQ"
+      , "E1uk6/NIIjEYQsRn8kaI2UwWQICajMnrQh7Qzpt/33qn6/x0Pkuz9iSd2ow3XlDozhy6kPIkXQwGFGpDbJWu0"
+      , "29Vs+bpes9vKzniMLD5hwHaRqSpiHlyHTfzmUFS+kz05hL769L11zxvVTnF2rVLti5JnvHGMZx7coUL6zhvjH"
+      , "LcwZ44d4/bKh/n4m20OO0qf+tW68mAHM8mJOpAzqcQ1v1jfhbB9YuzFU7Sx986pgN5qEGlVIhmZGZBQVJKBzB"
+      , "EQJgqOw8CWhAmUaqySmRyyikuKS6MAeAQfslR/+5eIjdE++MN5haWD6EmjSTylk5L4sQypR1XiXfRLMvcM61T"
+      , "Iq8FF4SSHxJVRExZVtWY3ZtGdLJBKY1ZCOLwLGF4yIOcHcbJcTpGeB2dtX6so74YwIncPiuqZ1/0NY8MSVFZb"
+      , "EVYwmH0Dr2HZ40jiUpaBx5c4w7z3SbFwhVEWt22tuIcMG5/GcNv/2geOojXQC1m9cYDxekfeTpZXnACjobAE6"
+      , "/RvMWIvjE9YL+f7KXLn+Yx8etDupSxeASZYRynPY4/oOAbv05GJisRotcY3rtUd1xahB8LpZjRRQR/jXji8gw"
+      , "ceh3SMC6+5HmGrlIDvGt+yw=="
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  ]
+, "inventory": {
+    "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64":
+      { "id": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+      , "name": "bash-linux-aarch64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-aarch64"
+        , "checksum": "sha256:8877ad33344af461ed801066322fd9a7808cd73e4e81087da228e32e8fad54ca"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash":
+      { "id": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+      , "name": "bash"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$bin\"\n"
+              , "cp \"$src\" \"$bin/bash\"\n"
+              , "chmod +x \"$bin/bash\"\n"
+              , "ln -s bash \"$bin/sh\"\n"
+              , "\"$bin/bash\" -euo pipefail -c 'declare -A probe=([key]=value); [[ ${probe[key]} = value ]]'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

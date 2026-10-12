@@ -1,0 +1,117 @@
+{ "id": "aqc3c2ahmtsuu36l7kwk4q27mc7dnxuylxzqusvu3fp7rcurg5kq-rust-std-1.94.0"
+, "name": "rust-std-1.94.0"
+, "platform": "aarch64-linux"
+, "inputs": [
+    { "brick": "ay6kezqef2anhdm53akx7elc7ge7cmrhesutg3b6lzj2jolgnv2a-rust-std-1.94.0-aarch64-unknown-linux-gnu.tar.xz"
+    , "alias": "src"
+    , "transitive": "false"
+    }
+  , { "brick": "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory"
+    , "transitive": "false"
+    , "hooks": {
+        "pre-build": [
+          { "shell": {
+              "value": [
+                "source \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  , { "name": "lib" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "target_triple=\"${src[name]#*${name}-}\"\n"
+        , "target_triple=\"${target_triple%%.*}\"\n"
+        , "tar --strip-components=1 -Jxvf \"$src\"\n"
+        , "mkdir -p \"$out/lib/rustlib/${target_triple}\"\n"
+        , "mv rust-std-${target_triple}/lib/rustlib/${target_triple}/lib \"$out/lib/rustlib/${target_triple}/lib\""
+        ]
+      , "format": "text"
+      }
+    }
+  , { "shell": {
+        "value": [
+          "publish_output_directory \"$out/lib\" \"$lib\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "ay6kezqef2anhdm53akx7elc7ge7cmrhesutg3b6lzj2jolgnv2a-rust-std-1.94.0-aarch64-unknown-linux-gnu.tar.xz":
+      { "id": "ay6kezqef2anhdm53akx7elc7ge7cmrhesutg3b6lzj2jolgnv2a-rust-std-1.94.0-aarch64-unknown-linux-gnu.tar.xz"
+      , "name": "rust-std-1.94.0-aarch64-unknown-linux-gnu.tar.xz"
+      , "src": {
+          "url": "https://static.rust-lang.org/dist/2026-03-05/rust-std-1.94.0-aarch64-unknown-linux-gnu.tar.xz"
+        , "checksum": "sha256:c781b3ef4fefa5508fbe05820eddc95e46351d905a30921cc020febd9c596a2e"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory":
+      { "id": "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory"
+      , "name": "publish-output-directory"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        ]
+      , "builder": [
+          { "write": {
+          "output": "script"
+        , "template": "{body}"
+        , "values": {
+            "body": {
+            "checksum": "sha256:f73a5a1201c2f0b23f6b6d218fdf6eeec370af987e4e870ddba711fe4a5096b9"
+            , "value": [
+              "KLUv/WT4AnUPALYbUyAQlXNSaVs7vRQUDpAaVjlKumRx/QQEJF1ndo8IAKDKb0sASABIAJdW7X2xrbfP3H0J1"
+            , "PLGfouonF2pz1OCvtH4ZvkZ2fKKwmQqmAzlGwsF44BYJA8PxGHJUC4v2Xo1tnLz3M+7X/VwLefn857gUOzMq5"
+            , "FauQGs7FK20SM0d6P3EJXzI/t9iTRpG2/J3df7EK2TP9ytjVcW/Ib9Nl/ET8GDBTPW7FenjCD2pPf6MfbL/VO"
+            , "ABwAU4WrRBqWLfYJ9o4TmqZW02/q21Vr+jG15ROt/v88HzR3ljKQ6Z41gJBrIL2jBg7B39roX7fU6vqKu5fSc"
+            , "gqcCtGBl4pG8cbINQAueu1Rgccqik2ndBJXJ6nQuKAieHVrwHA7MLG9Uxg4WCASYdQBaher/qbpdUbKX8q/LY"
+            , "t8i22eXiOQ8JUfysFu5ibpm3HCptB520NkLQCAgRECYOrwBkUiMwNgsYM4RR5H6DaSwRA7TRoz14WssimYsBJ"
+            , "QdtmRwjRCKvs7oWRCxj3s2Og9QMTAzgY5WQpXDjBlsxNe24c54Ya0FZ1kOHawhdnOzDObCTfIBqGDGcHkUfhl"
+            , "WsrzGuVSTKNxBjnwVxjMPttsJcJU2nniH9739yNzPV6sA4lvErmYDoOLO0ByDsRh0oYPF/sUkOOwBkZLY0A=="
+            ]
+          , "format": "compressed-text"
+            }
+          }
+        }
+      }
+        ]
+      }
+  }
+}
