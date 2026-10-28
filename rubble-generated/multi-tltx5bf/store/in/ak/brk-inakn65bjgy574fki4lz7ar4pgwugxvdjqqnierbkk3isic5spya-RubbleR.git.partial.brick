@@ -1,0 +1,199 @@
+{ "id": "inakn65bjgy574fki4lz7ar4pgwugxvdjqqnierbkk3isic5spya-RubbleR.git.partial"
+, "name": "RubbleR.git.partial"
+, "src": {
+    "repo": "https://github.com/chaifeng/RubbleR.git"
+  , "commit": "5efd8695c06a4d672c51fd6b1f7027899c968797"
+  , "paths": [
+      "./rubble-web/ui/package-lock.json"
+    , "./rubble-web/ui/package.json"
+    ]
+  }
+, "inputs": [
+    { "brick": "6vx2ce7jcj6wfra4xg2ykz6htsdkuvhh7uxbyr4gzlwvf2mlriua-rubble-src-checkout"
+    , "alias": "rubble_src_checkout"
+    , "transitive": "true"
+    }
+  , { "brick": "4x2uexqjoqs5unyb4fxpdus3ctebmhvqnuruhalsl5rdwt3k6naa-rubble-canonical-script"
+    , "alias": "rubble_canonical_script"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "RUBBLE_SRC_FETCH_MODE all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "dir" }
+  , { "name": "archive__impure__" }
+  , { "name": "script" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "mkdir \"$dir\"\n"
+        , "echo \"${brick[src::commit]}\" > \"${dir}/.rubble-deferred\"\n"
+        , "\n"
+        , "mkdir \"$archive\"\n"
+        , "echo \"${brick[src::commit]}\" > \"${archive}/.rubble-deferred\"\n"
+        , "\n"
+        , "source \"${rubble_canonical_script[script]}\"\n"
+        , "\n"
+        , "printf -v __rubble_source_repo '%q' \"${brick[src::remote]}\"\n"
+        , "printf -v __rubble_source_commit '%q' \"${brick[src::commit]}\"\n"
+        , "printf -v __rubble_source_paths '%q' \"${brick[src::paths]}\"\n"
+        , "(\n"
+        , "rubble_canonical_script << __EOF_SCRIPT_207__\n"
+        , "repo=${__rubble_source_repo}\n"
+        , "commit=${__rubble_source_commit}\n"
+        , "paths=${__rubble_source_paths}\n"
+        , "gitRepoCredential=\"\"\n"
+        , "src_archive=\"$archive\"\n"
+        , "inner_path=\"\"\n"
+        , "deferred_marker=\".rubble-deferred\"\n"
+        , "\n"
+        , "if [[ -z \"\\${repo:-}\" || -z \"\\${commit:-}\" ]]; then\n"
+        , "    echo \"Error: Missing repo or commit information\" >&2\n"
+        , "    exit 1\n"
+        , "fi\n"
+        , "\n"
+        , "source \"${rubble_src_checkout}\" \"\\${1:-\\${dir}}\" \"\\${@:2}\"\n"
+        , "__EOF_SCRIPT_207__\n"
+        , ") > \"$script\"\n"
+        , "__log_info \"${brick[id]:0:7}-${brick[name]}: source script generated path=${script}\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "6vx2ce7jcj6wfra4xg2ykz6htsdkuvhh7uxbyr4gzlwvf2mlriua-rubble-src-checkout":
+      { "id": "6vx2ce7jcj6wfra4xg2ykz6htsdkuvhh7uxbyr4gzlwvf2mlriua-rubble-src-checkout"
+      , "name": "rubble-src-checkout"
+      , "rubble_home": "/var/lib/rubble"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        , { "name": "features" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "\"${rubble:?missing rubble executable}\" -q output cat \"rubble://abi/inventory/rubble-src-checkout/hash:ydznfdtz4tftymsnkvi23v3oea57eoesmyycn2z24uxye3k6bnaq\" script > \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        , { "write": {
+          "output": "features"
+        , "template": "{content}"
+        , "values": {
+            "content": {
+            "checksum": "sha256:0175779c555fd9c722a7eae0b4f01c1f1211ef5b86b486cafd6ff539d19620ea"
+            , "value": [
+              "KLUv/WQlFS1NACpuGBIp0LCobRgHrTutrSu6FlmWFl4Cau6/z0DARCIHZyPWx6SpWnCFl3LBBQQjARMBEQGtV"
+            , "98H9ryis3IObhqfc3Q6DkvnYM/3WOH3Iq13WmWxeZPBS99Up9l8ddzPU8LriIO0xtXXYtvKEsJz2DLLTs+sSX"
+            , "dZnSnXo/GmM+M6T9si3q+F6SJfFOyWrvFTx1h0rvOU4lUUKW/4mN4bi4N0e7qx6yc3MXrTp3n7Z725e9rG+Bp"
+            , "GB8f8te/vs2/NUzx+4zfdgFOWvLeAUIWEgoQEYmJxQSHhQQLxMJE8VFxQVJhIJiIkJBUcHEwGWDgAAAAgxADx"
+            , "tzUeArqLcOCABpwCZdm410dAp+AOTqAMqBQEGAV+0WgGCGwQ0HS5OHz2BAfwrIClAIG0YCg7l2bawEYrRjfUR"
+            , "UHD2DR0YxjpTXqk5UfDZVnrLZoNScGGBgVfFErbUxBRcRG3DLWV9s1g0w2PF7/SnmHFbbQSmXsaBmNLcT1pGX"
+            , "GAvdOYYXdZDv5K5ipEiIAwQYHuZCdm0bzG4wDvha0ToibhW7N56J8rzbsotkoyjLkwfZ2RSqWY2IEit2SnCqV"
+            , "OcY4uiXPRcgImEg4RFhOSB5IKCQcOLiquqTS2TSt8cxQsLCDUVVrYPo+EIsnZMiRcqBSbOYmKC/XFlc4tt/VI"
+            , "vXHxOT+ULZbSObc7Lz58vBItiDiXqVsW4y9STMbjyIVy6pqXhVeG9E1G0sZMJpPJtT4pDrKufF1dhBf71J9La"
+            , "3MQeHKDco4NjWXP027JhTrhbuTC3Dc692XMKaiSfAtzlG1a9LcT9d0zV8hxSzZpcZKWz7EwAxcOk4lkwkUFpP"
+            , "PQ42CzOsQDBQXJRGLh8ABxhB28b8TvRsntRggz64EgSPBa7bkIPz/G+i5VuTjsoUzvKx1K2del+XFLrjrOYEr"
+            , "zwi2Ri2KUe391U8nFfJ9T7OTbbETHp009F2MGhIUDBdTMmmenaruNIIVsfe+cGfum2R3ka2xaaWMURvMWY420"
+            , "bcO4+NRiBip2W+zOMu2NLHwY7uMquRt7PBRz3pjqjpNor5bdWo3Zq3NksLWw4XMsTGzxs9KMLsJoVRQbB3pcd"
+            , "jEdn+1DaXxN6jOXpcxh+yBGChjssFDT2TenusiyY35KjZ/0TEHEnazVK6joIL46OiNcr4bM1aOPkRhX8BBrYn"
+            , "8PokKFiNKfRgiCxy41/mD7DXS5K9zK0872yWSuIkpOC6dsZlrBVOrauj3o38ZYlnH6viy8W/DrLuhAQBDGc3h"
+            , "ZU8mNH45c+nEkewIgypIVwsxSuuyr7SL3XcsBPVEeC/edC6mJgyyuVjkz9IclvosG26eh884wP018Wv+hVjaK"
+            , "5L1HjoUUtioNzpsv7DCtZEZAkHfrbN5brsfqKIKNCvsOp3pqiu1zTNXzWOVC7nQMvRp/EdMLB0EN9pXKVZkuY"
+            , "PDOVYqDVBDXF51EIgLCPSz6x8NBM9ijX1nsrTgINyOGnVlGR9udQ1M1c/OT9byLDwd5WPPxst2jCEZCylrIqF"
+            , "cgCKNz5i+e8lDLMpjxuYDQBEWEhcMDhEWCR6iyexqDTBmiISlIUkljIhAIBARD42JZmB+CIF2MIiGSkyRJYX/"
+            , "2DA+Swy96HYya2mEx6jwx4bX5QQXjG7nVuAiHOrB3ntY+m2T/r3HaQprI50q9AtT+hQpofDakrEnkkbLXyxKI"
+            , "0S1899ONNapftGefzFEpVdaX+2qsOOoSWGR6TZHCL2xebPmzQcE9ALYDpJssOfhqSDCFdx07MINeoNON7aJiS"
+            , "wp81iz9gmpbZ7AMbf66kpIyRTi0Nw70hZB7lUSLj6iipFTtgoykY52OrzLbRhqPvK56usvulc4fQ+ylJyyhO8"
+            , "OCxTIxgLAgdyGH5uG30Z06Q8VON6W64loboNeEjtDRIwx8sth5eET4jJmiF827oSNeUxbXYQpgOaWqPm1MIb7"
+            , "sWXfAXlI5E7GRxRfACA+AKgV3ZT+IEybjaH6g0qpxsZTdU9pET/oev67PbiglOY2F8rgdZ8pqR8AMW5LV+fK1"
+            , "xyWCgLWEeJXy1Vc6QuGJQ0Q29f25iRBmCuUf4uCmitXiSSqmg5+lS4+2ABgi8hmTR0JvNP+ZMmi+MBIUx+Kwm"
+            , "f3X8mu4QR9lSI+N1WfmUbfrx/M1BDWEXMxTm//u9U0UGbtr5QZblOO9rNevAZo2GDXnsdBOxzZGDeCr97+DCz"
+            , "CicgLYlOue3v6T6nyLEvgM1E9TvqKZ9nNtQIDmifoDoPlbwc0GVFMUZG7JhGmWxc0f1Sh3urWHBc96XvJ64kr"
+            , "SB1jmkiRtZ0wwDdgTMxiDBwg6DuSIYgfZsSaaSiyfdEDfOTUw8ibH7uhCeCbNOPBPlyE9ZY2UU1BA99wQBxCZ"
+            , "KOwr7u8dzZNnS4GS0MdKVtQE/crol2A9A3tV+PgkFgSkBNYTRejLN2KiVvDEPk6wQ3MwY3Q58/MQZqljyB1Wb"
+            , "IWhFykyBWott+KifX6VWTTlosfAsTYofzoOMrXPZq9lpQxIFCvMvBtXpBGXQk2OnSm73DhH00wNaY9GTiRzoy"
+            , "w98OKZBYrZdk0Cog2uK79O3s0x/uwxCRU9VdbxurR6yd4bjIDdBdQblxx0gF5VJuYJpbLvKwOAcPqP+VQGYDt"
+            , "8fXzMcNy49a4Za1w/x3gPhn2xr44K2vdwAzYJQtyYqGUqR5w0zLj3W96bWXTjISjfQV/HuocO9pV72WLC16/X"
+            , "gFAVDBsEY3XWWcuw8/0PLZYxY78lDj2HfTQmH5YU9mdx4R6fV8BDYl2sS42aKRX+JAiexTvDIi1oyORI/qfem"
+            , "x+YVRgVNFMGDPObcxT6Oey5D5lBIpAHaYaqrA5uv6gvFrZEqTjdtauUM1koY/VNXpB+hte/GdfvDN1yASbfq1"
+            , "NMgzUUo9VC4PitTKHH7uL1h5EfPomx/8d9aTJwwho115BMaOSDQ24uXdPYoT8J8tfaTEIAvmARvs6aM9v+NUq"
+            , "LnaLJdau54jodm6gpTDqVvJ/AmRRlvBgPp2SPw23z3oI7a+q1PUEYT29ycbu7yfOQ88QmK0D1+kEMRdUZ4bAt"
+            , "yqwIJ+OEEyiKI1lN9Dhj+pjbAy5pViom0vpxxUCnD8E71UWBC29KxJ2rPI8tw50LgrHK2LDGze/Cs9iNQpKFz"
+            , "9gmY8hhevS2f+tLf0WG3KGjyGKuUbeulJGYPlGcbUmZPGPE8yIgO87+H1YBiHw0mAlkL1sNbvadFNzl+1qUCN"
+            , "8vDPY2LhxQ/OD9JXkBxGWegHNxG1+pcTU8LbsDJVO7LvfcM8Q8bMZGNmx5qV1hqr3DuS610IKcFn/3hyY="
+            ]
+          , "format": "compressed-text"
+            }
+          }
+        }
+      }
+        ]
+      }
+  , "4x2uexqjoqs5unyb4fxpdus3ctebmhvqnuruhalsl5rdwt3k6naa-rubble-canonical-script":
+      { "id": "4x2uexqjoqs5unyb4fxpdus3ctebmhvqnuruhalsl5rdwt3k6naa-rubble-canonical-script"
+      , "name": "rubble-canonical-script"
+      , "rubble_home": "/var/lib/rubble"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        , { "name": "features" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "\"${rubble:?missing rubble executable}\" -q output cat \"rubble://abi/inventory/rubble-canonical-script/hash:xmu4nbz6boetmf5ol62lppybf53zfqjrdymakcjulfxc54plh34a\" script > \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        , { "write": {
+          "output": "features"
+        , "template": "{content}"
+        , "values": {
+            "content": {
+            "checksum": "sha256:72d8985451d7b3140f89e361dd27ed5ac724d19765e135e7bbec8f9a0dd238c4"
+            , "value": [
+              "KLUv/WRBBk0dAPa4mCIwc3JdC5Ikb5KMPkmTtJdQNVO1P9PyRr+z3fgMaWGgHsQBpwCEAIcA19lYPvc4NlyyB"
+            , "lN1xH54nktBuNsN3LJ650ZKFw8WEw8SlQwLyoUDRmWCwYFCUUHB4FB5oKBMPGAwNFQGNg4AACClheTZ0WNCpD"
+            , "tKA0MauIRlfezcjEiXkBBSJDQoeFgzOFAYh0UdygOhzOqODyek4MBpMq0xAgTGBw70yQ1CSLMGEYRJeBwfgW/"
+            , "ayiUMlS4vKolApvk3QVYFtEEBgYRkTRP1JVAuNAINYtUafWRn3MSV/iKUfvkRY2/wVjYyleta8/m0ip99CfGD"
+            , "UefwntfLOf9ZVi3LLBumz+UiazH9JrTcCrJ5CaKv0NOjlZbL54/9/Hlsl83vj4pZdkpIf6NWi7K8yUftI+ZPE"
+            , "fdknZ/dOn/19rUvdx+11VuNa/H9IG7nfGH2PSVNKpWVEG4XcY1UYhY5bhJZGu+91UkMG2NLJJL7lkrhpUdfyC"
+            , "yDDR/XNTa+lunBfpHEf6+yo4ncVeImmcWNp6fibul5eWVHTNE5/+aWHVn5r1BeNve8i+o6F+aTPMDJpf66m8/"
+            , "lVu8bX4a9KmUNk+k9gs47GUN1Cs8idHJdpjlnzN9EF7eS5WIIk7+s0mNpkmHZ+pvpFWLJ8p6Cw/er3O4xrXyV"
+            , "LB1EqaMqm0seWUt+Eb/w2q24yep8ZCsvm5RB6FjkCiuVtRb5OV4kMhgs7p2ftKyvbFl81EbX+ajH5rruN7WBt"
+            , "PNZTR75iJ/Xla6Xzuc5uSaEfvy3NuImw9ajbGf10spHPY7ML83OoeJDixmiDKHmvdeAhqgRIUQKKSmZkYKCJF"
+            , "kOIIQICHEOb4IAXVCV0MwlKShoYf83doOpYDZwwAgDO2gkOhMP3w0xKRhtva4hS4vtMXmlwWksW0HpaG0miMU"
+            , "63Kpue6SJoMjFDs6B1GV8N7Ef6dMi6QFtNdiPPESWlCd64+9Ng2b2n44VAzT+Vtkf/E88OG+FROzMHGIcJC6Y"
+            , "9srWhq3xgnSLY0+cAiyY0EH0fvxR2tmBj7D5Qj2H7gkyCA6zPB/QJAzSMOiRJA/XDOBQwBiwoQEfmZDUoACk2"
+            , "q2DgW5YXwQ2Y7JKCTH+A8Q8KxrOSwwaAq1/sgPr6RORY8Ma9wzhClKlsVCCD/Oha3Xtr6McGBGqPK7EWcWZR0"
+            , "dAdhF0zCQrh1JXlQTTHDf94RcoSsQVwccOfoem834WrcthgEEN7gpb8XG5KN66n6TtqULb5Q/FlyxJ"
+            ]
+          , "format": "compressed-text"
+            }
+          }
+        }
+      }
+        ]
+      }
+  }
+}
