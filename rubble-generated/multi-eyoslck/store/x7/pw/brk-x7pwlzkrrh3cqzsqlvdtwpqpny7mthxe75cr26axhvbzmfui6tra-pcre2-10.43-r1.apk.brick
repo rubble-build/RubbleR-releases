@@ -1,0 +1,28 @@
+{ "id": "x7pwlzkrrh3cqzsqlvdtwpqpny7mthxe75cr26axhvbzmfui6tra-pcre2-10.43-r1.apk"
+, "name": "pcre2-10.43-r1.apk"
+, "src": {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/pcre2-10.43-r1.apk"
+  , "checksum": "sha256:525f1b4c7560ef6561b0a43e6a160bcda368254c58595fa43eff672b01031be1"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

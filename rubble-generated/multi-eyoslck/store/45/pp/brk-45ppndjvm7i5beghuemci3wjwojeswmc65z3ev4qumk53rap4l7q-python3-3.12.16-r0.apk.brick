@@ -1,0 +1,28 @@
+{ "id": "45ppndjvm7i5beghuemci3wjwojeswmc65z3ev4qumk53rap4l7q-python3-3.12.16-r0.apk"
+, "name": "python3-3.12.16-r0.apk"
+, "src": {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/python3-3.12.16-r0.apk"
+  , "checksum": "sha256:778f9105e454ebc60c3078a3ae59acfdd263615a6948090cb75b06ea088a7add"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
