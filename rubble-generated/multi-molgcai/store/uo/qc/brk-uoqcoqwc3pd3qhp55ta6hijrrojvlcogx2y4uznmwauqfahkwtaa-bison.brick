@@ -1,0 +1,553 @@
+{ "id": "uoqcoqwc3pd3qhp55ta6hijrrojvlcogx2y4uznmwauqfahkwtaa-bison"
+, "name": "bison"
+, "platform": "x86_64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "6o4wm66qnadsqlllvxr5j7elb4cbrtze23xd2cjolcomfpvpmhcq-rubble-script-shebang"
+    , "transitive": "false"
+    , "hooks": {
+        "pre-build": [
+          { "shell": {
+              "value": [
+                "source \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+    }
+  , { "brick": "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory"
+    , "transitive": "false"
+    , "hooks": {
+        "pre-build": [
+          { "shell": {
+              "value": [
+                "source \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+    }
+  , { "brick": "hdqxqr4vfc2rgc3rj5ywrpaykxqly77eix55tldf7wd7nqimpqfa-patchelf"
+    , "alias": "patchelf"
+    , "transitive": "false"
+    }
+  , { "brick": "wkmpl2hwgob7qvcfpgzvx56hogur3qhmor7od77tv6hr4gd7eurq-ld-musl.so"
+    , "alias": "ld_musl"
+    , "transitive": "true"
+    }
+  , { "brick": "bfahmy7gljzjxfst33xvrlfpvye7tavkkpozmme4kosoy3huftmq-bison-3.8.2-r1.apk"
+    , "alias": "src"
+    , "transitive": "false"
+    }
+  , { "brick": "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  , { "brick": "nc3b5fnwrjhizdtqakhrmgkntigd7tkzddqwknxrlyxe6oalqhpa-m4"
+    , "alias": "m4"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "out" }
+  , { "name": "bin" }
+  , { "name": "share" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "tar -xzf \"$src\" 2>/dev/null || true\n"
+        , "\n"
+        , "mkdir -p \"$out/bin\" \"$out/share\"\n"
+        , "\n"
+        , "# Copy bison binaries\n"
+        , "cp usr/bin/bison \"$out/bin/bison\"\n"
+        , "cp usr/bin/yacc \"$out/bin/yacc\"\n"
+        , "chmod +x \"$out/bin/bison\" \"$out/bin/yacc\"\n"
+        , "rubble_script_shebang_register \"${bash[bin]}/bash\" sh bash\n"
+        , "rubble_script_shebang_rewrite_all --strict \"$out/bin/yacc\"\n"
+        , "\n"
+        , "# Copy bison data files (skeletons, m4sugar)\n"
+        , "cp -a usr/share/bison \"$out/share/bison\"\n"
+        , "\n"
+        , "# Patch ELF binaries to use musl interpreter from runtime home\n"
+        , "\"$patchelf\" --set-interpreter \"$ld_musl\" \"$out/bin/bison\"\n"
+        , "\n"
+        , "printf '%%%%\\ninput: ;\\n%%%%\\n' > \"$TMP/probe.y\"\n"
+        , "BISON_PKGDATADIR=\"$out/share/bison\" M4=\"$m4\" \"$out/bin/bison\" --output=\"$TMP/probe.c\" \"$TMP/probe.y\"\n"
+        , "rm -f \"$TMP/probe.y\" \"$TMP/probe.c\""
+        ]
+      , "format": "text"
+      }
+    }
+  , { "shell": {
+        "value": [
+          "publish_output_directory \"$out/bin\" \"$bin\"\n"
+        , "publish_output_directory \"$out/share\" \"$share\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "6o4wm66qnadsqlllvxr5j7elb4cbrtze23xd2cjolcomfpvpmhcq-rubble-script-shebang":
+      { "id": "6o4wm66qnadsqlllvxr5j7elb4cbrtze23xd2cjolcomfpvpmhcq-rubble-script-shebang"
+      , "name": "rubble-script-shebang"
+      , "rubble_home": "/var/lib/rubble"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        , { "name": "features" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "\"${rubble:?missing rubble executable}\" -q output cat \"rubble://abi/inventory/rubble-script-shebang/hash:2ullkj3cxcjjrmpw4mno7owpfoajfw6zcrs4xfumt7fis52j6bpq\" script > \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        , { "write": {
+          "output": "features"
+        , "template": "{content}"
+        , "values": {
+            "content": {
+            "checksum": "sha256:ebe6abf29157510d71932d9f90e4eebc15f5823995f803fe559695313f798704"
+            , "value": [
+              "KLUv/WTmCXUpAPpFzAsp4M6mbTMITbbXRKB6Fj8bKbbwQzz3IpmDt/jNkwfIRwo3CUQwxliEmRfGAKkAqQCo4"
+            , "KvJftI5juobmwxbUbVEdA3RnQt89PP6cYh3Gpvi/q076HA+IPPXvr9v302xJfI7vwkHYHPKewkIVUQiTEQcSC"
+            , "IoHB4iDiwkFxEkKiAsJBEKiYmIhcODZIAEZGBgQGgB4u/T+QYIUeLBAQ3Ahua0c98egbDhLCmQhdcg0CBwgHW"
+            , "SoNkz4TDAmy4gqEw00k1exSVwjRmoPLYaGokjFdDYWOsh0OBwOpCMls0dZvrpJmYgHeu6ndIUok1CIA1fTfMs"
+            , "NkhUYAR8p4LY7BzkX9CV2upw/1gVdrs2LFv3zvLmsB/ntE7Ahzo6027P4ll+9bHwRV7ONao7iZfmpOVjVoYOL"
+            , "hwiINeYvqoYc0m1v+9bUnsmqJbjUxz74oLe3MpmzGjqpE6G3Irc6euMDhcYEBEKEUlk4uEBowJP0U6JzQEf3c"
+            , "6ejE3UvDrBlc8lMlfK/TiGQe73lBJbAh/NcfW13HZzCSUytxNsxad9HCPv18oU3XTfwjConpWaOqWk8waxhaI"
+            , "cc1LCZVVtsKXXsTaDQRGBzk/HnuKSBUp00sP4Bh2v5FaHczGqzQq2jKgAgayu0q3sVNlnSHtPaQ4CH53J2N6b"
+            , "SldS8G+QrZsghzYM10ixdQ2zIVecapy6kmXraDoZ+ibvO+Wmk/ApH7/VqVSQnc6H72c5bhK9webnGZuN6hX4W"
+            , "Csl6K1bWRRa9s2a8ZVIJMhvOrlS1/XeE+hx5Rj6PsiJ7A3iWskwnXSbGebopD99aGHVcv/cuq9juG7/XuKdC+"
+            , "Tl+Iv2lDcLBr8eU6S0Q5o2kOUHgpYv1dJZx/aNGM3Q3fdkz9+Hyx3EGty0+Qpbk67HgZ5yPaYpf2Vyi4Fgdt5"
+            , "ASZdrWAcjP924cgxbJkZmrXVLIt5cj2vkXk9W3FpuggAYsPdNFyLt/DZ2rOYYoAeFRRhAeIBvIgCarMMMgInB"
+            , "CwwKCID5qGGdQ4gZKRkFSUFJCh0ghBBiFLvzovBskkSSlEUFBUkK0/4GVl2WFOGHmifq0ZkVhwhqZ5N6HR1yp"
+            , "I5bjVTERhtTsf/ypVUhPddlZlhDGOZ3VqITMoKoehUS6rqFLegeFXbucZyWfFFOBiYbEQPRGp2BkgkFY7FaY8"
+            , "NBYr+EyBw/FE30bTdAGbG0o4gyI2CTfY8oBzVVyR5G4B5ddpj30HFS7nFRpdSgKaOFsLMdevzY9ezApoNo0xn"
+            , "kVnE4O/5lr6s9yMxy5k4hDqrISY9sRv0A/dNfT/xWtIkxNSJEwout9ID861D9GdW+r8Fg0TufIAtdXwK8NQ5I"
+            , "ipDpLq3XbTgRjAZ/deDfVsUIK4YIuO2m8FsTbGyYxTAJq6NcI5UkewBryDjzUlPY2kIZgs6q9hhs3LnuS7HoT"
+            , "pVPrHflahEMaPx7+Wv8CZcEfFUpUkAPBGqXdU1bDysdUEasyTqdQUobgCFlsw8CDeVRRGapRQUaYxlY74Mm3M"
+            , "PFx1kedKly3DLMEXvaFQ8wyQBUlGlAIGksTM3I31PEy8kjLKc0U5/nXTDghLnoChBXOo4cnkLbWcHU73k5BHy"
+            , "Np0YhryYS7qu8HUYiROFRISkQiwS/9hBbuLckl85w4J6oPGjk5K0x1Y/3IAS5k/SVf0dneEj0jGvsoQhHa69P"
+            , "lzikiTfyRTFofOItEAP6ezC5Lslb6ZyvhRV8oGeVhi4wQFfFEja1XLpE6EOpcIWpEuvka6o+lAVXaIFTAa2hZ"
+            , "nc="
+            ]
+          , "format": "compressed-text"
+            }
+          }
+        }
+      }
+        ]
+      }
+  , "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory":
+      { "id": "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory"
+      , "name": "publish-output-directory"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        ]
+      , "builder": [
+          { "write": {
+          "output": "script"
+        , "template": "{body}"
+        , "values": {
+            "body": {
+            "checksum": "sha256:f73a5a1201c2f0b23f6b6d218fdf6eeec370af987e4e870ddba711fe4a5096b9"
+            , "value": [
+              "KLUv/WT4AnUPALYbUyAQlXNSaVs7vRQUDpAaVjlKumRx/QQEJF1ndo8IAKDKb0sASABIAJdW7X2xrbfP3H0J1"
+            , "PLGfouonF2pz1OCvtH4ZvkZ2fKKwmQqmAzlGwsF44BYJA8PxGHJUC4v2Xo1tnLz3M+7X/VwLefn857gUOzMq5"
+            , "FauQGs7FK20SM0d6P3EJXzI/t9iTRpG2/J3df7EK2TP9ytjVcW/Ib9Nl/ET8GDBTPW7FenjCD2pPf6MfbL/VO"
+            , "ABwAU4WrRBqWLfYJ9o4TmqZW02/q21Vr+jG15ROt/v88HzR3ljKQ6Z41gJBrIL2jBg7B39roX7fU6vqKu5fSc"
+            , "gqcCtGBl4pG8cbINQAueu1Rgccqik2ndBJXJ6nQuKAieHVrwHA7MLG9Uxg4WCASYdQBaher/qbpdUbKX8q/LY"
+            , "t8i22eXiOQ8JUfysFu5ibpm3HCptB520NkLQCAgRECYOrwBkUiMwNgsYM4RR5H6DaSwRA7TRoz14WssimYsBJ"
+            , "QdtmRwjRCKvs7oWRCxj3s2Og9QMTAzgY5WQpXDjBlsxNe24c54Ya0FZ1kOHawhdnOzDObCTfIBqGDGcHkUfhl"
+            , "WsrzGuVSTKNxBjnwVxjMPttsJcJU2nniH9739yNzPV6sA4lvErmYDoOLO0ByDsRh0oYPF/sUkOOwBkZLY0A=="
+            ]
+          , "format": "compressed-text"
+            }
+          }
+        }
+      }
+        ]
+      }
+  , "srku7z24wv4w4tgv6eu4fa6qbu5agbdkyenupgctdee7bxpivfaq-patchelf-0.18.0-x86_64.tar.gz":
+      { "id": "srku7z24wv4w4tgv6eu4fa6qbu5agbdkyenupgctdee7bxpivfaq-patchelf-0.18.0-x86_64.tar.gz"
+      , "name": "patchelf-0.18.0-x86_64.tar.gz"
+      , "src": {
+          "url": "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-x86_64.tar.gz"
+        , "checksum": "sha256:ce84f2447fb7a8679e58bc54a20dc2b01b37b5802e12c57eece772a6f14bf3f0"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "hdqxqr4vfc2rgc3rj5ywrpaykxqly77eix55tldf7wd7nqimpqfa-patchelf":
+      { "id": "hdqxqr4vfc2rgc3rj5ywrpaykxqly77eix55tldf7wd7nqimpqfa-patchelf"
+      , "name": "patchelf"
+      , "platform": "x86_64-linux"
+      , "inputs": [
+          { "brick": "srku7z24wv4w4tgv6eu4fa6qbu5agbdkyenupgctdee7bxpivfaq-patchelf-0.18.0-x86_64.tar.gz"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        , { "name": "bin" }
+        , { "name": "share" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "tar -xvf \"$src\"\n"
+              , "mv bin/patchelf \"$out\"\n"
+              , "mkdir -p \"$bin\"\n"
+              , "ln -s \"../$(basename \"$out\")\" \"$bin/patchelf\"\n"
+              , "mv share \"$share\"\n"
+              , "\"$out\" --version"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "xudnuqj2wdtjjo25vl73uoudhgjawivibx7ooeelxesh2yaotkoa-musl-1.2.5-r12.apk":
+      { "id": "xudnuqj2wdtjjo25vl73uoudhgjawivibx7ooeelxesh2yaotkoa-musl-1.2.5-r12.apk"
+      , "name": "musl-1.2.5-r12.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/musl-1.2.5-r12.apk"
+        , "checksum": "sha256:abfcfe822d37bb6fa621d7d682e26eba95152c642dc5619b768b4e4a9789133e"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "worm5jasvkdhvnlzzohf5oauc7lqf6dvcl63d5owgyl3cxnyq2ka-m4-1.4.19-r3.apk":
+      { "id": "worm5jasvkdhvnlzzohf5oauc7lqf6dvcl63d5owgyl3cxnyq2ka-m4-1.4.19-r3.apk"
+      , "name": "m4-1.4.19-r3.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/m4-1.4.19-r3.apk"
+        , "checksum": "sha256:d2ffe67c64e12601536a488d1dff3202c5ccb00ea81a6be0bf9530048406aba3"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "wkmpl2hwgob7qvcfpgzvx56hogur3qhmor7od77tv6hr4gd7eurq-ld-musl.so":
+      { "id": "wkmpl2hwgob7qvcfpgzvx56hogur3qhmor7od77tv6hr4gd7eurq-ld-musl.so"
+      , "name": "ld-musl.so"
+      , "platform": "x86_64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "xudnuqj2wdtjjo25vl73uoudhgjawivibx7ooeelxesh2yaotkoa-musl-1.2.5-r12.apk"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "musl_interpreter"
+          , "value": "ld-musl-x86_64.so.1"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "tar -xzf \"$src\" 2>/dev/null || true\n"
+              , "\n"
+              , "cp -a \"lib/$musl_interpreter\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "bfahmy7gljzjxfst33xvrlfpvye7tavkkpozmme4kosoy3huftmq-bison-3.8.2-r1.apk":
+      { "id": "bfahmy7gljzjxfst33xvrlfpvye7tavkkpozmme4kosoy3huftmq-bison-3.8.2-r1.apk"
+      , "name": "bison-3.8.2-r1.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/bison-3.8.2-r1.apk"
+        , "checksum": "sha256:602be534f24f372ff5d845ddaaaf9c8aba7576b95b90b412a5ef43f2a1cb6ef2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64":
+      { "id": "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64"
+      , "name": "bash-linux-x86_64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-x86_64"
+        , "checksum": "sha256:64469a9512a00199c85622ec56f870f97d50457a4e06e0cfa39bae7adf0cc8f2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash":
+      { "id": "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash"
+      , "name": "bash"
+      , "platform": "x86_64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$bin\"\n"
+              , "cp \"$src\" \"$bin/bash\"\n"
+              , "chmod +x \"$bin/bash\"\n"
+              , "ln -s bash \"$bin/sh\"\n"
+              , "\"$bin/bash\" -euo pipefail -c 'declare -A probe=([key]=value); [[ ${probe[key]} = value ]]'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "5egteflbtlhbpl5lxsf77tssx5r2xozci62fdy42ah5ennedwyeq-musl-install-tools":
+      { "id": "5egteflbtlhbpl5lxsf77tssx5r2xozci62fdy42ah5ennedwyeq-musl-install-tools"
+      , "name": "musl-install-tools"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash"
+          , "alias": "bash"
+          , "transitive": "true"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "install" }
+        , { "name": "link_commands" }
+        ]
+      , "builder": [
+          { "write": {
+          "output": "install"
+        , "mode": "0755"
+        , "template": "#!{interpreter}\n{body}"
+        , "values": {
+            "body": {
+            "checksum": "sha256:3a529b9f1e5d3696204d1037fb1d0765f2212546d74217bc72aa043ee2f4d604"
+            , "value": [
+              "KLUv/WRCAI0FACLLIRlwzwM+c1gFYwpouTCdfhetg5qOkRNAVwQLnTULg7nmdn0N/FQpiq1dc7tmG9uUTWjEN"
+            , "UcP7R24TR49Jw0jTPnjBlwzw3I2oV3ze6/eC5QKutCBr4/r79de/2lyG64VWus7knoUH1ru4h268LkJ14rTKR"
+            , "2P16oV+4U0+tManVC6nZar5Y/fqw4AVpGWY9NXc+AdhIJviKEZZoJclmBcTDNEZb7UgaNQ4ADwhIgJBShoxoc"
+            , "="
+            ]
+          , "format": "compressed-text"
+            },
+            "interpreter": {
+            "input": "bash"
+            , "path": "bash"
+            , "output": "bin"
+            }
+          }
+        }
+      }
+        , { "write": {
+          "output": "link_commands"
+        , "mode": "0755"
+        , "template": "#!{interpreter}\n{body}"
+        , "values": {
+            "body": {
+            "checksum": "sha256:1b9ea05f5b410eeee4ff8f7367961e9582585bfeb19dbbc2f11cea86305112cc"
+            , "value": [
+              "KLUv/STFBQQAssgaF3CtDiyBW0RFpBoMVX3EXZRd3hLorw8jyg8u3URssGlZqgVIxDDspfDXfoXrxyZp//oRM"
+            , "t20h4THXo9T45O1I5Wdesp6yjnIfI20SOylvF6+RVqEWzNlchPVPEfVGF6qrRVjqKHDiIVPlgEGAE9wPMUeAG"
+            , "N4oy4HjmYwU2dY5yPB"
+            ]
+          , "format": "compressed-text"
+            },
+            "interpreter": {
+            "input": "bash"
+            , "path": "bash"
+            , "output": "bin"
+            }
+          }
+        }
+      }
+        ]
+      }
+  , "nc3b5fnwrjhizdtqakhrmgkntigd7tkzddqwknxrlyxe6oalqhpa-m4":
+      { "id": "nc3b5fnwrjhizdtqakhrmgkntigd7tkzddqwknxrlyxe6oalqhpa-m4"
+      , "name": "m4"
+      , "platform": "x86_64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "hdqxqr4vfc2rgc3rj5ywrpaykxqly77eix55tldf7wd7nqimpqfa-patchelf"
+          , "alias": "patchelf"
+          , "transitive": "false"
+          }
+        , { "brick": "worm5jasvkdhvnlzzohf5oauc7lqf6dvcl63d5owgyl3cxnyq2ka-m4-1.4.19-r3.apk"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        , { "brick": "wkmpl2hwgob7qvcfpgzvx56hogur3qhmor7od77tv6hr4gd7eurq-ld-musl.so"
+          , "alias": "ld_musl"
+          , "transitive": "true"
+          }
+        , { "brick": "5egteflbtlhbpl5lxsf77tssx5r2xozci62fdy42ah5ennedwyeq-musl-install-tools"
+          , "alias": "musl_tools"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        , { "name": "bin" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "tar -xzf \"$src\" 2>/dev/null || true\n"
+              , "\"${musl_tools[install]}\" usr/bin/m4 \"$out\" \"$patchelf\" \"$ld_musl\"\n"
+              , "\"${musl_tools[link_commands]}\" \"$out\" \"$bin\" m4"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

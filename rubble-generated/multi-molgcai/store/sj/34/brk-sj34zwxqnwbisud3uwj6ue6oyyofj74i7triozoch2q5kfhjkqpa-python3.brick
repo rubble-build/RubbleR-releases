@@ -1,0 +1,1503 @@
+{ "id": "sj34zwxqnwbisud3uwj6ue6oyyofj74i7triozoch2q5kfhjkqpa-python3"
+, "name": "python3"
+, "platform": "aarch64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "2gmbwm7hmynv7bo7toieqvwfon7d47sb5peqrimgmeapxwoeazla-zlib-1.4-r0.apk"
+    , "alias": "zlib_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "26usdrtsxslcuk33dt6uqeasrdrbu32fnsrtmbpilsslh5da6jgq-xz-libs-5.8.4-r0.apk"
+    , "alias": "xz_libs_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "owoyhne4rlabd6ti2usbbxf5qm6px4edpaa2ixltmg55lde2ckuq-sqlite-libs-3.48.0-r4.apk"
+    , "alias": "sqlite_libs_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "6o4wm66qnadsqlllvxr5j7elb4cbrtze23xd2cjolcomfpvpmhcq-rubble-script-shebang"
+    , "transitive": "false"
+    , "hooks": {
+        "pre-build": [
+          { "shell": {
+              "value": [
+                "source \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+    }
+  , { "brick": "3blbc3vt3hw6l2yenxtxlwpfnv7432fvq4xhhkr7lbtpk7msi3pq-readline-8.2.13-r0.apk"
+    , "alias": "readline_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "45ppndjvm7i5beghuemci3wjwojeswmc65z3ev4qumk53rap4l7q-python3-3.12.16-r0.apk"
+    , "alias": "python3_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory"
+    , "transitive": "false"
+    , "hooks": {
+        "pre-build": [
+          { "shell": {
+              "value": [
+                "source \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+    }
+  , { "brick": "dhzowymraqoa262lv45rzgrpjrqdedusoctmkao7qctbpck3qiva-patchelf"
+    , "alias": "patchelf"
+    , "transitive": "false"
+    }
+  , { "brick": "i6rpnovdyaumnm4dbmqheqhnimae5nyro5b25ewahcsz4tksxefq-mpdecimal-4.0.0-r0.apk"
+    , "alias": "mpdecimal_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "hwudtbqp6mtqd433zl777ixamegzf5s6pqjc3vbkw4yy7ca6rpzq-libstdc__-14.2.0-r4.apk"
+    , "alias": "libstdcpp_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "p6eqluqrei7jxrpnr2nogcmndvhzkr37f2j47nrfkscrbtnpy64q-libssl3-3.3.7-r2.apk"
+    , "alias": "libssl3_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "qmdv4se7cy5zxuxhuq6la3h562eim3kyrj3eud44s2njzmqn3mlq-libpanelw-6.5_p20241006-r3.apk"
+    , "alias": "libpanelw_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "ng2yhab3txqyfgtnrgwttzyliczkrx52jeu7skkoaxeu5d752ynq-libncursesw-6.5_p20241006-r3.apk"
+    , "alias": "libncursesw_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "bsczck3itaibqqkhhwkkzdh3fv5i477527aika7gfcttdyn6chhq-libgcc-14.2.0-r4.apk"
+    , "alias": "libgcc_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "emumr4qhmj3md4udqk36vvpcou3bcq2q6x47b2utro76mglanp6q-libffi-3.4.7-r0.apk"
+    , "alias": "libffi_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "jdtcafj4hys4txg5vxmtvui2dl5sovyb5lontwbsxlieat3mlila-libexpat-2.10.0-r0.apk"
+    , "alias": "libexpat_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "dvrllqig4vloxhgyjrmpzimbvdcatflu5xsgnfnhez77trxhzbaa-libcrypto3-3.3.7-r2.apk"
+    , "alias": "libcrypto3_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "kqoaqdowlcmrluolokiygo33evr47gordg5y3gqjf4etscxnee2a-libbz2-1.0.8-r6.apk"
+    , "alias": "libbz2_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "x6m3rqymxcy5i664gnpmwk7ucihlqh6ycfty4kbsjtg7mmfvb6eq-ld-musl.so"
+    , "alias": "ld_musl"
+    , "transitive": "true"
+    }
+  , { "brick": "e5bidgxbvr5crgxvo3tckxld466txu5dxi674pplgncc4fifmkva-gdbm-1.24-r0.apk"
+    , "alias": "gdbm_apk"
+    , "transitive": "false"
+    }
+  , { "brick": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  , { "brick": "fcjhtbtyxa5qk3xy5jhazosrdwgn6npaqbjmm7dmyoi756zrunca-normalize-python-runtime"
+    , "alias": "normalize_python"
+    , "transitive": "false"
+    }
+  , { "brick": "defmfedonkfkblaqtfzjs7kvoq2u5k53xo3zzl43it7q634ax7ja-collect-shared-libraries"
+    , "alias": "collect_libraries"
+    , "transitive": "false"
+    }
+  , { "brick": "3wm4cdhbw7rufcah5dges6g3jzapjyjpwtravjh5rclsluy3vgaq-coreutils"
+    , "alias": "coreutils"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "musl_interpreter"
+    , "value": "ld-musl-aarch64.so.1"
+    }
+  , { "name": "python_version"
+    , "value": "3.12"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  , { "name": "bin" }
+  , { "name": "lib" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "mkdir -p \"$out/bin\" \"$out/lib\" \"$out/share\" extract\n"
+        , "\n"
+        , "for apk in \"$python3_apk\" \"$libbz2_apk\" \"$libcrypto3_apk\" \"$libssl3_apk\" \\\n"
+        , "           \"$libexpat_apk\" \"$libffi_apk\" \"$gdbm_apk\" \"$xz_libs_apk\" \\\n"
+        , "           \"$mpdecimal_apk\" \"$libncursesw_apk\" \"$libpanelw_apk\" \\\n"
+        , "           \"$readline_apk\" \"$sqlite_libs_apk\" \"$zlib_apk\" \"$libgcc_apk\" \\\n"
+        , "           \"$libstdcpp_apk\"; do\n"
+        , "  tar -xzf \"$apk\" -C extract\n"
+        , "done\n"
+        , "\n"
+        , "ln -sf \"$ld_musl\" \"$out/lib/$musl_interpreter\"\n"
+        , "ln -sf \"$musl_interpreter\" \"$out/lib/libc.${musl_interpreter#ld-}\"\n"
+        , "\n"
+        , "for libdir in extract/lib extract/usr/lib; do\n"
+        , "  if [ -d \"$libdir\" ]; then\n"
+        , "    \"$collect_libraries\" \"$out/lib\" one-level strict \"$libdir\"\n"
+        , "  fi\n"
+        , "done\n"
+        , "\n"
+        , "cp -a \"extract/usr/lib/python${python_version}\" \"$out/lib/\"\n"
+        , "cp -a extract/usr/share/* \"$out/share/\" 2>/dev/null || true\n"
+        , "cp \"extract/usr/bin/python${python_version}\" \"$out/bin/python${python_version}.bin\"\n"
+        , "chmod +x \"$out/bin/python${python_version}.bin\"\n"
+        , "\n"
+        , "\"$patchelf\" --set-interpreter \"$ld_musl\" --set-rpath \"$out/lib\" \"$out/bin/python${python_version}.bin\"\n"
+        , "find \"$out/lib\" -type f \\( -name \"*.so\" -o -name \"*.so.*\" \\) | while read -r elf_file; do\n"
+        , "  chmod u+w \"$elf_file\" 2>/dev/null || true\n"
+        , "  if \"$patchelf\" --print-rpath \"$elf_file\" >/dev/null 2>&1; then\n"
+        , "    \"$patchelf\" --set-rpath \"$out/lib\" \"$elf_file\"\n"
+        , "  fi\n"
+        , "done\n"
+        , "\n"
+        , "create_python_wrapper() {\n"
+        , "  local wrapper_path=\"$1\"\n"
+        , "  {\n"
+        , "    printf '#!%s\\n' \"${bash[bin]}/bash\"\n"
+        , "    printf 'PYTHON_HOME=\"%s\"\\n' \"$out\"\n"
+        , "    printf 'export PYTHONHOME=\"$PYTHON_HOME\"\\n'\n"
+        , "    printf 'export PYTHONPATH=\"$PYTHON_HOME/lib/python%s${PYTHONPATH:+:}${PYTHONPATH:-}\"\\n' \"$python_version\"\n"
+        , "    printf 'export LD_LIBRARY_PATH=\"$PYTHON_HOME/lib${LD_LIBRARY_PATH:+:}${LD_LIBRARY_PATH:-}\"\\n'\n"
+        , "    cat <<'PYTHON_CACHE'\n"
+        , "if [[ ! ${PYTHONPYCACHEPREFIX+x} && -z ${PYTHONDONTWRITEBYTECODE:-} ]]; then\n"
+        , "  if [[ ${XDG_CACHE_HOME:-} == /* ]]; then\n"
+        , "    export PYTHONPYCACHEPREFIX=\"$XDG_CACHE_HOME/rubble/python\"\n"
+        , "  elif [[ ${HOME:-} == /* ]]; then\n"
+        , "    export PYTHONPYCACHEPREFIX=\"$HOME/.cache/rubble/python\"\n"
+        , "  else\n"
+        , "    # An unwritable prefix skips caches while still allowing -X to override it.\n"
+        , "    export PYTHONPYCACHEPREFIX=/dev/null\n"
+        , "  fi\n"
+        , "fi\n"
+        , "PYTHON_CACHE\n"
+        , "    printf 'exec \"$PYTHON_HOME/bin/python%s.bin\" \"$@\"\\n' \"$python_version\"\n"
+        , "  } > \"$wrapper_path\"\n"
+        , "  chmod +x \"$wrapper_path\"\n"
+        , "}\n"
+        , "\n"
+        , "create_python_wrapper \"$out/bin/python\"\n"
+        , "create_python_wrapper \"$out/bin/python3\"\n"
+        , "create_python_wrapper \"$out/bin/python${python_version}\"\n"
+        , "\n"
+        , "runtime_sh=\"${bash[bin]}/sh\"\n"
+        , "runtime_install=\"${coreutils[bin]}/install\"\n"
+        , "runtime_mkdir=\"${coreutils[bin]}/mkdir\"\n"
+        , "test -x \"$runtime_sh\"\n"
+        , "test -x \"$runtime_install\"\n"
+        , "test -x \"$runtime_mkdir\"\n"
+        , "\"$normalize_python\" \"$out\" \"$python_version\" \"$runtime_sh\" \"$runtime_install\" \"$runtime_mkdir\"\n"
+        , "\n"
+        , "rubble_script_shebang_register \"$out/bin/python3\" python python3 \"python${python_version}\"\n"
+        , "rubble_script_shebang_register \"${bash[bin]}/bash\" sh bash\n"
+        , "rubble_script_shebang_rewrite_all --strict \"$out\"\n"
+        , "\n"
+        , "PYTHONPYCACHEPREFIX=\"$PWD/pycache\" \\\n"
+        , "RUBBLE_EXPECTED_SHELL=\"$runtime_sh -e\" \\\n"
+        , "RUBBLE_EXPECTED_INSTALL=\"$runtime_install -c\" \\\n"
+        , "RUBBLE_EXPECTED_INSTALL_DATA=\"$runtime_install -c -m 644\" \\\n"
+        , "RUBBLE_EXPECTED_INSTALL_SHARED=\"$runtime_install -c -m 755\" \\\n"
+        , "RUBBLE_EXPECTED_MKDIR_P=\"$runtime_mkdir -p\" \\\n"
+        , "\"$out/bin/python3\" - <<'PY'\n"
+        , "import bz2\n"
+        , "import ctypes\n"
+        , "import curses\n"
+        , "import dbm.ndbm\n"
+        , "import decimal\n"
+        , "import hashlib\n"
+        , "import lzma\n"
+        , "import os\n"
+        , "import readline\n"
+        , "import sqlite3\n"
+        , "import ssl\n"
+        , "import subprocess\n"
+        , "import sys\n"
+        , "import sysconfig\n"
+        , "import zlib\n"
+        , "\n"
+        , "expected = {\n"
+        , "    \"SHELL\": os.environ[\"RUBBLE_EXPECTED_SHELL\"],\n"
+        , "    \"INSTALL\": os.environ[\"RUBBLE_EXPECTED_INSTALL\"],\n"
+        , "    \"INSTALL_PROGRAM\": os.environ[\"RUBBLE_EXPECTED_INSTALL\"],\n"
+        , "    \"INSTALL_SCRIPT\": os.environ[\"RUBBLE_EXPECTED_INSTALL\"],\n"
+        , "    \"INSTALL_DATA\": os.environ[\"RUBBLE_EXPECTED_INSTALL_DATA\"],\n"
+        , "    \"INSTALL_SHARED\": os.environ[\"RUBBLE_EXPECTED_INSTALL_SHARED\"],\n"
+        , "    \"MKDIR_P\": os.environ[\"RUBBLE_EXPECTED_MKDIR_P\"],\n"
+        , "}\n"
+        , "for key, value in expected.items():\n"
+        , "    actual = sysconfig.get_config_var(key)\n"
+        , "    assert actual == value, f\"{key}: expected {value!r}, got {actual!r}\"\n"
+        , "shell_result = subprocess.run(\"printf shell-runtime-ok\", shell=True, check=True, text=True, capture_output=True)\n"
+        , "assert shell_result.stdout == \"shell-runtime-ok\"\n"
+        , "PY"
+        ]
+      , "format": "text"
+      }
+    }
+  , { "shell": {
+        "value": [
+          "publish_output_directory \"$out/bin\" \"$bin\"\n"
+        , "publish_output_directory \"$out/lib\" \"$lib\"\n"
+        , "\n"
+        , "# Protect both source files and published directories from bytecode writes.\n"
+        , "chmod -R a-w \"$out\" \"$bin\" \"$lib\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "2gmbwm7hmynv7bo7toieqvwfon7d47sb5peqrimgmeapxwoeazla-zlib-1.4-r0.apk":
+      { "id": "2gmbwm7hmynv7bo7toieqvwfon7d47sb5peqrimgmeapxwoeazla-zlib-1.4-r0.apk"
+      , "name": "zlib-1.4-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/zlib-1.4-r0.apk"
+        , "checksum": "sha256:05b5663e2559dcd4b0914b946e358f34830c6897ed73404cdfa958ea3b0d0b46"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "26usdrtsxslcuk33dt6uqeasrdrbu32fnsrtmbpilsslh5da6jgq-xz-libs-5.8.4-r0.apk":
+      { "id": "26usdrtsxslcuk33dt6uqeasrdrbu32fnsrtmbpilsslh5da6jgq-xz-libs-5.8.4-r0.apk"
+      , "name": "xz-libs-5.8.4-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/xz-libs-5.8.4-r0.apk"
+        , "checksum": "sha256:d110bed012e0902491ea8ca186a28fd1fdef026405434e10aee0c6f87bbcca4d"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "dxbm5xbf7vkb35noka43so2duja6uw3kitmmhxbybcer6op5bcla-utmps-libs-0.1.2.3-r2.apk":
+      { "id": "dxbm5xbf7vkb35noka43so2duja6uw3kitmmhxbybcer6op5bcla-utmps-libs-0.1.2.3-r2.apk"
+      , "name": "utmps-libs-0.1.2.3-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/utmps-libs-0.1.2.3-r2.apk"
+        , "checksum": "sha256:1ce3247da8f521e4ad823227d8ddd621e91d671b4c8d95d4321d7091399098b6"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "owoyhne4rlabd6ti2usbbxf5qm6px4edpaa2ixltmg55lde2ckuq-sqlite-libs-3.48.0-r4.apk":
+      { "id": "owoyhne4rlabd6ti2usbbxf5qm6px4edpaa2ixltmg55lde2ckuq-sqlite-libs-3.48.0-r4.apk"
+      , "name": "sqlite-libs-3.48.0-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/sqlite-libs-3.48.0-r4.apk"
+        , "checksum": "sha256:0e4e80c156f65307d0b35c4caf5771fae2a8c3d7f5ffb642a72d13e9c6d3cd14"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "ttxoxb3lfk7t3rzpgq4m42lsl7lmgzt2e5w5pdt6rxna3q6pulra-skalibs-libs-2.14.3.0-r0.apk":
+      { "id": "ttxoxb3lfk7t3rzpgq4m42lsl7lmgzt2e5w5pdt6rxna3q6pulra-skalibs-libs-2.14.3.0-r0.apk"
+      , "name": "skalibs-libs-2.14.3.0-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/skalibs-libs-2.14.3.0-r0.apk"
+        , "checksum": "sha256:1e37d2c7ea3df0522d49ed2c615737663befb2e96322dd7534b7dc525ba6afca"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "6o4wm66qnadsqlllvxr5j7elb4cbrtze23xd2cjolcomfpvpmhcq-rubble-script-shebang":
+      { "id": "6o4wm66qnadsqlllvxr5j7elb4cbrtze23xd2cjolcomfpvpmhcq-rubble-script-shebang"
+      , "name": "rubble-script-shebang"
+      , "rubble_home": "/var/lib/rubble"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        , { "name": "features" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "\"${rubble:?missing rubble executable}\" -q output cat \"rubble://abi/inventory/rubble-script-shebang/hash:2ullkj3cxcjjrmpw4mno7owpfoajfw6zcrs4xfumt7fis52j6bpq\" script > \"$script\""
+              ]
+            , "format": "text"
+            }
+          }
+        , { "write": {
+          "output": "features"
+        , "template": "{content}"
+        , "values": {
+            "content": {
+            "checksum": "sha256:ebe6abf29157510d71932d9f90e4eebc15f5823995f803fe559695313f798704"
+            , "value": [
+              "KLUv/WTmCXUpAPpFzAsp4M6mbTMITbbXRKB6Fj8bKbbwQzz3IpmDt/jNkwfIRwo3CUQwxliEmRfGAKkAqQCo4"
+            , "KvJftI5juobmwxbUbVEdA3RnQt89PP6cYh3Gpvi/q076HA+IPPXvr9v302xJfI7vwkHYHPKewkIVUQiTEQcSC"
+            , "IoHB4iDiwkFxEkKiAsJBEKiYmIhcODZIAEZGBgQGgB4u/T+QYIUeLBAQ3Ahua0c98egbDhLCmQhdcg0CBwgHW"
+            , "SoNkz4TDAmy4gqEw00k1exSVwjRmoPLYaGokjFdDYWOsh0OBwOpCMls0dZvrpJmYgHeu6ndIUok1CIA1fTfMs"
+            , "NkhUYAR8p4LY7BzkX9CV2upw/1gVdrs2LFv3zvLmsB/ntE7Ahzo6027P4ll+9bHwRV7ONao7iZfmpOVjVoYOL"
+            , "hwiINeYvqoYc0m1v+9bUnsmqJbjUxz74oLe3MpmzGjqpE6G3Irc6euMDhcYEBEKEUlk4uEBowJP0U6JzQEf3c"
+            , "6ejE3UvDrBlc8lMlfK/TiGQe73lBJbAh/NcfW13HZzCSUytxNsxad9HCPv18oU3XTfwjConpWaOqWk8waxhaI"
+            , "cc1LCZVVtsKXXsTaDQRGBzk/HnuKSBUp00sP4Bh2v5FaHczGqzQq2jKgAgayu0q3sVNlnSHtPaQ4CH53J2N6b"
+            , "SldS8G+QrZsghzYM10ixdQ2zIVecapy6kmXraDoZ+ibvO+Wmk/ApH7/VqVSQnc6H72c5bhK9webnGZuN6hX4W"
+            , "Csl6K1bWRRa9s2a8ZVIJMhvOrlS1/XeE+hx5Rj6PsiJ7A3iWskwnXSbGebopD99aGHVcv/cuq9juG7/XuKdC+"
+            , "Tl+Iv2lDcLBr8eU6S0Q5o2kOUHgpYv1dJZx/aNGM3Q3fdkz9+Hyx3EGty0+Qpbk67HgZ5yPaYpf2Vyi4Fgdt5"
+            , "ASZdrWAcjP924cgxbJkZmrXVLIt5cj2vkXk9W3FpuggAYsPdNFyLt/DZ2rOYYoAeFRRhAeIBvIgCarMMMgInB"
+            , "CwwKCID5qGGdQ4gZKRkFSUFJCh0ghBBiFLvzovBskkSSlEUFBUkK0/4GVl2WFOGHmifq0ZkVhwhqZ5N6HR1yp"
+            , "I5bjVTERhtTsf/ypVUhPddlZlhDGOZ3VqITMoKoehUS6rqFLegeFXbucZyWfFFOBiYbEQPRGp2BkgkFY7FaY8"
+            , "NBYr+EyBw/FE30bTdAGbG0o4gyI2CTfY8oBzVVyR5G4B5ddpj30HFS7nFRpdSgKaOFsLMdevzY9ezApoNo0xn"
+            , "kVnE4O/5lr6s9yMxy5k4hDqrISY9sRv0A/dNfT/xWtIkxNSJEwout9ID861D9GdW+r8Fg0TufIAtdXwK8NQ5I"
+            , "ipDpLq3XbTgRjAZ/deDfVsUIK4YIuO2m8FsTbGyYxTAJq6NcI5UkewBryDjzUlPY2kIZgs6q9hhs3LnuS7HoT"
+            , "pVPrHflahEMaPx7+Wv8CZcEfFUpUkAPBGqXdU1bDysdUEasyTqdQUobgCFlsw8CDeVRRGapRQUaYxlY74Mm3M"
+            , "PFx1kedKly3DLMEXvaFQ8wyQBUlGlAIGksTM3I31PEy8kjLKc0U5/nXTDghLnoChBXOo4cnkLbWcHU73k5BHy"
+            , "Np0YhryYS7qu8HUYiROFRISkQiwS/9hBbuLckl85w4J6oPGjk5K0x1Y/3IAS5k/SVf0dneEj0jGvsoQhHa69P"
+            , "lzikiTfyRTFofOItEAP6ezC5Lslb6ZyvhRV8oGeVhi4wQFfFEja1XLpE6EOpcIWpEuvka6o+lAVXaIFTAa2hZ"
+            , "nc="
+            ]
+          , "format": "compressed-text"
+            }
+          }
+        }
+      }
+        ]
+      }
+  , "3blbc3vt3hw6l2yenxtxlwpfnv7432fvq4xhhkr7lbtpk7msi3pq-readline-8.2.13-r0.apk":
+      { "id": "3blbc3vt3hw6l2yenxtxlwpfnv7432fvq4xhhkr7lbtpk7msi3pq-readline-8.2.13-r0.apk"
+      , "name": "readline-8.2.13-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/readline-8.2.13-r0.apk"
+        , "checksum": "sha256:7dad49f83ecbcfa00c5c7df044a5566b928ac1995651cfff219e1df1c2b93871"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "45ppndjvm7i5beghuemci3wjwojeswmc65z3ev4qumk53rap4l7q-python3-3.12.16-r0.apk":
+      { "id": "45ppndjvm7i5beghuemci3wjwojeswmc65z3ev4qumk53rap4l7q-python3-3.12.16-r0.apk"
+      , "name": "python3-3.12.16-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/python3-3.12.16-r0.apk"
+        , "checksum": "sha256:778f9105e454ebc60c3078a3ae59acfdd263615a6948090cb75b06ea088a7add"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory":
+      { "id": "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory"
+      , "name": "publish-output-directory"
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        ]
+      , "builder": [
+          { "write": {
+          "output": "script"
+        , "template": "{body}"
+        , "values": {
+            "body": {
+            "checksum": "sha256:f73a5a1201c2f0b23f6b6d218fdf6eeec370af987e4e870ddba711fe4a5096b9"
+            , "value": [
+              "KLUv/WT4AnUPALYbUyAQlXNSaVs7vRQUDpAaVjlKumRx/QQEJF1ndo8IAKDKb0sASABIAJdW7X2xrbfP3H0J1"
+            , "PLGfouonF2pz1OCvtH4ZvkZ2fKKwmQqmAzlGwsF44BYJA8PxGHJUC4v2Xo1tnLz3M+7X/VwLefn857gUOzMq5"
+            , "FauQGs7FK20SM0d6P3EJXzI/t9iTRpG2/J3df7EK2TP9ytjVcW/Ib9Nl/ET8GDBTPW7FenjCD2pPf6MfbL/VO"
+            , "ABwAU4WrRBqWLfYJ9o4TmqZW02/q21Vr+jG15ROt/v88HzR3ljKQ6Z41gJBrIL2jBg7B39roX7fU6vqKu5fSc"
+            , "gqcCtGBl4pG8cbINQAueu1Rgccqik2ndBJXJ6nQuKAieHVrwHA7MLG9Uxg4WCASYdQBaher/qbpdUbKX8q/LY"
+            , "t8i22eXiOQ8JUfysFu5ibpm3HCptB520NkLQCAgRECYOrwBkUiMwNgsYM4RR5H6DaSwRA7TRoz14WssimYsBJ"
+            , "QdtmRwjRCKvs7oWRCxj3s2Og9QMTAzgY5WQpXDjBlsxNe24c54Ya0FZ1kOHawhdnOzDObCTfIBqGDGcHkUfhl"
+            , "WsrzGuVSTKNxBjnwVxjMPttsJcJU2nniH9739yNzPV6sA4lvErmYDoOLO0ByDsRh0oYPF/sUkOOwBkZLY0A=="
+            ]
+          , "format": "compressed-text"
+            }
+          }
+        }
+      }
+        ]
+      }
+  , "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz":
+      { "id": "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz"
+      , "name": "patchelf-0.18.0-aarch64.tar.gz"
+      , "src": {
+          "url": "https://github.com/NixOS/patchelf/releases/download/0.18.0/patchelf-0.18.0-aarch64.tar.gz"
+        , "checksum": "sha256:ae13e2effe077e829be759182396b931d8f85cfb9cfe9d49385516ea367ef7b2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "dhzowymraqoa262lv45rzgrpjrqdedusoctmkao7qctbpck3qiva-patchelf":
+      { "id": "dhzowymraqoa262lv45rzgrpjrqdedusoctmkao7qctbpck3qiva-patchelf"
+      , "name": "patchelf"
+      , "platform": "aarch64-linux"
+      , "inputs": [
+          { "brick": "qbrlu376mq3m5jhng65mdeobdbrpjzv3thrthfrpvoam77zovt3q-patchelf-0.18.0-aarch64.tar.gz"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        , { "name": "bin" }
+        , { "name": "share" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "tar -xvf \"$src\"\n"
+              , "mv bin/patchelf \"$out\"\n"
+              , "mkdir -p \"$bin\"\n"
+              , "ln -s \"../$(basename \"$out\")\" \"$bin/patchelf\"\n"
+              , "mv share \"$share\"\n"
+              , "\"$out\" --version"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "nu72a7zrxgfiwzjx6xkvc7d3eorpvhltbyv6a3vxbwwuwkkhnguq-musl-1.2.5-r12.apk":
+      { "id": "nu72a7zrxgfiwzjx6xkvc7d3eorpvhltbyv6a3vxbwwuwkkhnguq-musl-1.2.5-r12.apk"
+      , "name": "musl-1.2.5-r12.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/musl-1.2.5-r12.apk"
+        , "checksum": "sha256:f37e73d41880bbc653b771c7d8962c8739bff773503f5155c14fab1bd7c4d52f"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "i6rpnovdyaumnm4dbmqheqhnimae5nyro5b25ewahcsz4tksxefq-mpdecimal-4.0.0-r0.apk":
+      { "id": "i6rpnovdyaumnm4dbmqheqhnimae5nyro5b25ewahcsz4tksxefq-mpdecimal-4.0.0-r0.apk"
+      , "name": "mpdecimal-4.0.0-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/mpdecimal-4.0.0-r0.apk"
+        , "checksum": "sha256:e14866cce8ab46653d2c2ffd679357abfa100fe5259f520509117be19d56cab9"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "hwudtbqp6mtqd433zl777ixamegzf5s6pqjc3vbkw4yy7ca6rpzq-libstdc__-14.2.0-r4.apk":
+      { "id": "hwudtbqp6mtqd433zl777ixamegzf5s6pqjc3vbkw4yy7ca6rpzq-libstdc__-14.2.0-r4.apk"
+      , "name": "libstdc__-14.2.0-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libstdc++-14.2.0-r4.apk"
+        , "checksum": "sha256:93dded5af4e42ca59a2e981ffc5acc59c5d7110cec4adaeb15b84dc224526b63"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "p6eqluqrei7jxrpnr2nogcmndvhzkr37f2j47nrfkscrbtnpy64q-libssl3-3.3.7-r2.apk":
+      { "id": "p6eqluqrei7jxrpnr2nogcmndvhzkr37f2j47nrfkscrbtnpy64q-libssl3-3.3.7-r2.apk"
+      , "name": "libssl3-3.3.7-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libssl3-3.3.7-r2.apk"
+        , "checksum": "sha256:d494a0a211dd78a8055c24885fc06375eabb79c82ae797f7f694cefbf3653b79"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "qmdv4se7cy5zxuxhuq6la3h562eim3kyrj3eud44s2njzmqn3mlq-libpanelw-6.5_p20241006-r3.apk":
+      { "id": "qmdv4se7cy5zxuxhuq6la3h562eim3kyrj3eud44s2njzmqn3mlq-libpanelw-6.5_p20241006-r3.apk"
+      , "name": "libpanelw-6.5_p20241006-r3.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libpanelw-6.5_p20241006-r3.apk"
+        , "checksum": "sha256:11e2911f6fa4f3885e2fb7488847d58c4c8e166922b5fe259811a04f21802089"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "ng2yhab3txqyfgtnrgwttzyliczkrx52jeu7skkoaxeu5d752ynq-libncursesw-6.5_p20241006-r3.apk":
+      { "id": "ng2yhab3txqyfgtnrgwttzyliczkrx52jeu7skkoaxeu5d752ynq-libncursesw-6.5_p20241006-r3.apk"
+      , "name": "libncursesw-6.5_p20241006-r3.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libncursesw-6.5_p20241006-r3.apk"
+        , "checksum": "sha256:c1a5a3a552ad4d44c94454555f38de71b151dc2d608ea2246d92b3bd845b7f3a"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "bsczck3itaibqqkhhwkkzdh3fv5i477527aika7gfcttdyn6chhq-libgcc-14.2.0-r4.apk":
+      { "id": "bsczck3itaibqqkhhwkkzdh3fv5i477527aika7gfcttdyn6chhq-libgcc-14.2.0-r4.apk"
+      , "name": "libgcc-14.2.0-r4.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libgcc-14.2.0-r4.apk"
+        , "checksum": "sha256:7cfdc00f102d3b98fe563b31e7a59a7b7ab61850c1751915f34e419e83ef2653"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "emumr4qhmj3md4udqk36vvpcou3bcq2q6x47b2utro76mglanp6q-libffi-3.4.7-r0.apk":
+      { "id": "emumr4qhmj3md4udqk36vvpcou3bcq2q6x47b2utro76mglanp6q-libffi-3.4.7-r0.apk"
+      , "name": "libffi-3.4.7-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libffi-3.4.7-r0.apk"
+        , "checksum": "sha256:814579137f32e94e54370f2e5d93d992c4148515b426c168e87102d4d6f6ddc6"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "jdtcafj4hys4txg5vxmtvui2dl5sovyb5lontwbsxlieat3mlila-libexpat-2.10.0-r0.apk":
+      { "id": "jdtcafj4hys4txg5vxmtvui2dl5sovyb5lontwbsxlieat3mlila-libexpat-2.10.0-r0.apk"
+      , "name": "libexpat-2.10.0-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libexpat-2.10.0-r0.apk"
+        , "checksum": "sha256:2352b71e3e94d18a97ca28de2e2f36fcf2cb259344377cf8f65ac24406051302"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "dvrllqig4vloxhgyjrmpzimbvdcatflu5xsgnfnhez77trxhzbaa-libcrypto3-3.3.7-r2.apk":
+      { "id": "dvrllqig4vloxhgyjrmpzimbvdcatflu5xsgnfnhez77trxhzbaa-libcrypto3-3.3.7-r2.apk"
+      , "name": "libcrypto3-3.3.7-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libcrypto3-3.3.7-r2.apk"
+        , "checksum": "sha256:2303cca13dc8bba5798744a68abd07530abb35ab339d9cc4640fc53276049af0"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "kqoaqdowlcmrluolokiygo33evr47gordg5y3gqjf4etscxnee2a-libbz2-1.0.8-r6.apk":
+      { "id": "kqoaqdowlcmrluolokiygo33evr47gordg5y3gqjf4etscxnee2a-libbz2-1.0.8-r6.apk"
+      , "name": "libbz2-1.0.8-r6.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libbz2-1.0.8-r6.apk"
+        , "checksum": "sha256:49945b5c46f2be9201c900df45ca173e1065adb45366c6ad51709381123daa5f"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "zwdawolcw4fqjnlmmwfrxjwrxcplq7t3jb73x5seskofbtj353na-libattr-2.5.2-r2.apk":
+      { "id": "zwdawolcw4fqjnlmmwfrxjwrxcplq7t3jb73x5seskofbtj353na-libattr-2.5.2-r2.apk"
+      , "name": "libattr-2.5.2-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libattr-2.5.2-r2.apk"
+        , "checksum": "sha256:ca2679411ee95db6dce9c2d0d6890e30b0a8e3ace2e0b80285e198f51a746c58"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "x6m3rqymxcy5i664gnpmwk7ucihlqh6ycfty4kbsjtg7mmfvb6eq-ld-musl.so":
+      { "id": "x6m3rqymxcy5i664gnpmwk7ucihlqh6ycfty4kbsjtg7mmfvb6eq-ld-musl.so"
+      , "name": "ld-musl.so"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "nu72a7zrxgfiwzjx6xkvc7d3eorpvhltbyv6a3vxbwwuwkkhnguq-musl-1.2.5-r12.apk"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "musl_interpreter"
+          , "value": "ld-musl-aarch64.so.1"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "tar -xzf \"$src\" 2>/dev/null || true\n"
+              , "\n"
+              , "cp -a \"lib/$musl_interpreter\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "e5bidgxbvr5crgxvo3tckxld466txu5dxi674pplgncc4fifmkva-gdbm-1.24-r0.apk":
+      { "id": "e5bidgxbvr5crgxvo3tckxld466txu5dxi674pplgncc4fifmkva-gdbm-1.24-r0.apk"
+      , "name": "gdbm-1.24-r0.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/gdbm-1.24-r0.apk"
+        , "checksum": "sha256:51da8e712c448965e5f2f652e9889dc0928ced665d4a4d11207e16adef680f9b"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "5wsmysbedc7wbcb22csq254i5hrsdbwpdwuzyi5seacce7a4iaoa-coreutils-sha512sum-9.5-r2.apk":
+      { "id": "5wsmysbedc7wbcb22csq254i5hrsdbwpdwuzyi5seacce7a4iaoa-coreutils-sha512sum-9.5-r2.apk"
+      , "name": "coreutils-sha512sum-9.5-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/coreutils-sha512sum-9.5-r2.apk"
+        , "checksum": "sha256:11a27f6b6759b256c6d911097994298d4dfb01d04b22ff99ace453f0116f15b7"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "k2sq3ksyc4xg4n3byfvtc2xp2by5lw3uus2pjw4ro7y4ad54uo4q-coreutils-fmt-9.5-r2.apk":
+      { "id": "k2sq3ksyc4xg4n3byfvtc2xp2by5lw3uus2pjw4ro7y4ad54uo4q-coreutils-fmt-9.5-r2.apk"
+      , "name": "coreutils-fmt-9.5-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/coreutils-fmt-9.5-r2.apk"
+        , "checksum": "sha256:81179930d964ec4536df55266b6c794cafbd3890987c6118fc7b37124b6976d3"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "cnsuk57bulhj544m3skp3wwq4lsh5qegyneycg7bgfo2zzu5z7ua-coreutils-env-9.5-r2.apk":
+      { "id": "cnsuk57bulhj544m3skp3wwq4lsh5qegyneycg7bgfo2zzu5z7ua-coreutils-env-9.5-r2.apk"
+      , "name": "coreutils-env-9.5-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/coreutils-env-9.5-r2.apk"
+        , "checksum": "sha256:b0241a24ad77cc18aff9e8f50e0493606c13fe4d0563ccab1fefc9babd1e12de"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "esh7pawc46nsh5b2uuykm4qsjsoowbes5uu4nt2kcg6hocags6vq-coreutils-9.5-r2.apk":
+      { "id": "esh7pawc46nsh5b2uuykm4qsjsoowbes5uu4nt2kcg6hocags6vq-coreutils-9.5-r2.apk"
+      , "name": "coreutils-9.5-r2.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/coreutils-9.5-r2.apk"
+        , "checksum": "sha256:3be3fc6afcdd0770f7d2a94d59b80c51052c6aec0cd5637b749c71839a5106ea"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64":
+      { "id": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+      , "name": "bash-linux-aarch64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-aarch64"
+        , "checksum": "sha256:8877ad33344af461ed801066322fd9a7808cd73e4e81087da228e32e8fad54ca"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash":
+      { "id": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+      , "name": "bash"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$bin\"\n"
+              , "cp \"$src\" \"$bin/bash\"\n"
+              , "chmod +x \"$bin/bash\"\n"
+              , "ln -s bash \"$bin/sh\"\n"
+              , "\"$bin/bash\" -euo pipefail -c 'declare -A probe=([key]=value); [[ ${probe[key]} = value ]]'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "fcjhtbtyxa5qk3xy5jhazosrdwgn6npaqbjmm7dmyoi756zrunca-normalize-python-runtime":
+      { "id": "fcjhtbtyxa5qk3xy5jhazosrdwgn6npaqbjmm7dmyoi756zrunca-normalize-python-runtime"
+      , "name": "normalize-python-runtime"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+          , "alias": "bash"
+          , "transitive": "true"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        ]
+      , "builder": [
+          { "write": {
+          "output": "script"
+        , "mode": "0755"
+        , "template": "#!{interpreter}\n{body}"
+        , "values": {
+            "body": {
+            "checksum": "sha256:acd7f71e8d9cede589903c2b812df91630dc3e8f6dd4cdcf823945ae767d0cf2"
+            , "value": [
+              "KLUv/WRvEI0dAHbndyjAVLEO53qBt55cQ7YgCwsitFfEihYk6CCpsioBrgAAt4PrKgqGogAEYwBvAGwAv3sO7"
+            , "3o3sYLXu+W+f+0sS+/U5tj8f2flGzh/0nuF31wk+oWXse8pzcTlmcjv/g5k56u1T/8ZSI9qOrHTeFn6u9AlAp"
+            , "jGquukVd+5gfStqs0ySKuaWtZ2naMzYq1N7XZr+Nw4ogkBNeFwKn1FDVc2Gw8Rfp/wsvEoJI1CEjUK3T3JlDu"
+            , "mY7nOqwncWfEPYaMxBNSdG0Oq7kRP1SOTRs+19aNOWRvDNLpyZFvzpzPnkye9yammsrvWGXO1VzVyBs/zcxDw"
+            , "8MrrvKybxZ5tlXi32dUBWWv5iR74NwpJFGtSivQu68QEJMph3Je9mrXFHOVTSMhw1Z6Z63arnfh2SN7s+0Z6t"
+            , "YS/4DMMCe6UHQ+lMVPqtCgXbxRMrc1Q0rlZUIs342ytdU1qbVrVuTq7BqbplWn6/4+JVXthEH6iUUgKz/FNN2"
+            , "k9f08yZXh6Y9oYhXLuafCYKnOJsMBQUGCIkMhYKhISFu6Bt2xYIjYwlwyEBsOSodDIYKoL3rKhybi8hn8XFxI"
+            , "VmneQRjCpMDex35Z1+zHdiRgUDB6A8ye9j0AnyfDwbwLhe3tihZdvDZThDZ4FgMGg0ZlRTMmIaFKSVDowRECQ"
+            , "cmXzs+OBjZ7/HvwSluegsZRwzwcYHe1Sj9UkNLzS1iMpASztObY1oTkq8fGkRmqJul0MWunADJZMMS1gtrJZj"
+            , "sAQma0x39MnlFbkd9LMmDBIv5muSBl3CvOHrcqM8SJIP/4m5149dtvA40AKaC2KdDE7ksCwC1KL7qkydooJat"
+            , "UpTAR6gMtd5PK20stuNwkY/yaajBvnD1/0a5GZCQW6kXxh+Wbi7Io13L+kAym99ulSslV32P290AUNNPpMj5y"
+            , "i0kNBYCemGZawc9TUpBFu1YNJwEtxE3QC9nmVZo7pNQJn97wcDZiZpawQ2HrpwWmN0OQXt4WCVWajxPjR4+ho"
+            , "XHUWLzykMYwgQKiMnh8yKU8CfDU7EBwbt88iQCA6MBSgAzgVXs/J9CZ+jtzfVz9J6gfnHwIdfpIQN23H7y8Md"
+            , "hwPR0ail06wTQYNWmkDThqoETbOVbA0oPB7NzskGEQn11004xbAApjSiDlkhyPCi7VxfbDqP+YP5rA4VYkYp2"
+            , "CCMqWQdG6jxDAuaBSaGNStOEJgHEuci3ZT7DkyoYS5lTagBUAuulNuUOI2IA1VeeHoW9cMA80EomICqg+UKsU"
+            , "2ziE="
+            ]
+          , "format": "compressed-text"
+            },
+            "interpreter": {
+            "input": "bash"
+            , "path": "bash"
+            , "output": "bin"
+            }
+          }
+        }
+      }
+        ]
+      }
+  , "defmfedonkfkblaqtfzjs7kvoq2u5k53xo3zzl43it7q634ax7ja-collect-shared-libraries":
+      { "id": "defmfedonkfkblaqtfzjs7kvoq2u5k53xo3zzl43it7q634ax7ja-collect-shared-libraries"
+      , "name": "collect-shared-libraries"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+          , "alias": "bash"
+          , "transitive": "true"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "script" }
+        ]
+      , "builder": [
+          { "write": {
+          "output": "script"
+        , "mode": "0755"
+        , "template": "#!{interpreter}\n{body}"
+        , "values": {
+            "body": {
+            "checksum": "sha256:0adaca2583058dfb62964e151a24c125100dab21ae528be3b1422dddac05a662"
+            , "value": [
+              "KLUv/WTsAN0HACbRMh1AUzUG0wFt1jYejWPVxG5VVJjuilKV2yZnDFd1OSsALAApAKvFN1kRSp2FKutBqSOZz"
+            , "7bVoNSJ8k0W34y2vRCDkG0pwcfcPu9ZVnY9Nwr6s4Zem1DSc0lg+MIo6xRXMk84hmtZuDbKnVXpjN1LiKd7ki"
+            , "gJAk4UgdiDBUrfBzPXgIGMCAPAS2FxrRvHgpFRui6Uul9IxsjbWT/JdgLujm9IuqQqaaNs6blPG8H9tBVortE"
+            , "MYSUWLNsKisOJxlrYZGbrBzJkL7v+PzXWECAQZrx8IAXSRwcZtLD8g6hhDjb2ahfEOlVYaJ21MK+8dw3gjmW0"
+            , "ef1rwYMCO35hDw=="
+            ]
+          , "format": "compressed-text"
+            },
+            "interpreter": {
+            "input": "bash"
+            , "path": "bash"
+            , "output": "bin"
+            }
+          }
+        }
+      }
+        ]
+      }
+  , "7gwdsqgvkrl5q7ztjhu2z65wbjt2eywqrtwg7xc7jewdoolhnmea-acl-libs-2.3.2-r1.apk":
+      { "id": "7gwdsqgvkrl5q7ztjhu2z65wbjt2eywqrtwg7xc7jewdoolhnmea-acl-libs-2.3.2-r1.apk"
+      , "name": "acl-libs-2.3.2-r1.apk"
+      , "src": {
+          "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/acl-libs-2.3.2-r1.apk"
+        , "checksum": "sha256:b0d03f1eed5d5c083a5a11b780a4f89ccdfc5619ebbd822c8c1f09df179b7802"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "3wm4cdhbw7rufcah5dges6g3jzapjyjpwtravjh5rclsluy3vgaq-coreutils":
+      { "id": "3wm4cdhbw7rufcah5dges6g3jzapjyjpwtravjh5rclsluy3vgaq-coreutils"
+      , "name": "coreutils"
+      , "platform": "aarch64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "dxbm5xbf7vkb35noka43so2duja6uw3kitmmhxbybcer6op5bcla-utmps-libs-0.1.2.3-r2.apk"
+          , "alias": "utmps_libs_apk"
+          , "transitive": "false"
+          }
+        , { "brick": "ttxoxb3lfk7t3rzpgq4m42lsl7lmgzt2e5w5pdt6rxna3q6pulra-skalibs-libs-2.14.3.0-r0.apk"
+          , "alias": "skalibs_libs_apk"
+          , "transitive": "false"
+          }
+        , { "brick": "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory"
+          , "transitive": "false"
+          , "hooks": {
+              "pre-build": [
+                { "shell": {
+                    "value": [
+                      "source \"$script\""
+                    ]
+                  , "format": "text"
+                  }
+                }
+              ]
+            }
+          }
+        , { "brick": "dhzowymraqoa262lv45rzgrpjrqdedusoctmkao7qctbpck3qiva-patchelf"
+          , "alias": "patchelf"
+          , "transitive": "false"
+          }
+        , { "brick": "dvrllqig4vloxhgyjrmpzimbvdcatflu5xsgnfnhez77trxhzbaa-libcrypto3-3.3.7-r2.apk"
+          , "alias": "libcrypto_apk"
+          , "transitive": "false"
+          }
+        , { "brick": "zwdawolcw4fqjnlmmwfrxjwrxcplq7t3jb73x5seskofbtj353na-libattr-2.5.2-r2.apk"
+          , "alias": "libattr_apk"
+          , "transitive": "false"
+          }
+        , { "brick": "x6m3rqymxcy5i664gnpmwk7ucihlqh6ycfty4kbsjtg7mmfvb6eq-ld-musl.so"
+          , "alias": "ld_musl"
+          , "transitive": "true"
+          }
+        , { "brick": "5wsmysbedc7wbcb22csq254i5hrsdbwpdwuzyi5seacce7a4iaoa-coreutils-sha512sum-9.5-r2.apk"
+          , "alias": "coreutils_sha512sum_apk"
+          , "transitive": "false"
+          }
+        , { "brick": "k2sq3ksyc4xg4n3byfvtc2xp2by5lw3uus2pjw4ro7y4ad54uo4q-coreutils-fmt-9.5-r2.apk"
+          , "alias": "coreutils_fmt_apk"
+          , "transitive": "false"
+          }
+        , { "brick": "cnsuk57bulhj544m3skp3wwq4lsh5qegyneycg7bgfo2zzu5z7ua-coreutils-env-9.5-r2.apk"
+          , "alias": "coreutils_env_apk"
+          , "transitive": "false"
+          }
+        , { "brick": "esh7pawc46nsh5b2uuykm4qsjsoowbes5uu4nt2kcg6hocags6vq-coreutils-9.5-r2.apk"
+          , "alias": "coreutils_apk"
+          , "transitive": "false"
+          }
+        , { "brick": "defmfedonkfkblaqtfzjs7kvoq2u5k53xo3zzl43it7q634ax7ja-collect-shared-libraries"
+          , "alias": "collect_libraries"
+          , "transitive": "false"
+          }
+        , { "brick": "7gwdsqgvkrl5q7ztjhu2z65wbjt2eywqrtwg7xc7jewdoolhnmea-acl-libs-2.3.2-r1.apk"
+          , "alias": "acl_libs_apk"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        , { "name": "bin" }
+        , { "name": "lib" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$out/bin\" \"$out/lib\" extract\n"
+              , "\n"
+              , "for apk in \"$coreutils_apk\" \"$coreutils_env_apk\" \"$coreutils_fmt_apk\" \\\n"
+              , "           \"$coreutils_sha512sum_apk\" \"$acl_libs_apk\" \"$libattr_apk\" \\\n"
+              , "           \"$utmps_libs_apk\" \"$skalibs_libs_apk\" \"$libcrypto_apk\"; do\n"
+              , "  tar -xzf \"$apk\" -C extract 2>/dev/null || true\n"
+              , "done\n"
+              , "\n"
+              , "# Copy shared libraries (acl, attr, utmps, skalibs, libcrypto)\n"
+              , "\"$collect_libraries\" \"$out/lib\" recursive ignore extract\n"
+              , "\n"
+              , "# Copy the multicall binary\n"
+              , "cp extract/usr/bin/coreutils \"$out/bin/coreutils\"\n"
+              , "chmod +x \"$out/bin/coreutils\"\n"
+              , "\n"
+              , "# Copy sub-package binaries (env, fmt, sha512sum are separate ELF binaries)\n"
+              , "for cmd in env fmt sha512sum; do\n"
+              , "  if [ -f \"extract/usr/bin/$cmd\" ] && [ ! -L \"extract/usr/bin/$cmd\" ]; then\n"
+              , "    cp \"extract/usr/bin/$cmd\" \"$out/bin/${cmd}\"\n"
+              , "  fi\n"
+              , "done\n"
+              , "\n"
+              , "# Patch ELF binaries to use musl interpreter from runtime home\n"
+              , "for f in \"$out/bin/\"*; do\n"
+              , "  if [ -f \"$f\" ] && [ ! -L \"$f\" ]; then\n"
+              , "    if \"$patchelf\" --print-interpreter \"$f\" >/dev/null 2>&1; then\n"
+              , "      \"$patchelf\" --set-interpreter \"$ld_musl\" --set-rpath \"$out/lib\" \"$f\"\n"
+              , "    fi\n"
+              , "  fi\n"
+              , "done\n"
+              , "\n"
+              , "# Create symlinks for all coreutils commands pointing to the multicall binary\n"
+              , "for cmd in \\\n"
+              , "  base64 basename basenc b2sum base32 cat chcon chgrp chmod chown chroot \\\n"
+              , "  cksum comm cp csplit cut date dd df dir dircolors dirname du echo \\\n"
+              , "  expand expr factor false fold head hostid id install join link \\\n"
+              , "  ln logname ls md5sum mkdir mkfifo mknod mktemp mv nice nl nohup \\\n"
+              , "  nproc numfmt od paste pathchk pinky pr printenv printf ptx pwd \\\n"
+              , "  readlink realpath rm rmdir runcon seq sha1sum sha224sum sha256sum \\\n"
+              , "  sha384sum shred shuf sleep sort split stat stdbuf stty sum \\\n"
+              , "  sync tac tail tee test timeout touch tr true truncate tsort tty \\\n"
+              , "  uname unexpand uniq unlink users vdir wc who whoami yes\n"
+              , "do\n"
+              , "  if [ ! -e \"$out/bin/$cmd\" ]; then\n"
+              , "    ln -s coreutils \"$out/bin/$cmd\"\n"
+              , "  fi\n"
+              , "done\n"
+              , "\n"
+              , "# Let stdbuf find its compatible preload module beside the executable.\n"
+              , "ln -s ../lib/libstdbuf.so \"$out/bin/libstdbuf.so\"\n"
+              , "\n"
+              , "printf 'b\\0a\\0' | \"$out/bin/sort\" -z > \"$TMP/sorted\"\n"
+              , "mapfile -d '' -t values < \"$TMP/sorted\"\n"
+              , "test \"${#values[@]}\" -eq 2\n"
+              , "test \"${values[0]}\" = a\n"
+              , "test \"${values[1]}\" = b\n"
+              , "rm -f \"$TMP/sorted\""
+              ]
+            , "format": "text"
+            }
+          }
+        , { "shell": {
+              "value": [
+                "publish_output_directory \"$out/bin\" \"$bin\"\n"
+              , "publish_output_directory \"$out/lib\" \"$lib\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

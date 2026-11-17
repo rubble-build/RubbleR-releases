@@ -1,0 +1,28 @@
+{ "id": "sfxfw5yxrv3hd72ixioxy6fzrfuc7kq2tg35pj2j7mi5vlrporta-rust-std-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+, "name": "rust-std-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+, "src": {
+    "url": "https://static.rust-lang.org/dist/2026-10-15/rust-std-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+  , "checksum": "sha256:e25668477083d6a9ddb87b9beb9c00742225f38233ccb4bfba3afa7a07427f52"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
