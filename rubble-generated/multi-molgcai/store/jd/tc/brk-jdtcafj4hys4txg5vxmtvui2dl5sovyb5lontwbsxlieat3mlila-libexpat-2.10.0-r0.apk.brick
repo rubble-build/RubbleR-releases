@@ -1,0 +1,28 @@
+{ "id": "jdtcafj4hys4txg5vxmtvui2dl5sovyb5lontwbsxlieat3mlila-libexpat-2.10.0-r0.apk"
+, "name": "libexpat-2.10.0-r0.apk"
+, "src": {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/aarch64/libexpat-2.10.0-r0.apk"
+  , "checksum": "sha256:2352b71e3e94d18a97ca28de2e2f36fcf2cb259344377cf8f65ac24406051302"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
