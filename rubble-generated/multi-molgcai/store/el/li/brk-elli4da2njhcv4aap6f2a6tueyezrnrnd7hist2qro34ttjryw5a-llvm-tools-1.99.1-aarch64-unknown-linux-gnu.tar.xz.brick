@@ -1,0 +1,28 @@
+{ "id": "elli4da2njhcv4aap6f2a6tueyezrnrnd7hist2qro34ttjryw5a-llvm-tools-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+, "name": "llvm-tools-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+, "src": {
+    "url": "https://static.rust-lang.org/dist/2026-10-15/llvm-tools-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+  , "checksum": "sha256:cd1818058908c1c4e99bd2843fe103df255157454e16186ec9cc3b5b5823b39c"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
