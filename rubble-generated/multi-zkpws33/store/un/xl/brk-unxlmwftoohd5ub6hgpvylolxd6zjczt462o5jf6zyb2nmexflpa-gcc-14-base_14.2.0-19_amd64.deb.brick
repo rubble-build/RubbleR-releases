@@ -1,0 +1,28 @@
+{ "id": "unxlmwftoohd5ub6hgpvylolxd6zjczt462o5jf6zyb2nmexflpa-gcc-14-base_14.2.0-19_amd64.deb"
+, "name": "gcc-14-base_14.2.0-19_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250315T204837Z/pool/main/g/gcc-14/gcc-14-base_14.2.0-19_amd64.deb"
+  , "checksum": "sha256:5b6825de4263824b78c4c51f6476414f3b4e89c2ab63e81dc8b9b5501e867cf6"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

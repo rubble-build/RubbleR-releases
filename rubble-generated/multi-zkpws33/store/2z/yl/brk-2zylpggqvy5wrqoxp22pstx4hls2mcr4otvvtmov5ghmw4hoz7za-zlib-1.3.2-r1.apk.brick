@@ -1,0 +1,28 @@
+{ "id": "2zylpggqvy5wrqoxp22pstx4hls2mcr4otvvtmov5ghmw4hoz7za-zlib-1.3.2-r1.apk"
+, "name": "zlib-1.3.2-r1.apk"
+, "src": {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/zlib-1.3.2-r1.apk"
+  , "checksum": "sha256:52ed3729bec11d63313f38ade503d40650bb57a36ec72a0050619391fb6bfd5e"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

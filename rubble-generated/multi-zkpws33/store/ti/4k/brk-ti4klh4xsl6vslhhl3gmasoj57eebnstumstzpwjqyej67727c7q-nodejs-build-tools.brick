@@ -1,0 +1,168 @@
+{ "id": "ti4klh4xsl6vslhhl3gmasoj57eebnstumstzpwjqyej67727c7q-nodejs-build-tools"
+, "name": "nodejs-build-tools"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "write_env" }
+  , { "name": "check_node_gyp_python" }
+  , { "name": "check_npm_shell" }
+  ]
+, "builder": [
+    { "write": {
+    "output": "write_env"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:98db92cc58a1a4b809a99874cad79f7ca541fc6db586256ba10c79d2ea46ef1a"
+      , "value": [
+        "KLUv/WSnASUIAIJNLRUQ/So/73mS/r11JUNvIJlEBAAQOAjAv98z+L7xO/DreJ1LWkxX9IVLkZKiTROji+owb"
+      , "xO5CsGyqQM1thzjc4ZL63G0aMse/HPjSysiKMP+u5LB98Mb/l0P/iILzNQ5mq9nOMbPwaP1u86xf9e6XW3Se0"
+      , "AHvhJ8pm1PlfY/CT5znnMtnu5av/Ysnib8+o+IL6zWeez/EXzmXUn/jeAz93v6cx7b8jQBoF1H9IzX2MP2Sfj"
+      , "6pAMdIEBCYjSjBzxyABkFmMhQwkRgJICeGOsAROMQkGUCZMALIwS8vtsRYEKQa2ULucWDETKdiN1YlnECh0M4"
+      , "R0UAEKwshYtBa96gwfgePqJRWQ=="
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  , { "write": {
+    "output": "check_npm_shell"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:e1f01053244a9796782e8da26264ae0f137bed0ce84cba40eef5bcb2c37b4d92"
+      , "value": [
+        "KLUv/WSdAdULAGZXSCDwGOdQQhNSwrLLWrl+0Gr/H1WXoqHXptRKFxaHAQ4vBD4AQwA/AIfHb6bR6zVunQmyx"
+      , "efqdVOF1/tsV0WNG9aiWek54XlNslib4pVfPSMsdsgoetfM03qD0IsZ1zTSz6+v37YBm/bDAYSrFV/UNTzezX"
+      , "NXxkofCDwUOoMwmctGQ+lglg0kYjHo8vrnwwvm1ILtpbFqllNQUMlQBI3GWU5bMvQo67SMBpvK5YdXthftdf0"
+      , "go8jin63tOpqV1o5cvFNifbONfpv8ONDbehnnuHH7MmwUOTk1zETlDycVigSi4Xh+28rvD5AAI/dDxG9EJQKP"
+      , "3zl6oZvvG+vp8/7f+mpNURT+JGktm3TPCJ27yXcAzhb/cy5+9V6leuP1+pZ1vSMhIDBE6CSzA9HD0LUHeGNcN"
+      , "tMIOofKf60mm6k1I3vD+NQ/RmS5FhYi9BLJHRBsAQAGEFQ4pFJ7Sp4nX1SBPyIbasAZegphL2JxL5cdAr0nrg"
+      , "SkMEBBAS0/sT0="
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  , { "write": {
+    "output": "check_node_gyp_python"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:89e890a06457dd029159dd5af02799a58098a5b623abbd52db465497c8f901ab"
+      , "value": [
+        "KLUv/WR+BJ0SANZeXh/g3DxYiYK6tE2WNe8lVCAuvBUxwI4VTU+8DGYYxvBCVABbAFMAv5IPXtUWas4CowxI9"
+      , "7DmII5v68dRu68nHbhS7lEXh1wISzU+1NS7+9czOHtVGha6XPxjzT1Ytd2Ye3qtS0VASmxF+eP5dU9j/Or0Pq"
+      , "yh3/2a688BHQeGltHxaEQkjYjykWA4Ho27ezR51bxl/5LBWCgg0YjThCgVu91p5x4LMc5Os9N3eN8sERKmQ/D"
+      , "lQz44LVd6yKw/haeWsUjIeDCESMRlImUrtRW1TVzPLkrdBbZ+nt2lDjm5DEi3mpdcJnOsOZ2PXRLKbPy/qnJ5"
+      , "xPgXrveduGuaP94u8yqhbfm/TS+4oeq30Wu3nB+n8Fev6mu515OGm9rtff6mJ9GV7pmqnr0B0RCr5x4Vruvr3"
+      , "QnWlAUE97StOHR3j4vBxD9vv9rp6+7DF0b6VXX2VdolAJcl96pH/K3HbuaHQH5jbThIaQpIk+vp8iBrxt9K2Z"
+      , "r3x6mtnjwEV6BBkTFOqpmZCdPCYs0gRGAcM6MH8wE42HLzfMYeTRTHri7jieSiXDrxyDLAHIiYi4xAF97ZiCG"
+      , "7K71CEx3TM5tdk4gQ2wKGIRYuQ2uUyZir/vbtHIdE5HBAJAbd25loM+FFn4tP8JFhwrPe4cCV/AZr6kAQkNBd"
+      , "qtDM1S053W/Z/uLgcQ4AKkH/gwronQgb1dx4frk6vi92goUCIwMAKHHI9IQ0EXTZgF5uuAlBsfA94ocC++xNA"
+      , "9anDGHfKEA57IHbBjyG6kKuQA9OHrcwlag4mKVAqAKkJv9W"
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  ]
+, "inventory": {
+    "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64":
+      { "id": "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64"
+      , "name": "bash-linux-x86_64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-x86_64"
+        , "checksum": "sha256:64469a9512a00199c85622ec56f870f97d50457a4e06e0cfa39bae7adf0cc8f2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash":
+      { "id": "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash"
+      , "name": "bash"
+      , "platform": "x86_64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$bin\"\n"
+              , "cp \"$src\" \"$bin/bash\"\n"
+              , "chmod +x \"$bin/bash\"\n"
+              , "ln -s bash \"$bin/sh\"\n"
+              , "\"$bin/bash\" -euo pipefail -c 'declare -A probe=([key]=value); [[ ${probe[key]} = value ]]'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

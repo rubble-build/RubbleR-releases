@@ -1,0 +1,28 @@
+{ "id": "bdt22o4d5bjqwz354evlyoovndjzdmd2rh6kmrs7iqzmis3i5viq-brotli-libs-1.1.1-r0.apk"
+, "name": "brotli-libs-1.1.1-r0.apk"
+, "src": {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/brotli-libs-1.1.1-r0.apk"
+  , "checksum": "sha256:b38110a0f60022d20f0e9c9263cc932547f3e8e82931291d937f1f370137a4a2"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

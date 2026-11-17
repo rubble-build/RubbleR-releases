@@ -1,0 +1,33 @@
+{ "id": "cmdaozrcvaymmdfw3jodg7rrc4qwmaqyx6q3jj6u6nsie32hvdxq-publish-output-directory"
+, "name": "publish-output-directory"
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "script" }
+  ]
+, "builder": [
+    { "write": {
+    "output": "script"
+  , "template": "{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:f73a5a1201c2f0b23f6b6d218fdf6eeec370af987e4e870ddba711fe4a5096b9"
+      , "value": [
+        "KLUv/WT4AnUPALYbUyAQlXNSaVs7vRQUDpAaVjlKumRx/QQEJF1ndo8IAKDKb0sASABIAJdW7X2xrbfP3H0J1"
+      , "PLGfouonF2pz1OCvtH4ZvkZ2fKKwmQqmAzlGwsF44BYJA8PxGHJUC4v2Xo1tnLz3M+7X/VwLefn857gUOzMq5"
+      , "FauQGs7FK20SM0d6P3EJXzI/t9iTRpG2/J3df7EK2TP9ytjVcW/Ib9Nl/ET8GDBTPW7FenjCD2pPf6MfbL/VO"
+      , "ABwAU4WrRBqWLfYJ9o4TmqZW02/q21Vr+jG15ROt/v88HzR3ljKQ6Z41gJBrIL2jBg7B39roX7fU6vqKu5fSc"
+      , "gqcCtGBl4pG8cbINQAueu1Rgccqik2ndBJXJ6nQuKAieHVrwHA7MLG9Uxg4WCASYdQBaher/qbpdUbKX8q/LY"
+      , "t8i22eXiOQ8JUfysFu5ibpm3HCptB520NkLQCAgRECYOrwBkUiMwNgsYM4RR5H6DaSwRA7TRoz14WssimYsBJ"
+      , "QdtmRwjRCKvs7oWRCxj3s2Og9QMTAzgY5WQpXDjBlsxNe24c54Ya0FZ1kOHawhdnOzDObCTfIBqGDGcHkUfhl"
+      , "WsrzGuVSTKNxBjnwVxjMPttsJcJU2nniH9739yNzPV6sA4lvErmYDoOLO0ByDsRh0oYPF/sUkOOwBkZLY0A=="
+      ]
+    , "format": "compressed-text"
+      }
+    }
+  }
+}
+  ]
+}

@@ -1,0 +1,28 @@
+{ "id": "s6slrst6crbk75uftmxwwuqcx7x7m47earozfajjzsct2yvlrk2q-rustc-1.99.1-x86_64-unknown-linux-gnu.tar.xz"
+, "name": "rustc-1.99.1-x86_64-unknown-linux-gnu.tar.xz"
+, "src": {
+    "url": "https://static.rust-lang.org/dist/2026-10-15/rustc-1.99.1-x86_64-unknown-linux-gnu.tar.xz"
+  , "checksum": "sha256:2ff05ff9c08a90861e7f6e4065b40a8b87463b4576186fd613871c3e37f2091f"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

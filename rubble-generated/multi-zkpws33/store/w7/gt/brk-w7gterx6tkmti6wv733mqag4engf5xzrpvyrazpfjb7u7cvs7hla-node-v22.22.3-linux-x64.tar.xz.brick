@@ -1,0 +1,28 @@
+{ "id": "w7gterx6tkmti6wv733mqag4engf5xzrpvyrazpfjb7u7cvs7hla-node-v22.22.3-linux-x64.tar.xz"
+, "name": "node-v22.22.3-linux-x64.tar.xz"
+, "src": {
+    "url": "https://nodejs.org/download/release/v22.22.3/node-v22.22.3-linux-x64.tar.xz"
+  , "checksum": "sha256:2e5d13569282d016861fae7c8f935e741693c269101a5bebcf761a5376d1f99f"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

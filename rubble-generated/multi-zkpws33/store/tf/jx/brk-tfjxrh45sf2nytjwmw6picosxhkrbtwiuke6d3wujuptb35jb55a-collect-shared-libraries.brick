@@ -1,0 +1,111 @@
+{ "id": "tfjxrh45sf2nytjwmw6picosxhkrbtwiuke6d3wujuptb35jb55a-collect-shared-libraries"
+, "name": "collect-shared-libraries"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "script" }
+  ]
+, "builder": [
+    { "write": {
+    "output": "script"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:0adaca2583058dfb62964e151a24c125100dab21ae528be3b1422dddac05a662"
+      , "value": [
+        "KLUv/WTsAN0HACbRMh1AUzUG0wFt1jYejWPVxG5VVJjuilKV2yZnDFd1OSsALAApAKvFN1kRSp2FKutBqSOZz"
+      , "7bVoNSJ8k0W34y2vRCDkG0pwcfcPu9ZVnY9Nwr6s4Zem1DSc0lg+MIo6xRXMk84hmtZuDbKnVXpjN1LiKd7ki"
+      , "gJAk4UgdiDBUrfBzPXgIGMCAPAS2FxrRvHgpFRui6Uul9IxsjbWT/JdgLujm9IuqQqaaNs6blPG8H9tBVortE"
+      , "MYSUWLNsKisOJxlrYZGbrBzJkL7v+PzXWECAQZrx8IAXSRwcZtLD8g6hhDjb2ahfEOlVYaJ21MK+8dw3gjmW0"
+      , "ef1rwYMCO35hDw=="
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  ]
+, "inventory": {
+    "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64":
+      { "id": "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64"
+      , "name": "bash-linux-x86_64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-x86_64"
+        , "checksum": "sha256:64469a9512a00199c85622ec56f870f97d50457a4e06e0cfa39bae7adf0cc8f2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash":
+      { "id": "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash"
+      , "name": "bash"
+      , "platform": "x86_64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$bin\"\n"
+              , "cp \"$src\" \"$bin/bash\"\n"
+              , "chmod +x \"$bin/bash\"\n"
+              , "ln -s bash \"$bin/sh\"\n"
+              , "\"$bin/bash\" -euo pipefail -c 'declare -A probe=([key]=value); [[ ${probe[key]} = value ]]'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}

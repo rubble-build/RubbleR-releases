@@ -1,0 +1,28 @@
+{ "id": "t6xqfwfwlrrilozolb4u3zqjqyvl4ak7wbq5j6hxpicb3ycidfpa-libpsl-0.21.5-r3.apk"
+, "name": "libpsl-0.21.5-r3.apk"
+, "src": {
+    "url": "https://dl-cdn.alpinelinux.org/alpine/v3.21/main/x86_64/libpsl-0.21.5-r3.apk"
+  , "checksum": "sha256:693c1743c6204b9307a539a20d048060350531e50dad4059bdd04feaf4acdc58"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

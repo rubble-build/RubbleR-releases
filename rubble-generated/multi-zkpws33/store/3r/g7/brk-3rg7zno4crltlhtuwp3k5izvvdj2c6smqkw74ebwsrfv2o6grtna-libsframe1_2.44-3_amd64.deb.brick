@@ -1,0 +1,28 @@
+{ "id": "3rg7zno4crltlhtuwp3k5izvvdj2c6smqkw74ebwsrfv2o6grtna-libsframe1_2.44-3_amd64.deb"
+, "name": "libsframe1_2.44-3_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250304T033834Z/pool/main/b/binutils/libsframe1_2.44-3_amd64.deb"
+  , "checksum": "sha256:38f625dfdc582717029ac3a3e97c51d994ec2e7a0e9b230c6b44e40d1276311f"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{ "id": "ry7dxugonx43nz5l7zqafhnyf7g44osnmhejuhlt4x3bhh6x4lya-libgmp10_6.3.0_dfsg-3_amd64.deb"
+, "name": "libgmp10_6.3.0_dfsg-3_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20241203T084120Z/pool/main/g/gmp/libgmp10_6.3.0+dfsg-3_amd64.deb"
+  , "checksum": "sha256:d0d0265eb01770f17afd0f7c8c0622f80479dcfbbe13653a0debeec61464e622"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{ "id": "2khe7fyham7ciybnkxksiegiv56edsph55lu6pvdrik6sznbr3sa-libitm1_14.2.0-19_amd64.deb"
+, "name": "libitm1_14.2.0-19_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250315T204837Z/pool/main/g/gcc-14/libitm1_14.2.0-19_amd64.deb"
+  , "checksum": "sha256:febdb3c528cde1a3abe952e17a1d3cfa7ccaca5b6f506d983d34385dad199490"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}
