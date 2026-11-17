@@ -1,0 +1,28 @@
+{ "id": "oye2ypgxbkwk5tvdjf7e2cmrsr7ituchdudsw2znzjzrokjzx5fq-cargo-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+, "name": "cargo-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+, "src": {
+    "url": "https://static.rust-lang.org/dist/2026-10-15/cargo-1.99.1-aarch64-unknown-linux-gnu.tar.xz"
+  , "checksum": "sha256:5156832e0c1254e9b49a79edabdc6d4c35f32f8fc1cf3ca700f268ff96087ab0"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

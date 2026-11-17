@@ -1,0 +1,28 @@
+{ "id": "6ofbtcdyl2ncnjav3ntckdmw6efl7mfixfllsf2cs7377cl3pkkq-wasm-bindgen-0.2.130-aarch64-unknown-linux-gnu.tar.gz"
+, "name": "wasm-bindgen-0.2.130-aarch64-unknown-linux-gnu.tar.gz"
+, "src": {
+    "url": "https://github.com/wasm-bindgen/wasm-bindgen/releases/download/0.2.130/wasm-bindgen-0.2.130-aarch64-unknown-linux-gnu.tar.gz"
+  , "checksum": "sha256:cc8dd8e90aa9111758168d30c63a14b7f0276997d9d60d3e160a1fb5e7d3b919"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

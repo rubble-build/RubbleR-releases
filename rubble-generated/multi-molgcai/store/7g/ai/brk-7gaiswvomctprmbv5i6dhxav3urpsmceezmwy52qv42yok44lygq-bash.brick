@@ -1,0 +1,67 @@
+{ "id": "7gaiswvomctprmbv5i6dhxav3urpsmceezmwy52qv42yok44lygq-bash"
+, "name": "bash"
+, "platform": "aarch64-linux"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+    , "alias": "src"
+    , "transitive": "false"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "version"
+    , "value": "5.2.015"
+    }
+  ]
+, "outputs": [
+    { "name": "bin" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "mkdir -p \"$bin\"\n"
+        , "cp \"$src\" \"$bin/bash\"\n"
+        , "chmod +x \"$bin/bash\"\n"
+        , "ln -s bash \"$bin/sh\"\n"
+        , "\"$bin/bash\" -euo pipefail -c 'declare -A probe=([key]=value); [[ ${probe[key]} = value ]]'"
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+, "inventory": {
+    "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64":
+      { "id": "g3fxen4ug3f3g34imdsefwplwd3ulzn75tn5uxd5jqe7t23bzyna-bash-linux-aarch64"
+      , "name": "bash-linux-aarch64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-aarch64"
+        , "checksum": "sha256:8877ad33344af461ed801066322fd9a7808cd73e4e81087da228e32e8fad54ca"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}
