@@ -1,0 +1,28 @@
+{ "id": "y2gczfciw3klma4mkheml5yh6gpkn4mnakp5qr5vsjygqqy33paa-libctf-nobfd0_2.44-3_amd64.deb"
+, "name": "libctf-nobfd0_2.44-3_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250304T033834Z/pool/main/b/binutils/libctf-nobfd0_2.44-3_amd64.deb"
+  , "checksum": "sha256:e280b2be3db6e584500e865c251605b95c346767d87ccb2524e44992048fc657"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

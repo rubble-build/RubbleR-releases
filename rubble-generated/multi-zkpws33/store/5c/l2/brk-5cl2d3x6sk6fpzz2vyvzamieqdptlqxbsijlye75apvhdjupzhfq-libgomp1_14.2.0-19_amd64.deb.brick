@@ -1,0 +1,28 @@
+{ "id": "5cl2d3x6sk6fpzz2vyvzamieqdptlqxbsijlye75apvhdjupzhfq-libgomp1_14.2.0-19_amd64.deb"
+, "name": "libgomp1_14.2.0-19_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250315T204837Z/pool/main/g/gcc-14/libgomp1_14.2.0-19_amd64.deb"
+  , "checksum": "sha256:72b7a1a33c48f3195efeb044111b34ae684b1e640bb6495c832443b798601cd5"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

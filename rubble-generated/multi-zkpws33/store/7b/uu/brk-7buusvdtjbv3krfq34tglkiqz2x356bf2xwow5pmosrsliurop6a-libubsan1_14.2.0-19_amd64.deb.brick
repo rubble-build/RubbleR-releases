@@ -1,0 +1,28 @@
+{ "id": "7buusvdtjbv3krfq34tglkiqz2x356bf2xwow5pmosrsliurop6a-libubsan1_14.2.0-19_amd64.deb"
+, "name": "libubsan1_14.2.0-19_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250315T204837Z/pool/main/g/gcc-14/libubsan1_14.2.0-19_amd64.deb"
+  , "checksum": "sha256:9205a1bef7d6a52ffc06548e0cde169ff303e688c12d9be3a98f734449077e22"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

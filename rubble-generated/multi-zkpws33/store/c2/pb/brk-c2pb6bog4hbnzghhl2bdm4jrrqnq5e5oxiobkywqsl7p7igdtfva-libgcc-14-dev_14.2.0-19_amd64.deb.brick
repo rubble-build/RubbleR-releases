@@ -1,0 +1,28 @@
+{ "id": "c2pb6bog4hbnzghhl2bdm4jrrqnq5e5oxiobkywqsl7p7igdtfva-libgcc-14-dev_14.2.0-19_amd64.deb"
+, "name": "libgcc-14-dev_14.2.0-19_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250315T204837Z/pool/main/g/gcc-14/libgcc-14-dev_14.2.0-19_amd64.deb"
+  , "checksum": "sha256:ca6f2d36d96b19b3eb71405b0b80134d8c89380b02204a2512e5c58ceb090628"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

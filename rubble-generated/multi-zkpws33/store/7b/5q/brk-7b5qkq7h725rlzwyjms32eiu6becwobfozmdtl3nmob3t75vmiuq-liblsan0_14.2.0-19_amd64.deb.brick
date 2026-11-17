@@ -1,0 +1,28 @@
+{ "id": "7b5qkq7h725rlzwyjms32eiu6becwobfozmdtl3nmob3t75vmiuq-liblsan0_14.2.0-19_amd64.deb"
+, "name": "liblsan0_14.2.0-19_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250315T204837Z/pool/main/g/gcc-14/liblsan0_14.2.0-19_amd64.deb"
+  , "checksum": "sha256:a0df07da76287a45e665d584363dc2a6a1c4e240aee41b8bbc0f67cdff97cd68"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

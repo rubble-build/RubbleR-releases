@@ -1,0 +1,28 @@
+{ "id": "r2rl2pbw7edcma3xcpjbnfmj5xa2l5ltff3xr3tyxxpfej5udu5a-libbinutils_2.44-3_amd64.deb"
+, "name": "libbinutils_2.44-3_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250304T033834Z/pool/main/b/binutils/libbinutils_2.44-3_amd64.deb"
+  , "checksum": "sha256:4f4664c8a8f0ad0c8631c39fab02e3d8d86ccc6f4436a1d59f059dbcb0492679"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

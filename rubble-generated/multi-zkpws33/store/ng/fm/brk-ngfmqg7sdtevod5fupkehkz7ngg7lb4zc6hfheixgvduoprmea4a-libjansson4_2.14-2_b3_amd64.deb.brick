@@ -1,0 +1,28 @@
+{ "id": "ngfmqg7sdtevod5fupkehkz7ngg7lb4zc6hfheixgvduoprmea4a-libjansson4_2.14-2_b3_amd64.deb"
+, "name": "libjansson4_2.14-2_b3_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20241029T234230Z/pool/main/j/jansson/libjansson4_2.14-2+b3_amd64.deb"
+  , "checksum": "sha256:60707a62fe6c1228c3389b12a13ca4efd76defc5532473e547a29e99cf7d2a6e"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

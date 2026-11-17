@@ -1,0 +1,28 @@
+{ "id": "rr24d5jtgkkrifatmbdolj2lttqqu6g5h35w3qe536jpenad2e6q-cpp-14-x86-64-linux-gnu_14.2.0-19_amd64.deb"
+, "name": "cpp-14-x86-64-linux-gnu_14.2.0-19_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20250315T204837Z/pool/main/g/gcc-14/cpp-14-x86-64-linux-gnu_14.2.0-19_amd64.deb"
+  , "checksum": "sha256:ef274b5379f5f97fc71619d39ecc84d039d3e184570d207b909c90afaa5d79e0"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{ "id": "p64ubkpmkkadsqqhidffg25atg2wgfinaacychgsfyt3outqqtdq-libc6_2.41-12_deb13u3_amd64.deb"
+, "name": "libc6_2.41-12_deb13u3_amd64.deb"
+, "src": {
+    "url": "https://snapshot.debian.org/archive/debian/20260504T025922Z/pool/main/g/glibc/libc6_2.41-12+deb13u3_amd64.deb"
+  , "checksum": "sha256:8ffd13165b9ee3f067e2ee670df718e48c1bdaa18676ac93d1de761dbbb3913c"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

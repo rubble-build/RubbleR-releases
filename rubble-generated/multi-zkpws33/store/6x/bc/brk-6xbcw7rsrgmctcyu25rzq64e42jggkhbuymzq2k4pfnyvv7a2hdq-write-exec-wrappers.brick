@@ -1,0 +1,118 @@
+{ "id": "6xbcw7rsrgmctcyu25rzq64e42jggkhbuymzq2k4pfnyvv7a2hdq-write-exec-wrappers"
+, "name": "write-exec-wrappers"
+, "rubble_home": "/var/lib/rubble"
+, "inputs": [
+    { "brick": "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash"
+    , "alias": "bash"
+    , "transitive": "true"
+    }
+  ]
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "script" }
+  ]
+, "builder": [
+    { "write": {
+    "output": "script"
+  , "mode": "0755"
+  , "template": "#!{interpreter}\n{body}"
+  , "values": {
+      "body": {
+      "checksum": "sha256:da021979ac6ec1ff9f6bcb00894cd6cba999d46b28e4a7527b13081cfdcb5ef2"
+      , "value": [
+        "KLUv/WTKBE0XAGZqdSQAc6oDJhCwKsNa1md3vDYrGhAK6Gif7WeAlI4ye7fx/7/7wwtwAGUAaACN/mih4gpjB"
+      , "WFc07EKXarcUyEIg3AWYVs/ShSNRnpq0tdiFoWANKgBCEAWFxUREU9N+sRbrR+lkAgEA4isvbTywfu0kJmKHc"
+      , "fT5L1t9EnSJIley1T9p1Z8PwK5QcE+Czta2XbzgtBzylnp5GPdyHtpZxc7/p5qymeuaWxnaht70XlD50tf7KW"
+      , "cT8ZKYvaxrX1ldMYXl8PO2LcVe9f1dk/SdVjps94xzrbOl9iWnJa2lioODQYZrOyaNdLnuu6Ma/kopacmoUn/"
+      , "fxTZKensPqPzo4W34wJ/TvUXZ57p5mDdqul7Rnq5++idynZOJA0PCw4NDJOJRDV6j6XnuLhOOP+Y2nl2kce0v"
+      , "NPsppzyGfmnrdbbVMmzCCt/xSn5srbIf/xdjv8BL+H2A88iPzA6znngAxsYPH2W+M7vD7vnnmgpupK3w+wpk4"
+      , "EJAtagAof4XCkVXyI/jEFgcPAjCuWJwsA9UbUoCm9L5CmgSRLnMPgj3tanbDyFMLhAmoQm3Yk84447YnCYLND"
+      , "N3EEV2+Xr8nE6l9bLyvUejivX2ttq8dbZb6vGfte40PWb7nZ5qNEUZcgohmZkwqSpNAYwxCBTd/MiSU0IYmNj"
+      , "SmrUs3aJEiLQkYthL+kwjqyle5md3ZeRNBPA0cnuSP8fBSK8jbjeqH8CVchHr195MQEAQ8INb8OtBKI5M6Ill"
+      , "TGWyvO6xPZJQtKUMy+BzGbxOaZ83HXj2ts2sdAYZ+7yVEPItJCg3IV2MjaVatWipXQMDO9VoBrOVzwea08Ahy"
+      , "7S+f03XAap1RRa58SWcuL5AWvkpMCy9BC9Y1VpP03haxQ5vwV004Bbjrg16STiUAeTkO0/K4UHIRLqRAxLlE5"
+      , "02oE0+rQVI1rTeV4P+4ZLpxQLPnZbADp/lm62KGMb+5rmGim9qzBkPkGE6ACYgjzPynZRVQE/u0X/"
+      ]
+    , "format": "compressed-text"
+      },
+      "interpreter": {
+      "input": "bash"
+      , "path": "bash"
+      , "output": "bin"
+      }
+    }
+  }
+}
+  ]
+, "inventory": {
+    "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64":
+      { "id": "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64"
+      , "name": "bash-linux-x86_64"
+      , "src": {
+          "url": "https://github.com/robxu9/bash-static/releases/download/5.2.015-1.2.3-2/bash-linux-x86_64"
+        , "checksum": "sha256:64469a9512a00199c85622ec56f870f97d50457a4e06e0cfa39bae7adf0cc8f2"
+        }
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "__rubble_skip_src_split__"
+          , "value": "true"
+          }
+        ]
+      , "outputs": [
+          { "name": "out" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "cp -ar \"$src\" \"$out\""
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  , "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash":
+      { "id": "n7qbevbly56oq5vdzjm2bzhl77wjewdp4k5gmoimlbiv62nbv7pa-bash"
+      , "name": "bash"
+      , "platform": "x86_64-linux"
+      , "rubble_home": "/var/lib/rubble"
+      , "inputs": [
+          { "brick": "4cnw6f44o4vlikwytizm5k5sqix42ok6gelmtn7wuaw7gl2xic6a-bash-linux-x86_64"
+          , "alias": "src"
+          , "transitive": "false"
+          }
+        ]
+      , "env": [
+          { "name": "IMPURE_ENV"
+          , "value": "all_proxy http_proxy https_proxy no_proxy" }
+        ]
+      , "var": [
+          { "name": "version"
+          , "value": "5.2.015"
+          }
+        ]
+      , "outputs": [
+          { "name": "bin" }
+        ]
+      , "builder": [
+          { "shell": {
+              "value": [
+                "mkdir -p \"$bin\"\n"
+              , "cp \"$src\" \"$bin/bash\"\n"
+              , "chmod +x \"$bin/bash\"\n"
+              , "ln -s bash \"$bin/sh\"\n"
+              , "\"$bin/bash\" -euo pipefail -c 'declare -A probe=([key]=value); [[ ${probe[key]} = value ]]'"
+              ]
+            , "format": "text"
+            }
+          }
+        ]
+      }
+  }
+}
