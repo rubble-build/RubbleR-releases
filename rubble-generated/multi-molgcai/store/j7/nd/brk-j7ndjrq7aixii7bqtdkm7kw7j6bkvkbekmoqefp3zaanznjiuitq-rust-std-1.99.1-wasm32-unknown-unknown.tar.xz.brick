@@ -1,0 +1,28 @@
+{ "id": "j7ndjrq7aixii7bqtdkm7kw7j6bkvkbekmoqefp3zaanznjiuitq-rust-std-1.99.1-wasm32-unknown-unknown.tar.xz"
+, "name": "rust-std-1.99.1-wasm32-unknown-unknown.tar.xz"
+, "src": {
+    "url": "https://static.rust-lang.org/dist/2026-10-15/rust-std-1.99.1-wasm32-unknown-unknown.tar.xz"
+  , "checksum": "sha256:5f628f857dd00a8aa3fcac2e275665d2782066a5795274ed124c5b560f46423c"
+  }
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "var": [
+    { "name": "__rubble_skip_src_split__"
+    , "value": "true"
+    }
+  ]
+, "outputs": [
+    { "name": "out" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "cp -ar \"$src\" \"$out\""
+        ]
+      , "format": "text"
+      }
+    }
+  ]
+}

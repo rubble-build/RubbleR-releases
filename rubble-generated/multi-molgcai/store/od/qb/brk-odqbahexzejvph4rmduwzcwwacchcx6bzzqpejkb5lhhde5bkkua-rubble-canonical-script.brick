@@ -1,0 +1,51 @@
+{ "id": "odqbahexzejvph4rmduwzcwwacchcx6bzzqpejkb5lhhde5bkkua-rubble-canonical-script"
+, "name": "rubble-canonical-script"
+, "rubble_home": "/var/lib/rubble"
+, "env": [
+    { "name": "IMPURE_ENV"
+    , "value": "all_proxy http_proxy https_proxy no_proxy" }
+  ]
+, "outputs": [
+    { "name": "script" }
+  , { "name": "features" }
+  ]
+, "builder": [
+    { "shell": {
+        "value": [
+          "\"${rubble:?missing rubble executable}\" -q output cat \"rubble://abi/inventory/rubble-canonical-script/hash:qwm5plocayoe4gw7q7nqc6cl2dz6onsayiro454uh2f25xlrag4a\" script > \"$script\""
+        ]
+      , "format": "text"
+      }
+    }
+  , { "write": {
+    "output": "features"
+  , "template": "{content}"
+  , "values": {
+      "content": {
+      "checksum": "sha256:40ed52c789a36f0731e21f6487ab1fb89ce09eef75413c43c0ebcaeaae3f1893"
+      , "value": [
+        "KLUv/WQBB7UfAHa8oCEQddr2fUXhTdIYs81kbxP6swL9JVTs8IkzH8PsqmoUADivAIwAjwDZ9xVE6ehQ+eBeJ"
+      , "1vpnOPYcLkazNSN/fA8lYZwsxu4ZfXODYQuHiwmHiQ6MiwqFw4YHRMMDhWKCgoGh44HisrEAwZDQ8fAxgEAAC"
+      , "C0gDy7PSYEuqs0MKCBS1jWx87NCHQJ+SAFwoIL9hIxILAQOK3AoIBbM+jLByOKYKWDBLIIIAiYS0FyBhMvZvB"
+      , "gQBIcR0fgmXbyycKky4tpIpBp/s2QVQFtUEAgIVfTtL6EyoVGl2nOF/M37eJUrlT8iOQvJ/TIHk6tDSQ74yie"
+      , "9Bef9Mtvi73BU9m4UqprTefRKn725cOOiFoOz3nFnPPfZfWyvLJZ6mBOohbRbz7LrSGblyH6CT29qbxcOn/s5"
+      , "84ju2x+/2yUj/621ouuPMo39o35kcQ9V+dns85fvX1tzKnF+8ZWTzWqxfd7uC3nCgOW1UMqneQ4Lsc0K/6zmC"
+      , "O68Gneez2Ja0spsshxlHZpvPdWC1rIGHsymdyzTAkPPTrvCnllkOGjus4GgoyPZX6wnwTx36f0aJq7Shwlo7j"
+      , "x9EzcDD3vebLKbkvRcv7NLFui8l+fvGzueRfTdSpMB3mAJZX66246mFu9Z3yZ9Zp0MZFE7+0571wL0yn8amhJ"
+      , "FYiSWdn6m+j14cnynoKF71eZ3SMKSWrRlMwnj4shP4ljWK1y3KrOx6XyskEZfG4118VY83PEvLODcvmy+bLop"
+      , "G3XyVzVb2rzaKezilzyjZ1XDkS5rLrrs5KUrQqpTZadtllOLQ7hJ1tfV09BpULXdMV0Ol9xFIkMBguVn3JlLi"
+      , "8nPT4onc8H/fhPbeMms9ZbdoCbqAGhQ4ohIRmSgiRJlgMghAgIYdD1QhBlkoQSjSlIQUEL+78BdoP5Y87igBq"
+      , "GDMjNCOMHmHfPRknaoDPATTSDSWrErJLR9DolwDwJBQuKqIlGBQU9gETjy93uTBglWblyvbsrfV4I3diSNgEF"
+      , "N9j3eiJpiACW2vD3ycWKy+qpLjrpp5DsCmWdGG6YSiCuC5WjDq9dWO2Nr1PSXvU7ZHAVJlnBUnl5HmIVnXZd/"
+      , "fHJCdAzXwjHJMxjOOZdwOC1dWWmfVuDUMrg2CFOARae6Le9CvuB0lm8R8b5Ts9BNEEVgmktVwc+EhY2HH78Sd"
+      , "uVOjjgACYN6kePFRCrsnX8prsvi4JmPFfxSgzdwR08o1+WRUMCeky2GT3phLhlw458Nq4CqNL4Kb+F6dFXvR2"
+      , "vCxwYHao80smxjzM7DlV2u1AkIfkOgcK6T8UmpnKu9qm6TFF2hgg8Zet3wsmicPkAeMBxV/PCYpZbxXbqSdqU"
+      , "KjRa/nPOyxA="
+      ]
+    , "format": "compressed-text"
+      }
+    }
+  }
+}
+  ]
+}
